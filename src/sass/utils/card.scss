@@ -1,0 +1,25 @@
+.card__item {
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+
+.card__img {
+    width: 336px;
+    height: 455px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.card__info {}
+
+.card__info-title {
+    font-size: 12px;
+    line-height: 1.33;
+    text-align: left;
+}
+
+.card__info-genres {
+    @extend .card__info-title;
+    color: #FF6B08
+}
