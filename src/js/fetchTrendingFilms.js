@@ -9,7 +9,7 @@ export { fetchTrendingFilms };
 async function fetchTrendingFilms(page) {
   try {
     const response = await fetch(
-      `${config.base_url}/trending/all/day?page=${page}&api_key=${config.api_key}`
+      `${config.base_url}/trending/movie/day?page=${page}&api_key=${config.api_key}`
     );
     const films = await response.json();
     return films;
