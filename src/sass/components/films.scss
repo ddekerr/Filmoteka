@@ -29,11 +29,9 @@ a {
   }
 }
 
-.film-card {
+.film__link {
 }
-.film-link {
-}
-.film-image-container {
+.film__image-container {
   width: 280px;
   height: 398px;
   margin-bottom: 8px;
@@ -48,7 +46,7 @@ a {
     margin-bottom: 12px;
   }
 }
-.film-image {
+.film__image {
   object-fit: cover;
 }
 .film__name {
@@ -61,7 +59,7 @@ a {
   }
 }
 
-.film-description {
+.film__description {
   display: flex;
 }
 .film__genre,
