@@ -1,5 +1,6 @@
 // Импортируем настройки для запроса на сервер
 import config from './config';
+import axios from 'axios';
 
 // Экспортируем функцию поиска фильмов в тренде
 export { fetchTrendingFilms };
@@ -8,10 +9,9 @@ export { fetchTrendingFilms };
 // переменную "page" номер страници которую нужно загрузить. Функция возвращает масив из 20 обьектов.
 async function fetchTrendingFilms(page) {
   try {
-    const response = await fetch(
+    const films = await axios.get(
       `${config.base_url}/trending/movie/week?page=${page}&api_key=${config.api_key}`
     );
-    const films = await response.json();
     return films;
   } catch (error) {
     console.log(error.message);
