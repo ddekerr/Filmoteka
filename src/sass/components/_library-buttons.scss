@@ -1,0 +1,45 @@
+.buttons {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 57px;
+    display: flex;
+    // top: 54%;
+    gap: 20px;
+    @media screen and (min-width: 768px) {
+            gap: 32px;
+        }
+    @media screen and (min-width: 1280px) {
+        gap: 16px;
+    }
+
+
+    &__button {
+        border-radius: 5px;
+        width: 130px;
+        height: 44px;
+        color: white;
+        background-color: transparent;
+        border: solid 1px white;
+        text-transform: uppercase;
+        font-size: 12px;
+        line-height: 16px;
+        cursor: pointer;
+
+        &:hover {
+            filter: drop-shadow(0 0 0.5rem #ffffffa7);
+        }
+        @media screen and (min-width: 768px) {
+            width: 153px;
+        }
+        @media screen and (min-width: 1280px) {
+            width: 148px;
+        }
+    }
+
+    .active {
+        border: none;
+        background-color: $accent-color;
+        filter: drop-shadow(0 0 1rem #ff6b0199);
+    }
+}

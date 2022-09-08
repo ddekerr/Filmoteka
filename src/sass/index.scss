@@ -1,4 +1,22 @@
 @import './utils/variables';
 @import './base/common';
-@import './utils/footer';
 
+// Header
+@import './components/header';
+@import './components/logo';
+@import './components/nav';
+@import './components/form-search';
+@import './components/notify-failed';
+
+// Header-library
+@import './components/header-library';
+@import './components/library-buttons';
+
+// main list
+@import './components/films';
+
+// Modal windows
+@import './components/modal';
+
+// Footer markup
+@import './utils/footer';
