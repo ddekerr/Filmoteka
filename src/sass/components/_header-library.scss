@@ -3,31 +3,32 @@
     background-repeat: no-repeat;
     background-position: center;
     background-image: url('/src/images/header-library-mobile.jpeg');
+    filter: drop-shadow(0 3 0.3rem rgba(0, 0, 0, 0.748));
 
     @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-        background-image: url('../images/header-background-mobile2x.jpg');
+        background-image: url('/src/images/header-library-mobile.jpeg');
 
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 400px) {
         background-image: url('/src/images/header-library-tablet.jpeg');
 
         @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-            background-image: url('../images/header-background-tablet2x.jpg');
+            background-image: url('/src/images/header-library-tablet.jpeg');
         }
     }
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 900px) {
         background-image: url('/src/images/header-library-desktop.jpeg');
 
         @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-            background-image: url('../images/header-background-desctop@2x.jpg');
+            background-image: url('/src/images/header-library-desktop.jpeg');
         }
     }
 }
@@ -40,4 +41,5 @@
     align-items: center;
     padding-top: 40px;
     padding-bottom: 60px;
+    
 }
