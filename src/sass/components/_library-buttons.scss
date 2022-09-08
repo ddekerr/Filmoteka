@@ -6,6 +6,12 @@
     display: flex;
     // top: 54%;
     gap: 20px;
+    @media screen and (min-width: 768px) {
+            gap: 32px;
+        }
+    @media screen and (min-width: 1280px) {
+        gap: 16px;
+    }
 
 
     &__button {
@@ -23,7 +29,12 @@
         &:hover {
             filter: drop-shadow(0 0 0.5rem #ffffffa7);
         }
-
+        @media screen and (min-width: 768px) {
+            width: 153px;
+        }
+        @media screen and (min-width: 1280px) {
+            width: 148px;
+        }
     }
 
     .active {
