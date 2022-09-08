@@ -1,4 +1,15 @@
 @import './utils/variables';
 @import './base/common';
-@import './header-library'
+
+// Header
+@import './components/header';
+@import './components/logo';
+@import './components/nav';
+@import './components/form-search';
+@import './components/notify-failed';
+
+// Header-library
+
+@import './components/header-library';
+@import './components/library-buttons';
 

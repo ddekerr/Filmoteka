@@ -1,17 +1,20 @@
 <header class="header-library">
-  <div class="header-library__logo"></div>
-  <ul>
-    <li>
-      <a href="#"></a>Home
-      <div class="header-library__divider"></div>
-    </li>
-    <li>
-      <a href="#"></a>My library
-      <div class="header-library__divider divider_active"></div>
-    </li>
-  </ul>
-  <div class="header-library__buttons">
-    <button class="header-library__buttons-button active">watched</button>
-    <button class="header-library__buttons-button">queue</button>
+  <div class="header-library__container container">
+    <a href="./index.html" class="logo link">
+      <svg width=24 height=24>              
+        <use class="logo__icon" href="./images/icons.svg#icon-film"></use>        
+      </svg>
+      <span class="logo__text">Filmoteka</span>
+    </a>
+    <nav class="nav">
+      <ul class="nav__list list">
+        <li class="nav__item"><a class="nav__link link" href="./index.html">Home</a></li>
+        <li class="nav__item"><a class="nav__link nav__link--current link" href="./library.html">my library</a></li></li>
+      </ul>
+    </nav>
+   <div class="buttons">
+    <button class="buttons__button active" data-watched="data-watched">watched</button>
+    <button class="buttons__button" data-queue="data-queue">queue</button>
+  </div>
   </div>
 </header>
