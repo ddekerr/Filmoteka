@@ -1,6 +1,8 @@
 // Импортируем настройки для запроса на сервер
-import config from './config';
 import axios from 'axios';
+import config from './config';
+
+const { base_url, api_key } = config;
 
 // Экспортируем функцию поиска фильмов в тренде
 export { fetchTrendingFilms };
@@ -10,7 +12,7 @@ export { fetchTrendingFilms };
 async function fetchTrendingFilms(page) {
   try {
     const films = await axios.get(
-      `${config.base_url}/trending/movie/week?page=${page}&api_key=${config.api_key}`
+      `${base_url}/trending/movie/week?page=${page}&api_key=${api_key}`
     );
     return films;
   } catch (error) {
