@@ -7,16 +7,17 @@ watchedBtn.addEventListener('click', onClickWatched);
 
 
 function onclickQueue(e) {
-    changeActiveClass();
-}
+    watchedBtn.disabled = false;
+    queueBtn.classList.add('active');
+    watchedBtn.classList.remove('active');
+    queueBtn.disabled = true;
 
+}
 function onClickWatched(e) {
-    changeActiveClass();
+    queueBtn.disabled = false;
+    queueBtn.classList.remove('active');
+    watchedBtn.classList.add('active');
+    watchedBtn.disabled = true;
 }
 
-
-function changeActiveClass() {
-    queueBtn.classList.toggle('active');
-    watchedBtn.classList.toggle('active');
-}
 
