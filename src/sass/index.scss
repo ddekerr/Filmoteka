@@ -1,3 +1,13 @@
 @import './utils/variables';
 @import './base/common';
+
+
+// Header
+@import './components/header';
+@import './components/logo';
+@import './components/nav';
+@import './components/form-search';
+@import './components/notify-failed';
+
+
 @import './components/films.scss';
