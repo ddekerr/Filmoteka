@@ -1,10 +1,6 @@
 @import './utils/variables';
 @import './base/common';
 
-@import './components/films.scss';
-@import './components/modal';
-
-
 // Header
 @import './components/header';
 @import './components/logo';
@@ -19,3 +15,5 @@
 // main list
 @import './components/films';
 
+// Modal windows
+@import './components/modal';
