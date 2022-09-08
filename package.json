@@ -20,9 +20,9 @@
   "dependencies": {
     "axios": "^0.27.2",
     "firebase": "^9.9.4",
+    "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",
-    "notiflix": "^3.2.5",
-    "parcel-transformer-hbs": "^1.0.4"
+    "notiflix": "^3.2.5"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
