@@ -1,0 +1,28 @@
+.nav__list {
+    display: flex;
+    margin-left: auto;    
+}
+
+.nav__item:not(:first-child) {
+    margin-left: 39px;
+}
+
+.nav__link {
+    position: relative;    
+    font-size: 12px;
+    line-height: 1.17;
+    padding:10px 0 3px;
+    text-transform: uppercase;
+    color: $text-color-active;   
+}
+
+.nav__link--current::after {   
+    content: "";  
+    position: absolute;
+    left: 0;
+    bottom: 0;  
+    width: 100%;
+    height: 3px;   
+    background-color: $error-color;
+  }
+

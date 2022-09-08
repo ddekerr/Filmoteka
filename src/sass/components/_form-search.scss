@@ -1,0 +1,46 @@
+.search-form {
+    position: relative;
+    margin-top: 60px;    
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 768px) {
+        margin-top: 50px;
+    }
+}
+
+.search-form__input {    
+    display: block;
+    width: 280px;
+    height: 20px;
+    border-top: 1px transparent;
+    border-right: 1px transparent;
+    border-bottom: 1px solid $bg-color-primary;
+    border-left: 1px transparent;
+    outline: none; 
+    background-color: transparent;
+    color: $text-color-active;
+
+    @media screen and (min-width: 768px) {
+        width: 336px;  
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 394px;  
+    }
+}
+
+::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.17;
+    color: $bg-color-primary;
+}
+
+.search-form__button {
+    position: absolute;
+    right: 0;
+    bottom: 3px;
+    border: transparent;
+    background-color: transparent;
+}

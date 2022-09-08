@@ -1,4 +1,21 @@
 @import './utils/variables';
 @import './base/common';
+
 @import './components/films.scss';
 @import './components/modal';
+
+
+// Header
+@import './components/header';
+@import './components/logo';
+@import './components/nav';
+@import './components/form-search';
+@import './components/notify-failed';
+
+// Header-library
+@import './components/header-library';
+@import './components/library-buttons';
+
+// main list
+@import './components/films';
+
