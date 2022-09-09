@@ -1,0 +1,38 @@
+footer {
+    background-color: $bg-color-secondary;
+    color: $text-color-footer;
+}
+
+.footer-list {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: $text-color-footer;
+    list-style: none;
+    column-gap: 10px;
+    @media screen and (min-width: 320px) {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        width: 320px;
+    }
+    
+@media screen and (min-width: 768px) {
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 768px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 1280px;
+  }
+  &__link{
+    color: $text-color-footer;
+  }
+}
+
+
+
