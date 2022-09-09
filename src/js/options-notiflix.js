@@ -1,7 +1,7 @@
 export default options = {
     width: '393px',
     position: 'center-top',
-    distance: '162px',
+    distance: '156px',
     zindex: 4001,
     fontFamily: 'Roboto',
     fontSize: '14px',
