@@ -4,6 +4,11 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   position: relative;
   margin-left: auto;
@@ -12,6 +17,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 500;
+  background-color: $bg-color-primary;
 }
 h1,
 h2,
@@ -59,4 +65,14 @@ img {
     padding-right: 32px;
     width: 1280px;
   }
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
 }

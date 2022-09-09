@@ -68,7 +68,7 @@ a {
 }
 .film__genre,
 .film__year {
-  color: $accent-color;
+  color: $card-accent-color;
 }
 .film__year {
   position: relative;
@@ -79,7 +79,7 @@ a {
   position: absolute;
   left: -8px;
   width: 1px;
-  background-color: $accent-color;
+  background-color: $card-accent-color;
   height: 12px;
   @media (min-width: 1280px) {
     height: 20px;
@@ -87,7 +87,7 @@ a {
 }
 .film__rating {
   color: $text-color-active;
-  background-color: $accent-color;
+  background-color: $rating-bg-color;
   border-radius: 5px;
   margin-left: 9px;
   padding-left: 6px;
