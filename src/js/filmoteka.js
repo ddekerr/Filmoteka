@@ -65,11 +65,3 @@ export async function fetchMovieByID(id) {
     console.log(error.message);
   }
 }
-
-// формує список жанрів по списку IDs
-export function genersForFilmCard(arrayOfGenersID) {
-  const genres = arrayOfGenersID.map(id => {
-    return globalConfig.genres.find(genre => genre.id === id).name;
-  }).join(', ');
-  return genres;
-}

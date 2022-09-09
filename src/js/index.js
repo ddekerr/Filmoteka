@@ -1,7 +1,7 @@
 import {gallery} from './refs';
 // import config from './config';
 
-// import modal from './modal';
+import modal from './modal';
 
 // import './library-buttons';
 import { pagination } from './pagination';
