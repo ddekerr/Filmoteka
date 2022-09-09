@@ -18,9 +18,9 @@
         border-radius: 5px;
         width: 130px;
         height: 44px;
-        color: white;
+        color: $button-text-color-white;
         background-color: transparent;
-        border: solid 1px white;
+        border: solid 1px $button-border-color-white;
         text-transform: uppercase;
         font-size: 12px;
         line-height: 16px;
@@ -39,7 +39,7 @@
 
     .active {
         border: none;
-        background-color: $accent-color;
+        background-color: $button-bg-active-color;
         filter: drop-shadow(0 0 1rem #ff6b0199);
     }
 }
