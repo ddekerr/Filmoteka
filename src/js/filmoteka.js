@@ -7,7 +7,7 @@ import globalConfig from './config';
 
 // Функция запроса фильмов в тренде с пагинацией - Функция ожидает в
 // переменную "page" номер страници которую нужно загрузить. Функция возвращает масив из 20 обьектов.
-export async function fetchTrendingMovies(page = 1) {
+export async function fetchTrendingMovies(page) {
   const config = {
     baseURL: globalConfig.base_url,
     params: {
@@ -19,7 +19,7 @@ export async function fetchTrendingMovies(page = 1) {
 
   try {
     const response = await axios.get('/trending/movie/week', config)
-    .then(response => response.data.results);
+    .then(response => response.data);
 
     return response;
   } catch (error) {

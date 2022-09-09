@@ -15,7 +15,7 @@ import {createFilmsGallery} from './markups';
  * if everything fine render films gallery
  */
 fetchTrendingMovies().then(data => {
-  const markup = createFilmsGallery(data);
+  const markup = createFilmsGallery(data.results);
   gallery.innerHTML = markup;
 });
 
