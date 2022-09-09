@@ -1,27 +1,19 @@
 .logo {
-    display: flex;
-    align-items: center;
-
-    @media screen and (min-width: 768px) {
-       margin-right: 387px;
-    }
-
-    @media screen and (min-width: 1280px) {
-        margin-right: 898px;
-    }
+  display: flex;
+  align-items: center;
 }
 
 .logo__text { 
-    font-size: 30px;
-    line-height: 1.17;  
-    margin-left: 8px; 
-    color: $text-color-active;
+  font-size: 30px;
+  line-height: 1.17;  
+  margin-left: 8px; 
+  color: $text-color-active;
 
-    @media screen and (min-width: 320px) {
-        display: none;
-    }
+  @media screen and (min-width: 320px) {
+    display: none;
+  }
 
-    @media screen and (min-width: 768px) {
-        display: block;        
-    }
+  @media screen and (min-width: 768px) {
+    display: block;        
+  }
 }
