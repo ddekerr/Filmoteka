@@ -17,6 +17,7 @@
   font-size: 12px;
   margin-left: 5px;
   padding: 12px;
+  text-align: center;
   color: $text-color-primary;
   text-decoration: none;
   vertical-align: middle;
@@ -28,13 +29,13 @@
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
   color: #fff;
-  background: $accent-color;
-  border-color: $accent-color;
+  background: $card-accent-color;
+  border-color: $card-accent-color;
   cursor: default;
   border-radius: 5px;
 }
 .tui-pagination .tui-is-selected:hover {
-  background: $accent-color;
+  background: $card-accent-color;
 }
 
 // .tui-pagination .tui-prev,

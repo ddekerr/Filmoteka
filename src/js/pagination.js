@@ -6,8 +6,8 @@ import { fetchTrendingFilms } from './fetchingTrendingFilms';
 // const pag = document.querySelector('.tui-pagination');
 
 const options = {
-  totalItems: 100,
-  itemsPerPage: 5,
+  totalItems: 20000,
+  itemsPerPage: 20,
   visiblePages: 5,
   page: 1,
   centerAlign: true,
