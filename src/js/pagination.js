@@ -1,7 +1,6 @@
 import Pagination from 'tui-pagination';
 // import 'tui-pagination/dist/tui-pagination.css';
 import { pag } from './refs';
-import { fetchTrendingFilms } from './fetchingTrendingFilms';
 
 // const pag = document.querySelector('.tui-pagination');
 
@@ -30,17 +29,10 @@ const options = {
       `</a>`,
   },
 };
-const paganation = new Pagination(pag, options);
+export const pagination = new Pagination(pag, options);
 
-console.log(paganation);
+// console.log(pagination);
 // получаем первую страницу
-const firstPage = fetchTrendingFilms(options.page);
-console.log(firstPage);
-paganation.on('beforeMove', event => {
-  // получаем номер активной страницы на кнопках
-  const currentPage = event.page;
-  console.log(currentPage);
-  // получаем фильмы согласно страницы
-  const movies = fetchTrendingFilms(currentPage);
-  console.log(movies);
-});
+// const firstPage = fetchTrendingFilms(options.page);
+// console.log(firstPage);
+

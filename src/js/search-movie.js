@@ -9,7 +9,20 @@ const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
 const POSTER_URL = 'https://image.tmdb.org/t/p/'
 const POSTER_SIZE = 'w400'
 
-
+export default async function fetchMovie(query, page = 1) {
+    const params = {
+        api_key: `${KEY}`,
+        language: 'en-US',
+        query: `${query}`,
+        page: `${page}`,
+    };
+  try {
+    const response = await axios.get(BASE_URL, {params});
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 const inputSearch = document.querySelector('.search-form__input');
 // Тут треба підставити той елемент, де буде рендер фільмів по запиту. 

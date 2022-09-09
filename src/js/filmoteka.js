@@ -20,7 +20,7 @@ export async function fetchTrendingMovies(page = 1) {
   try {
     const response = await axios.get('/trending/movie/week', config)
     .then(response => response.data.results);
-    
+
     return response;
   } catch (error) {
     console.log(error.message);
@@ -64,4 +64,12 @@ export async function fetchMovieByID(id) {
   } catch (error) {
     console.log(error.message);
   }
+}
+
+// формує список жанрів по списку IDs
+export function genersForFilmCard(arrayOfGenersID) {
+  const genres = arrayOfGenersID.map(id => {
+    return globalConfig.genres.find(genre => genre.id === id).name;
+  }).join(', ');
+  return genres;
 }

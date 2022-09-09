@@ -23,6 +23,9 @@ const refs = {
   logOut: document.querySelector('#header-logOut'),
   // pagination
   pag: document.querySelector('.tui-pagination'),
+
+  // container for markup films list
+  gallery: document.querySelector('.films')
 };
 
 export const {
@@ -51,4 +54,5 @@ export const {
   signInLink,
   logOut,
   pag,
+  gallery
 } = refs;
