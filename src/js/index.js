@@ -1,33 +1,35 @@
-import './refs';
-import config from './config';
+import { gallery } from './refs';
+// import config from './config';
 
 import modal from './modal';
 
-import { fetchTrendingFilms } from './fetchingTrendingFilms';
 // import './library-buttons';
 import { pagination } from './pagination';
-import { createFilmsGallery } from './markUpFilmsGallery';
 
-const pagin = pagination();
-const page = pagin.getCurrentPage();
+import {
+  fetchTrendingMovies,
+  fetchMoviesByQuery,
+  fetchMovieByID,
+  genersForFilmCard,
+} from './filmoteka';
+import { createFilmsGallery } from './markups';
 
-fetchTrendingFilms(page)
-  .then(result => ({
-    items: result.data.results,
-    total: result.data.total_results,
-  }))
-  .then(({ items, total }) => {
-    createFilmsGallery(items);
-    pagin.reset(total);
-  });
+/**
+ * Default request when page opening
+ * if everything fine render films gallery
+ */
+fetchTrendingMovies().then(data => {
+  const markup = createFilmsGallery(data.results);
+  gallery.innerHTML = markup;
+});
 
-pagin.on('beforeMove', event => {
+pagination.on('beforeMove', event => {
   // получаем номер активной страницы на кнопках
   const currentPage = event.page;
-  // console.log(currentPage);
 
-  // получаем фильмы согласно страницы и рендерим их
-  fetchTrendingFilms(currentPage).then(res => {
-    createFilmsGallery(res.data.results);
+  // получаем фильмы согласно страницы
+  fetchTrendingMovies(currentPage).then(data => {
+    const markup = createFilmsGallery(data);
+    gallery.innerHTML = markup;
   });
 });

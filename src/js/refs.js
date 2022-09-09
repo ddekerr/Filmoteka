@@ -23,6 +23,12 @@ const refs = {
   logOut: document.querySelector('#header-logOut'),
   // pagination
   pag: document.querySelector('.tui-pagination'),
+
+  // container for markup films list
+  gallery: document.querySelector('.films'),
+
+  //search button on index.html page
+  inputSearch: document.querySelector('.search-form__input')
 };
 
 export const {
@@ -51,4 +57,5 @@ export const {
   signInLink,
   logOut,
   pag,
+  gallery
 } = refs;
