@@ -1,5 +1,6 @@
 export { createFilmsGallery };
 import config from './config';
+import { genersForFilmCard } from "./getGenersForFilmCard"
 const filmListEl = document.querySelector('.films.list');
 
 // Функция которая принимает "массив обьектов"/массив фильмов с сервера
@@ -21,7 +22,7 @@ function createFilmsGallery(items) {
     </div>
     <h2 class="film__name">${item.title}</h2>
     <div class="film__description">
-      <p class="film__genre">${item.genre_ids}</p>
+      <p class="film__genre">${genersForFilmCard(item.genre_ids).join(', ')}</p>
       <p class="film__year">${item.release_date.slice(0, 4)}</p>
       <p class="film__rating">${item.vote_average.toFixed(1)}</p>
     </div>
