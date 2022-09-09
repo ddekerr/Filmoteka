@@ -9,9 +9,103 @@
     margin-top: 60px;
   }
 }
-.tui-page-btn {
+.tui-pagination .tui-page-btn {
+  display: inline-block;
+  position: relative;
   width: 40px;
   height: 40px;
   font-size: 12px;
+  margin-left: 5px;
+  padding: 12px;
   color: $text-color-primary;
+  text-decoration: none;
+  vertical-align: middle;
 }
+.tui-pagination .tui-page-btn:hover {
+  background-color: $bg-color-secondary;
+  border-radius: 5px;
+}
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  color: #fff;
+  background: $accent-color;
+  border-color: $accent-color;
+  cursor: default;
+  border-radius: 5px;
+}
+.tui-pagination .tui-is-selected:hover {
+  background: $accent-color;
+}
+
+// .tui-pagination .tui-prev,
+// .tui-pagination .tui-next,
+// .tui-pagination .tui-prev-is-ellip,
+// .tui-pagination .tui-next-is-ellip {
+//   @media screen and (max-width: 767px) {
+//     display: none;
+//   }
+// }
+
+.tui-pagination .tui-prev,
+.tui-pagination .tui-next,
+.tui-pagination .tui-prev-is-ellip,
+.tui-pagination .tui-next-is-ellip {
+  overflow: hidden;
+  height: 40px;
+  padding: 0;
+  font-size: 0;
+  line-height: 40px;
+  white-space: nowrap;
+  font-weight: normal;
+}
+
+.tui-pagination .tui-ico-first,
+.tui-pagination .tui-ico-prev,
+.tui-pagination .tui-ico-next,
+.tui-pagination .tui-ico-last,
+.tui-pagination .tui-ico-ellip {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0px;
+}
+.tui-pagination .tui-prev,
+.tui-pagination .tui-next,
+.tui-pagination .tui-first,
+.tui-pagination .tui-last {
+  background-color: $bg-color-secondary;
+  border-radius: 5px;
+}
+.tui-pagination .tui-ico-prev {
+  background: url('/src/images/arrow-left-test.svg') no-repeat 0 0;
+  width: 11px;
+  height: 16px;
+  background-position: center;
+}
+.tui-pagination .tui-ico-next {
+  background: url('/src/images/arrow-right-test.svg') no-repeat 0 0;
+  width: 11px;
+  height: 16px;
+  background-position: center;
+}
+.tui-pagination .tui-ico-ellip {
+  background: url('/src/images/three-dots-test.svg');
+  width: 15px;
+  height: 16px;
+  background-position: center;
+}
+.tui-pagination .tui-ico-first {
+  background: url('/src/images/double-arrow-left.svg');
+  width: 15px;
+  height: 16px;
+  background-position: center;
+}
+.tui-pagination .tui-ico-last {
+  background: url('/src/images/double-arrow-right.svg');
+  width: 15px;
+  height: 16px;
+  background-position: center;
+}
+// .tui-pagination .tui-is-disabled {
+//   display: none;
+//   cursor: default;
+// }

@@ -21,6 +21,8 @@ const refs = {
   signIn: document.querySelector('.signIn_now'),
   signInLink: document.querySelector('.signIn_now__link'),
   logOut: document.querySelector('#header-logOut'),
+  // pagination
+  pag: document.querySelector('.tui-pagination'),
 };
 
 export const {
@@ -48,4 +50,5 @@ export const {
   signIn,
   signInLink,
   logOut,
+  pag,
 } = refs;
