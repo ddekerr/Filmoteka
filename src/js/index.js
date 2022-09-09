@@ -9,6 +9,11 @@ import { pagination } from './pagination';
 import {fetchTrendingMovies, fetchMoviesByQuery, fetchMovieByID, genersForFilmCard} from './filmoteka';
 import {createFilmsGallery} from './markups';
 
+
+/**
+ * Default request when page opening
+ * if everything fine render films gallery
+ */
 fetchTrendingMovies().then(data => {
   const markup = createFilmsGallery(data);
   gallery.innerHTML = markup;
@@ -30,4 +35,3 @@ pagination.on('beforeMove', event => {
     gallery.innerHTML = markup;
   });
 });
-
