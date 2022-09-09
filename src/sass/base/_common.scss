@@ -76,3 +76,24 @@ img {
 main {
   flex-grow: 1;
 }
+.button {
+  border-radius: 5px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    filter: drop-shadow(0 0 0.5rem #ffffffa7);
+  }
+
+  &.active {
+    border: none;
+    background-color: $button-bg-active-color;
+    filter: drop-shadow(0 0 1rem #ff6b0199);
+  }
+}
+.title{
+  color: $text-color-primary;
+  text-transform: uppercase;
+
+}
