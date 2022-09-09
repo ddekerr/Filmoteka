@@ -36,7 +36,7 @@
    cursor: pointer;
 }
 .modal__movie {
-   background-color: white;
+   background-color: $bg-color-primary;
    // border: 1px solid #000;
    z-index: 210;
    position: absolute;
@@ -157,7 +157,7 @@
       width: 110px;
       height: 45px;
       border-radius: 5px;
-      background-color: #fff;
+      background-color: $button-bg-color;
       font-family: "Roboto";
       font-style: normal;
       font-weight: 500;
@@ -179,9 +179,9 @@
 .movie-data__button-item:first-child {
    margin-right: 20px;
 }
-.movie-data {
-   // .movie-data__button-item
+// .movie-data {
+//    // .movie-data__button-item
 
-   &__button-item {
-   }
-}
+//    // &__button-item {
+//    // }
+// }
