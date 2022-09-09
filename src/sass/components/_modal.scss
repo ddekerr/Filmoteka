@@ -1,21 +1,19 @@
 
 .backdrop {
+   z-index: 200;
    position: fixed;
+   bottom: 0;
+   right: 0;
    top: 0;
    left: 0;
-   background-color: rgba(0, 0, 0, 0.56);
-   opacity: 0;
-   visibility: hidden;
-   pointer-events: none;
    width: 100%;
    height: 100%;
-
-   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-body.is-open {
-   overflow: hidden;
+   overflow-y: auto;
+   background-color: rgba(0, 0, 0, 0.25);
+   overflow: overlay;
+   opacity: 1;
+   visibility: visible;
    padding: 20px 10px 38px;
-   scrollbar-gutter: stable both-edges;
 }
 
 .backdrop.is-open {
@@ -32,12 +30,12 @@ body.is-open {
 }
 
 .modal__close {
-   position: absolute;
-   top: 8px;
-   right: 8px;
-   border: transparent;
-   background-color: transparent;
-   cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: transparent;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 
@@ -50,26 +48,26 @@ body.is-open {
    margin: auto;
    border-radius: 15px;
 
-   @media (min-width: 768px) {
-      display: flex;
-      width: 700px;
-   }
-   @media (min-width: 1280px) {
-      width: 800px;
-   }
+  @media (min-width: 768px) {
+    display: flex;
+    width: 700px;
+  }
+  @media (min-width: 1280px) {
+    width: 800px;
+  }
 }
 
 .modal__img {
-   width: 240px;
-   height: 360px;
-   @media (min-width: 768px) {
-      width: 265px;
-      height: 375px;
-   }
-   @media (min-width: 1280px) {
-      width: 375px;
-      height: 480px;
-   }
+  width: 240px;
+  height: 360px;
+  @media (min-width: 768px) {
+    width: 265px;
+    height: 375px;
+  }
+  @media (min-width: 1280px) {
+    width: 375px;
+    height: 480px;
+  }
 }
 
 .modal-info__rating {
@@ -81,12 +79,12 @@ body.is-open {
    margin-bottom: 20px;
    line-height: 1.33;
 
-   @media (min-width: 768px) {
-      margin-left: 50px;
-   }
-   @media (min-width: 1280px) {
-      margin-left: 20px;
-   }
+  @media (min-width: 768px) {
+    margin-left: 50px;
+  }
+  @media (min-width: 1280px) {
+    margin-left: 20px;
+  }
 
    &__row > td:first-child {
       white-space: nowrap;
@@ -106,31 +104,31 @@ body.is-open {
 }
 
 .modal-info {
-   &__about {
-      line-height: 1.67;
-      margin-bottom: 20px;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 12px;
-      max-width: 240px;
+  &__about {
+    line-height: 1.67;
+    margin-bottom: 20px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    max-width: 240px;
 
-      @media (min-width: 768px) {
-         max-width: 265px;
-      }
-      @media (min-width: 1280px) {
-         max-width: 390px;
-      }
-   }
-   &__about-title {
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 20px;
-      line-height: 1.16;
-      margin-bottom: 20px;
-      margin-top: 30px;
-   }
+    @media (min-width: 768px) {
+      max-width: 265px;
+    }
+    @media (min-width: 1280px) {
+      max-width: 390px;
+    }
+  }
+  &__about-title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.16;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
 }
 
 .modal-info {
@@ -141,27 +139,22 @@ body.is-open {
    }
 
 
-   &__button {
-      width: 110px;
-      height: 45px;
-      border-radius: 5px;
-      background-color: #fff;
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 16px;
-   }
+  &__button {
+    width: 110px;
+    height: 45px;
+    background-color: $button-bg-color;
+    border: solid 1px $button-border-color-black;
 
    &__button-item {
       &:first-child {
          margin-right: 20px;
       }
    }
-   &__button-item:first-child {
-      margin-right: 20px;
-   }
+  }
+  &__button-item:first-child {
+    margin-right: 20px;
+  }
 }
 .movie-data__button-item:first-child {
-   margin-right: 20px;
+  margin-right: 20px;
 }
