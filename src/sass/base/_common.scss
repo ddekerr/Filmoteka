@@ -76,6 +76,7 @@ img {
 main {
   flex-grow: 1;
 }
+
 .button {
   border-radius: 5px;
   line-height: 1.33;
@@ -92,8 +93,12 @@ main {
     filter: drop-shadow(0 0 1rem #ff6b0199);
   }
 }
+
 .title{
   color: $text-color-primary;
   text-transform: uppercase;
+}
 
+.is-hidden {
+  display: none;
 }
