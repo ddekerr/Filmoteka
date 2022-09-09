@@ -54,9 +54,9 @@ a {
   object-fit: cover;
 }
 .film__name {
-  font-size: inherit;
-  color: $text-color-primary;
-  text-transform: uppercase;
+  // font-size: inherit;
+  // color: $text-color-primary;
+  // text-transform: uppercase;
   margin-top: 8px;
   @media (min-width: 1280px) {
     margin-top: 12px;
