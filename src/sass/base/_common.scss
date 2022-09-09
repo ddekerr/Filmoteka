@@ -4,6 +4,11 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   position: relative;
   margin-left: auto;
@@ -12,6 +17,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 500;
+  background-color: $bg-color-primary;
 }
 h1,
 h2,
@@ -59,4 +65,35 @@ img {
     padding-right: 32px;
     width: 1280px;
   }
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+.button {
+  border-radius: 5px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    filter: drop-shadow(0 0 0.5rem #ffffffa7);
+  }
+
+  &.active {
+    border: none;
+    background-color: $button-bg-active-color;
+    filter: drop-shadow(0 0 1rem #ff6b0199);
+  }
+}
+.title{
+  color: $text-color-primary;
+  text-transform: uppercase;
+
 }

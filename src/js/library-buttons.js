@@ -4,7 +4,7 @@ const watchedBtn = document.querySelector('[data-watched="data-watched"]');
 
 queueBtn.addEventListener('click', onclickQueue);
 watchedBtn.addEventListener('click', onClickWatched);
-
+queueBtn.disabled = false;
 
 function onclickQueue(e) {
     watchedBtn.disabled = false;

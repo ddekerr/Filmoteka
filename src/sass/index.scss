@@ -9,18 +9,14 @@
 @import './components/notify-failed';
 
 // Header-library
-@import './components/header-library';
 @import './components/library-buttons';
 
 // main list
 @import './components/films';
+@import './components/pagination';
 
 // Modal windows
-<<<<<<< Updated upstream
-@import './components/modal';
-=======
 @import './components/modal';
 
 // Footer markup
 @import './components/footer';
->>>>>>> Stashed changes

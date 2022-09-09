@@ -1,15 +1,28 @@
 // colors
 $bg-color-primary: #ffffff;
-$bg-color-secondary: #F7F7F7;
+$bg-color-secondary: #f7f7f7;
 
 $text-color-primary: #000;
-$text-color-secondary: #8C8C8C;
+$text-color-secondary: #8c8c8c;
 $text-color-active: #fff;
 $text-color-footer: #545454;
 
-$accent-color: #FF6B08;
-$error-color: #FF001B;
+$card-accent-color: #ff6b08;
+
+$error-color: #ff001b;
+
+$active-page-color:#ff001b; 
+
+$rating-bg-color: #ff6b01;
 
 // transitions
 $tr-duration: 250ms;
 $tr-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+//button
+$button-bg-color: #ffffff;
+$button-bg-active-color: #ff6b01;
+$button-text-color-white: #ffffff;
+$button-text-color-black: #000000;
+$button-border-color-white: #ffffff;
+$button-border-color-black: #000000;
