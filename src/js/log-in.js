@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, set, ref, onValue, update, remove } from "firebase/database";
+import { getDatabase, set, ref, update } from "firebase/database";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { headerLogIn, headerLogOut, headerMyLibrary, formLogIn, formTitleSignIn, formTitleSignUp, formWrapName, formWrapCheckbox, formCheckbox, buttonRegister, buttonConfirm, signUp, signUpLink, signIn, signInLink, logOut } from './refs';
 import { closeModalLogIn } from './modal-log-in';
@@ -9,13 +9,7 @@ import { chooseThemeForNotiflix } from './notiflix';
 const firebaseConfig = {
 
     apiKey: "fd7e9d42e4eb94adcf7c367528854213",
-    databaseURL: "https://api.themoviedb.org/3",
-    // authDomain: "",
-    // projectId: "",
-    // storageBucket: "",
-    // messagingSenderId: "",
-    // appId: "",
-    // measurementId: ""
+    databaseURL: "https://api.themoviedb.org/3"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -29,9 +23,9 @@ function checkLogInForMyLibrary() {
     chooseThemeForNotiflix();
     if (auth.currentUser === null) {
         headerMyLibrary.removeAttribute('href');
-        Notiflix.Report.info('Oops', 'Please Log In first 🙈', 'Okay');
+        Notiflix.Report.info('Stop', 'Please Log In', 'Okay');
     } else {
-        headerMyLibrary.setAttribute('href', './library.html');
+        headerMyLibrary.setAttribute('href', './header-library.html');
     };
 };
 
@@ -73,7 +67,7 @@ function onRegister(event) {
     const email = document.querySelector('#email_1').value;
     const password = document.querySelector('#password').value;
     if (validateEmail(email) === false || validatePassword(password) === false) {
-        Notiflix.Report.info('Wow dude', 'Email or Password is Outta Line 🙈', 'Agree');
+        Notiflix.Report.info('Error', 'Email or Password not found', 'Agree');
         return;
     };
     createUserWithEmailAndPassword(auth, email, password)
@@ -85,10 +79,10 @@ function onRegister(event) {
             })
             closeModalLogIn();
             formLogIn.reset();
-            Notiflix.Report.success('Nice!', 'Welcome to Filmoteka! Relax and enjoy your movies 🦥', 'Thanks!');
+            Notiflix.Report.success('Good!', 'Welcome to Filmoteka!', 'Thanks!');
         })
         .catch((error) => {
-            Notiflix.Report.warning('Wait a second', 'User with such email already exists, unless you want to steal it 👀', 'Oops');
+            Notiflix.Report.warning('Wait', 'User with such email already exists', 'Try again');
         });
     user = auth.currentUser;
 };
@@ -98,7 +92,7 @@ function onLogin(event) {
     const email = document.querySelector('#email_1').value;
     const password = document.querySelector('#password').value;
     if (validateEmail(email) === false || validatePassword(password) === false) {
-        Notiflix.Report.info('Wow dude', 'Email or Password is Outta Line 🙈', 'Agree');
+        Notiflix.Report.info('Error', 'Email or Password is not found', 'Agree');
         return;
     };
     signInWithEmailAndPassword(auth, email, password)
@@ -111,10 +105,10 @@ function onLogin(event) {
             closeModalLogIn();
             formLogIn.reset();
             onUserLogIn();
-            Notiflix.Report.success('Hello there!', 'Welcome back to Filmoteka! Already know which movie wanna see? 🦥', 'Nice to be Home!');
+            Notiflix.Report.success('Hello there!', 'Welcome back to Filmoteka!', 'Stay here');
         })
         .catch((error) => {
-            Notiflix.Report.warning('Hmm', 'Something wrong with your reqwest, please try again 🙊', 'No problem');
+            Notiflix.Report.warning('Something wrong', 'Try again', 'No problem');
         });
     user = auth.currentUser;
 };
@@ -123,18 +117,18 @@ if (logOut) {
     logOut.addEventListener('click', (e) => {
         chooseThemeForNotiflix();
         Notiflix.Confirm.show('Exit confirmation',
-            'We hope you had a good time! 💃 🕺 Confirm exit?',
-            'Yeap, time to go 👋',
-            'Maybe I should stay 👌',
+            'Confirm exit?',
+            'Bye',
+            'Stay',
             function okCb() {
                 signOut(auth)
                     .catch((error) => {
-                        Notiflix.Report.warning('Hah', 'Did you think you would escape so easily? Have one more try 😁', 'Dammit');
+                        Notiflix.Report.warning('Error', 'Have one more try', 'Ok');
                     });;
-                Notiflix.Report.success('If your say so...', 'May the Force be with you! 🌌', 'I`m still on Light Side!')
+                Notiflix.Report.success('Good bye!', 'Good Luck!', 'See you soon!')
             },
             function cancelCb() {
-                Notiflix.Report.success('Great!', 'Glad to hear that, let`s keep chilling 💃 🕺', 'That`s right!')
+                Notiflix.Report.success('Great!', 'Let`s keep watching!', 'That`s right!')
             });
     });
 };

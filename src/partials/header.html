@@ -1,31 +1,19 @@
 <header class="header">
   <div class="header__container container">
-    <a href="./index.html" class="logo link">
-      <svg width=24 height=24>              
-        <use class="logo__icon" href="./images/icons.svg#icon-film"></use>        
-      </svg>
-      <span class="logo__text">Filmoteka</span>
-    </a>
-    <nav class="nav">
-      <ul class="nav__list list">
-        <li class="nav__item header-logOut">
-          <a class="nav__link" id="header-logOut">
-            <!-- <svg class="header__nav_icon" width="10" height="10">
-              <use href="./images/icons.svg#user"></use> -->
-            </svg>
-            Log Out
-          </a>
-        </li>
-        <li class="nav__item header-logIn">
-          <a class="nav__link " id="header-logIn" data-modal-open>
-            <!-- <svg class="header__nav_icon" width="10" height="10">
-              <use href="./images/icons.svg#user"></use> -->
-            </svg>
-            Log In</a>
-        <li class="nav__item"><a class="nav__link nav__link--current link" href="./index.html">Home</a></li>
-        <li class="nav__item"><a class="nav__link link" href="./library.html">my library</a></li></li>
-      </ul>
-    </nav>
+    <div class="header__up">
+      <a href="./index.html" class="logo link">
+        <svg width=24 height=24><use class="logo__icon" href="./images/icons.svg#icon-film"></use></svg>
+        <span class="logo__text">Filmoteka</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list list">
+          <li class="nav__item"><a class="nav__link active link" href="./index.html">Home</a></li>
+          <li class="nav__item"><a class="nav__link link" href="./library.html">my library</a></li></li>
+          <li class="nav__item header-logIn"><a class="nav__link " id="header-logIn" data-modal-open>Log In</a></li>
+          <li class="nav__item header-logOut is-hidden"><a class="nav__link" id="header-logOut">Log Out</a></li>
+        </ul>
+      </nav>
+    </div>
     <form class="search-form" id="search-form">
       <input
         class ="search-form__input" 

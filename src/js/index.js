@@ -6,6 +6,7 @@ import modal from './modal';
 // import './library-buttons';
 import { pagination } from './pagination';
 
+
 import {
   fetchTrendingMovies,
   fetchMoviesByQuery,
