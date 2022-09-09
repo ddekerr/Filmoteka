@@ -18,3 +18,20 @@ pagin.on('beforeMove', event => {
     createFilmsGallery(res.data.results);
   });
 });
+// fetchTrendingMovies(page).then(data => {
+//   const total = data.total_results;
+//   pagin.reset(total);
+//   const markup = createFilmsGallery(data.results);
+//   gallery.innerHTML = markup;
+// });
+
+// pagin.on('beforeMove', event => {
+//   // получаем номер активной страницы на кнопках
+//   const currentPage = event.page;
+
+//   // получаем фильмы согласно страницы
+//   fetchTrendingMovies(currentPage).then(data => {
+//     const markup = createFilmsGallery(data.results);
+//     gallery.innerHTML = markup;
+//   });
+// });

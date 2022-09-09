@@ -14,22 +14,27 @@ import {
 } from './filmoteka';
 import { createFilmsGallery } from './markups';
 
+const pagin = pagination();
+const page = pagin.getCurrentPage();
+
 /**
  * Default request when page opening
  * if everything fine render films gallery
  */
-fetchTrendingMovies().then(data => {
+fetchTrendingMovies(page).then(data => {
+  const total = data.total_results;
+  pagin.reset(total);
   const markup = createFilmsGallery(data.results);
   gallery.innerHTML = markup;
 });
 
-pagination.on('beforeMove', event => {
+pagin.on('beforeMove', event => {
   // получаем номер активной страницы на кнопках
   const currentPage = event.page;
 
   // получаем фильмы согласно страницы
   fetchTrendingMovies(currentPage).then(data => {
-    const markup = createFilmsGallery(data);
+    const markup = createFilmsGallery(data.results);
     gallery.innerHTML = markup;
   });
 });
