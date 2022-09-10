@@ -100,23 +100,25 @@ li {
 .film__genre {
   // width: 70%;
 }
+film__span {
+}
 .film__year {
-  position: relative;
-  margin-left: 17px;
+  // position: relative;
+  // margin-left: 17px;
 }
-.film__year::before {
-  content: '';
-  position: absolute;
-  left: -8px;
-  width: 1px;
-  background-color: $card-accent-color;
-  height: 12px;
-  @media (min-width: 1280px) {
-    height: 20px;
-  }
-}
+// .film__year::before {
+//   content: '';
+//   position: absolute;
+//   left: -8px;
+//   width: 1px;
+//   background-color: $card-accent-color;
+//   height: 12px;
+//   @media (min-width: 1280px) {
+//     height: 20px;
+//   }
+// }
 .film__rating {
-  display: inline-block;
+  // display: inline-block;
   // height: 16px;
   text-align: center;
   vertical-align: middle;
