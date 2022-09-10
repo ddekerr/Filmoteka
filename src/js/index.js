@@ -8,6 +8,7 @@ import modal from './modal';
 
 // import './library-buttons';
 import { pagination } from './pagination';
+import spinner from './spinner';
 
 
 import {
