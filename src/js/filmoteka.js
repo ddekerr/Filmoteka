@@ -2,11 +2,13 @@ import axios from 'axios';
 import globalConfig from './config';
 
 
-
-
-
-// Функция запроса фильмов в тренде с пагинацией - Функция ожидает в
-// переменную "page" номер страници которую нужно загрузить. Функция возвращает масив из 20 обьектов.
+/**
+ * Функция запроса фильмов в тренде с пагинацией - Функция ожидает в
+ * переменную "page" номер страници которую нужно загрузить.
+ * Функция возвращает масив из 20 обьектов.
+ * @param {Integer} page current page number to be loaded
+ * @returns {Promise} with data about films collection
+ */
 export async function fetchTrendingMovies(page) {
   const config = {
     baseURL: globalConfig.base_url,
@@ -27,8 +29,15 @@ export async function fetchTrendingMovies(page) {
   }
 }
 
-// Функція запиту фільмів по query
-export async function fetchMoviesByQuery(query, page = 1) {
+
+/**
+ * Function search movies by query string
+ * @param {String} query search string for API request
+ * @param {Integer} page current page number to be loaded
+ * @returns {Promise} with data about films collection
+ */
+
+export async function fetchMoviesByQuery(query, page) {
   const config = {
     baseURL: globalConfig.base_url,
     params: {
@@ -40,15 +49,21 @@ export async function fetchMoviesByQuery(query, page = 1) {
   }
 
   try {
-    const response = await axios.get('/search/movie', config);
-    return response;
+    const response = await axios.get('/search/movie', config)
+      .then(response => response.data);
+    console.log(response);
+      return response;
   } catch (error) {
     console.log(error.message);
   }
 }
 
 
-// Функція запиту фільма по id
+/**
+ * Function search movie by ID
+ * @param {Integer} id film id to be loaded
+ * @returns with data about film
+ */
 export async function fetchMovieByID(id) {
   const config = {
     baseURL: globalConfig.base_url,
