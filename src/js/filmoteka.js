@@ -2,11 +2,13 @@ import axios from 'axios';
 import globalConfig from './config';
 
 
-
-
-
-// Функция запроса фильмов в тренде с пагинацией - Функция ожидает в
-// переменную "page" номер страници которую нужно загрузить. Функция возвращает масив из 20 обьектов.
+/**
+ * Функция запроса фильмов в тренде с пагинацией - Функция ожидает в
+ * переменную "page" номер страници которую нужно загрузить.
+ * Функция возвращает масив из 20 обьектов.
+ * @param {Integer} page current page number to be loaded
+ * @returns {Promise} with data about films collection
+ */
 export async function fetchTrendingMovies(page) {
   const config = {
     baseURL: globalConfig.base_url,
@@ -27,13 +29,19 @@ export async function fetchTrendingMovies(page) {
   }
 }
 
-// Функція запиту фільмів по query
+
+/**
+ * Function search movies by query string
+ * @param {String} query search string for API request
+ * @param {Integer} page current page number to be loaded
+ * @returns {Promise} with data about films collection
+ */
 export async function fetchMoviesByQuery(query, page = 1) {
   const config = {
     baseURL: globalConfig.base_url,
     params: {
         api_key: globalConfig.api_key,
-        query: query,
+        query: query.trim(),
         page: page,
         language: 'en-US'
     }
@@ -48,7 +56,11 @@ export async function fetchMoviesByQuery(query, page = 1) {
 }
 
 
-// Функція запиту фільма по id
+/**
+ * Function search movie by ID
+ * @param {Integer} id film id to be loaded
+ * @returns with data about film
+ */
 export async function fetchMovieByID(id) {
   const config = {
     baseURL: globalConfig.base_url,
