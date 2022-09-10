@@ -1,0 +1,48 @@
+.thumb {
+    opacity: 0;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+    transform: translateY(100%);
+}
+
+.option {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #0e0606b3;
+    padding: 20px;
+}
+
+.option__item {
+    width: 136px;
+    height: 45px;
+}
+
+.option__button {
+    display: block;
+    color: #fdfdfd;
+    height: 44px;
+    background-color: #eb11118a;
+    border: none;
+}
+
+.option__button:hover,
+.option__button:focus {
+    background-color: $button-bg-active-color;
+    filter: drop-shadow(0 0 1rem #ff6b01d0);
+}
+
+.film__link:hover .overlay,
+.film__link:focus .overlay {
+    transform: translateY(0);
+    transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.film__link:hover .thumb,
+.film__link:focus .thumb {
+    opacity: 1;
+    transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
