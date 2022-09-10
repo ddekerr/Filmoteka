@@ -26,8 +26,9 @@ const genres = [
  * @returns {String} looks like "first, second, third"
  */
 export function genersForFilmCard(arrayOfGenersID) {
-  const result = arrayOfGenersID.map(id => {
+  const arrayOfGenres = arrayOfGenersID.map(id => {
     return genres.find(genre => genre.id === id).name;
-  }).join(', ');
+  });
+  const result = arrayOfGenres.length > 2 ? arrayOfGenres.splice(0,2).concat('Other').join(', ') : arrayOfGenres.join(', ')
   return result;
 }

@@ -1,6 +1,6 @@
 import {Spinner} from 'spin.js';
 
-// css спиннера для стораници
+// css спиннера для страници
 var opts = {
   lines: 10, // The number of lines to draw
   length: 18, // The length of each line
@@ -44,16 +44,11 @@ var opts = {
 //   position: 'absolute', // Element positioning
 // };
 
-
-
-// Задать месторасположение спиннеру
-var target = document.querySelector('main');
-
 // включить спиннер
-        var spinner = new Spinner(opts).spin(target);
+export const spinner = new Spinner(opts);
 
 // выключить спиннер
-            // var noSpinner = spinner.stop(target);
+// var noSpinner = spinner.stop(target);
 
 
 

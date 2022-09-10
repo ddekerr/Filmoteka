@@ -2,13 +2,13 @@ import { gallery } from './refs';
 // import config from './config';
 
 import modal from './modal';
-
+import modalteam from './modalteam';
 // import './modal-log-in';
 // import './log-in';
 
 // import './library-buttons';
 import { pagination } from './pagination';
-import spinner from './spinner';
+import {spinner} from './spinner';
 
 
 import {
@@ -25,15 +25,18 @@ import { createFilmsGallery } from './markups';
  */
 const pagin = pagination();
 const page = pagin.getCurrentPage();
+spinner.spin(gallery)
 
 fetchTrendingMovies(page).then(data => {
   const total = data.total_results;
   pagin.reset(total);
   const markup = createFilmsGallery(data.results);
   gallery.innerHTML = markup;
+  spinner.stop(gallery)
 });
 
 pagin.on('beforeMove', event => {
+  spinner.spin(gallery)
   // получаем номер активной страницы на кнопках
   const currentPage = event.page;
 
@@ -41,5 +44,6 @@ pagin.on('beforeMove', event => {
   fetchTrendingMovies(currentPage).then(data => {
     const markup = createFilmsGallery(data.results);
     gallery.innerHTML = markup;
+    spinner.stop(gallery)
   });
 });
