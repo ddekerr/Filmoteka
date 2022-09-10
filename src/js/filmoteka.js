@@ -51,7 +51,8 @@ export async function fetchMoviesByQuery(query, page) {
   try {
     const response = await axios.get('/search/movie', config)
       .then(response => response.data);
-    return response;
+    console.log(response);
+      return response;
   } catch (error) {
     console.log(error.message);
   }
