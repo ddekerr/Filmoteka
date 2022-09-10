@@ -1,5 +1,5 @@
-import config from "./config";
-import {genersForFilmCard} from './getGenres'
+import config from './config';
+import { genersForFilmCard } from './getGenres';
 /**
  * Function generate markup string from array of objects
  * @param {Array of Objects} items
@@ -14,11 +14,14 @@ export function createFilmsGallery(items) {
         <div class="film__image-container">
           <img class="film__image" src="${src}" alt="${item.original_title}" load="lazy"/>
         </div>
-        <h2 class="film__name title">${item.title}</h2>
-        <div class="film__description">
-          <p class="film__genre">${genersForFilmCard(item.genre_ids)}</p>
-          <p class="film__year">${item.release_date.slice(0, 4)}</p>
-          <p class="film__rating">${item.vote_average.toFixed(1)}</p>
+        <div class="film__info">
+          <h2 class="film__name title">${item.title}</h2>
+          <div class="film__description">
+            <span class="film__genre">${genersForFilmCard(item.genre_ids)}</p>
+            <span class="film__span">|</span>
+            <span class="film__year">${item.release_date.slice(0, 4)}</p>
+            <span class="film__rating">${item.vote_average.toFixed(1)}</p>
+          </div>
         </div>
       </a>
     </li>
