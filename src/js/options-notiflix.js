@@ -1,8 +1,9 @@
 export default options = {
   width: '393px',
   position: 'center-top',
-  distance: '156px',
+  distance: '150px',
   zindex: 4001,
+  timeout: 2000,
   fontFamily: 'Roboto',
   fontSize: '14px',
   useIcon: false,
