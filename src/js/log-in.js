@@ -16,15 +16,15 @@ const database = getDatabase(app);
 export const auth = getAuth();
 let user;
 
-headerMyLibrary.addEventListener('click', checkLogInForMyLibrary);
+headerLogIn.addEventListener('click', checkLogInForMyLibrary);
 
 function checkLogInForMyLibrary() {
     chooseThemeForNotiflix();
     if (auth.currentUser === null) {
-        headerMyLibrary.removeAttribute('href');
+        headerLogIn.removeAttribute('href');
         Notiflix.Report.info('Stop', 'Please Log In', 'Okay');
     } else {
-        headerMyLibrary.setAttribute('href', './header-library.html');
+        headerLogIn.setAttribute('href', './header-library.html');
     };
 };
 

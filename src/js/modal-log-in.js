@@ -7,8 +7,6 @@ if (openModalBtn) {
 };
 
 function openModalLogIn() {
-  setThemOnModalLogIn();
-  chooseThemeForNotiflix();
   document.body.style.overflow = 'hidden';
   buttonShowPassword.addEventListener("click", showPassword);
   modal.classList.remove("is-hidden");
