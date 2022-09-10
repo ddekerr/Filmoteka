@@ -1,14 +1,18 @@
 import config from "./config";
 import {genersForFilmCard} from './getGenres'
-// Функция которая принимает "массив обьектов"/массив фильмов с сервера
-// идет и чистит все что находиться в МЭЙНЕ в списке (UL -.films.list)
-// после создает и пушит новую разметку в тотже (UL -.films.list)
+/**
+ * Function generate markup string from array of objects
+ * @param {Array of Objects} items
+ * @returns {String} markup
+ */
 export function createFilmsGallery(items) {
-  return items.map(item => `
+  const markupСard = items.map(item => {
+    const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
+    return `
     <li class="film">
       <a class="film__link link" href="">
         <div class="film__image-container">
-          <img class="film__image" src="${config.postersUrl + item.poster_path}" alt="${item.original_title}" load="lazy"/>
+          <img class="film__image" src="${src}" alt="${item.original_title}" load="lazy"/>
         </div>
         <h2 class="film__name title">${item.title}</h2>
         <div class="film__description">
@@ -18,5 +22,8 @@ export function createFilmsGallery(items) {
         </div>
       </a>
     </li>
-  `).join('');
+  `}
+  ).join('');
+
+  return markupСard;
 }

@@ -8,6 +8,7 @@ import modalFilmmarkup from'./modalFilmMarkup';
 
 // import './library-buttons';
 import { pagination } from './pagination';
+import spinner from './spinner';
 
 
 import {
