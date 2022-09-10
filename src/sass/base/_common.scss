@@ -8,6 +8,14 @@ html,
 body {
   height: 100%;
 }
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
   position: relative;
@@ -19,6 +27,14 @@ body {
   font-weight: 500;
   background-color: $bg-color-primary;
 }
+
+a {
+  margin: 0;
+}
+li {
+  margin: 0;
+}
+
 h1,
 h2,
 h3,
