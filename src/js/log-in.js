@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, set, ref, update } from "firebase/database";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
-import { headerLogIn, headerLogOut, headerMyLibrary, formLogIn, formTitleSignIn, formTitleSignUp, formWrapName, formWrapCheckbox, formCheckbox, buttonRegister, buttonConfirm, signUp, signUpLink, signIn, signInLink, logOut } from './refs';
+import { headerLogIn, headerLogOut, modalDivLogIn, formLogIn, formTitleSignIn, formTitleSignUp, formWrapName, formWrapCheckbox, formCheckbox, buttonRegister, buttonConfirm, signUp, signUpLink, signIn, signInLink, logOut } from './refs';
 import { closeModalLogIn } from './modal-log-in';
 import Notiflix from 'notiflix';
 
@@ -15,23 +15,26 @@ try {
      app = initializeApp(firebaseConfig);
      database = getDatabase(app);
 } catch (error) {
-    console.log(error.message)
+    // console.log(error.message)
 }
 export const auth = getAuth();
 let user;
 
-headerLogIn.addEventListener('click', checkLogInForMyLibrary);
+modalDivLogIn.addEventListener('click', checkLogInForMyLibrary);
 
 function checkLogInForMyLibrary() {
     // console.log('called')
     if (auth.currentUser === null) {
-        headerLogIn.removeAttribute('href');
+        modalDivLogIn.removeAttribute('href');
         Notiflix.Report.info('Stop', 'Please Log In', 'Okay');
     } else {
-        headerLogIn.setAttribute('href', './header-library.html');
+        modalDivLogIn.setAttribute('href', './header-library.html');
     };
 };
 
+
+
+// console.log('called');
 if (formLogIn) {
     formLogIn.addEventListener('submit', onLogin);
 };
