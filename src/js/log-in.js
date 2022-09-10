@@ -4,7 +4,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 import { headerLogIn, headerLogOut, headerMyLibrary, formLogIn, formTitleSignIn, formTitleSignUp, formWrapName, formWrapCheckbox, formCheckbox, buttonRegister, buttonConfirm, signUp, signUpLink, signIn, signInLink, logOut } from './refs';
 import { closeModalLogIn } from './modal-log-in';
 import Notiflix from 'notiflix';
-import { chooseThemeForNotiflix } from './notiflix';
+// import { chooseThemeForNotiflix } from './notiflix';
 
 const firebaseConfig = {
 
