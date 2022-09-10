@@ -36,7 +36,7 @@ export async function fetchTrendingMovies(page) {
  * @param {Integer} page current page number to be loaded
  * @returns {Promise} with data about films collection
  */
-export async function fetchMoviesByQuery(query, page = 1) {
+export async function fetchMoviesByQuery(page) {
   const config = {
     baseURL: globalConfig.base_url,
     params: {
@@ -48,8 +48,10 @@ export async function fetchMoviesByQuery(query, page = 1) {
   }
 
   try {
-    const response = await axios.get('/search/movie', config);
-    return response;
+    const response = await axios.get('/search/movie', config)
+      .then(response => response.data);
+    console.log(response);
+      return response;
   } catch (error) {
     console.log(error.message);
   }
