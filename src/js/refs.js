@@ -1,7 +1,12 @@
 const refs = {
+
   openModalBtn: document.querySelector('[data-modal-open]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal-login]'),
+
+    // for log-in
+  headerLogIn: document.querySelector('.header-logIn'),
+  headerLogOut: document.querySelector('.header-logOut'),
   backdropLogIn: document.querySelector('.backdrop_login'),
   modalDivLogIn: document.querySelector('.modal_login'),
   formLogIn: document.querySelector('.modal_login__form'),
@@ -21,13 +26,13 @@ const refs = {
   signIn: document.querySelector('.signIn_now'),
   signInLink: document.querySelector('.signIn_now__link'),
   logOut: document.querySelector('#header-logOut'),
-  // pagination
+  // container for pagination
   pag: document.querySelector('.tui-pagination'),
 
   // container for markup films list
   gallery: document.querySelector('.films'),
 
-  //search button on index.html page
+  //search movies button on index.html page
   inputSearch: document.querySelector('.search-form__input')
 };
 

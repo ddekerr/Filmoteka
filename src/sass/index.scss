@@ -1,4 +1,5 @@
 @import './utils/variables';
+@import './utils/mixins';
 @import './base/common';
 
 // Header
@@ -19,4 +20,4 @@
 @import './components/modal';
 
 // Footer markup
-@import './utils/footer';
+@import './components/footer';
