@@ -22,20 +22,6 @@ var opts = {
   position: 'absolute', // Element positioning
 };
 
-
-// Задать месторасположение спиннеру
-var target = document.querySelector('main.container');
-
-// включить спиннер
-        var spinner = new Spinner(opts).spin(target);
-
-// выключить спиннер
-            // var noSpinner = spinner.stop(target);
-
-
-
-
-
 // // css спиннера для кнопки
 // var opts = {
 //   lines: 9, // The number of lines to draw
@@ -57,4 +43,20 @@ var target = document.querySelector('main.container');
 //   className: 'spinner', // The CSS class to assign to the spinner
 //   position: 'absolute', // Element positioning
 // };
+
+
+
+// Задать месторасположение спиннеру
+var target = document.querySelector('main');
+
+// включить спиннер
+        var spinner = new Spinner(opts).spin(target);
+
+// выключить спиннер
+            // var noSpinner = spinner.stop(target);
+
+
+
+
+
 
