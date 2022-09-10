@@ -1,7 +1,12 @@
 const refs = {
+
   openModalBtn: document.querySelector('[data-modal-open]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal-login]'),
+
+    // for log-in
+  headerLogIn: document.querySelector('.header-logIn'),
+  headerLogOut: document.querySelector('.header-logOut'),
   backdropLogIn: document.querySelector('.backdrop_login'),
   modalDivLogIn: document.querySelector('.modal_login'),
   formLogIn: document.querySelector('.modal_login__form'),
