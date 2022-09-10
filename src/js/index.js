@@ -3,8 +3,8 @@ import { gallery } from './refs';
 
 import modal from './modal';
 
-import './modal-log-in';
-import './log-in';
+// import './modal-log-in';
+// import './log-in';
 
 // import './library-buttons';
 import { pagination } from './pagination';

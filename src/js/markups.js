@@ -1,8 +1,12 @@
 import config from "./config";
 import {genersForFilmCard} from './getGenres'
-// Функция которая принимает "массив обьектов"/массив фильмов с сервера
-// идет и чистит все что находиться в МЭЙНЕ в списке (UL -.films.list)
-// после создает и пушит новую разметку в тотже (UL -.films.list)
+
+
+/**
+ * Function generate markup string from array of objects
+ * @param {Array of Objects} items 
+ * @returns {String} markup
+ */
 export function createFilmsGallery(items) {
   return items.map(item => `
     <li class="film">

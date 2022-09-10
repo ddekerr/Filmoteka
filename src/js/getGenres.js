@@ -20,7 +20,11 @@ const genres = [
   {"id": 37,"name": "Western"}
 ]
 
-// формує список жанрів по списку IDs
+/**
+ * Function for generate string by array of integer in genres object
+ * @param {Array of Integer} arrayOfGenersID
+ * @returns {String} looks like "first, second, third"
+ */
 export function genersForFilmCard(arrayOfGenersID) {
   const result = arrayOfGenersID.map(id => {
     return genres.find(genre => genre.id === id).name;
