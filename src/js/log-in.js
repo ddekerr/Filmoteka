@@ -6,20 +6,24 @@ import { closeModalLogIn } from './modal-log-in';
 import Notiflix from 'notiflix';
 
 const firebaseConfig = {
-
     apiKey: "fd7e9d42e4eb94adcf7c367528854213",
     databaseURL: "https://api.themoviedb.org/3"
 };
 
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+let app, database
+try {
+     app = initializeApp(firebaseConfig);
+     database = getDatabase(app);
+} catch (error) {
+    console.log(error.message)
+}
 export const auth = getAuth();
 let user;
 
 headerLogIn.addEventListener('click', checkLogInForMyLibrary);
 
 function checkLogInForMyLibrary() {
-    chooseThemeForNotiflix();
+    // console.log('called')
     if (auth.currentUser === null) {
         headerLogIn.removeAttribute('href');
         Notiflix.Report.info('Stop', 'Please Log In', 'Okay');

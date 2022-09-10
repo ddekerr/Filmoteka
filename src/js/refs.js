@@ -5,8 +5,8 @@ const refs = {
   modal: document.querySelector('[data-modal-login]'),
 
     // for log-in
-  headerLogIn: document.querySelector('.header-logIn'),
-  headerLogOut: document.querySelector('.header-logOut'),
+  headerLogIn: document.querySelector('#header-login'),
+  headerLogOut: document.querySelector('#header-logout'),
   backdropLogIn: document.querySelector('.backdrop_login'),
   modalDivLogIn: document.querySelector('.modal_login'),
   formLogIn: document.querySelector('.modal_login__form'),
@@ -25,7 +25,7 @@ const refs = {
   signUpLink: document.querySelector('.signUp_now__link'),
   signIn: document.querySelector('.signIn_now'),
   signInLink: document.querySelector('.signIn_now__link'),
-  logOut: document.querySelector('#header-logOut'),
+  logOut: document.querySelector('#header-logout'),
   // container for pagination
   pag: document.querySelector('.tui-pagination'),
 
