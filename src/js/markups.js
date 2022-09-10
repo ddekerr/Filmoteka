@@ -18,7 +18,7 @@ export function createFilmsGallery(items) {
           <h2 class="film__name title">${item.title}</h2>
           <div class="film__description">
             <span class="film__genre">${genersForFilmCard(item.genre_ids)}</span>
-            <span class="film__span">|</span>
+            <span class="film__span">&#124;</span>
             <span class="film__year">${item.release_date.slice(0, 4)}</span>
             <span class="film__rating">${item.vote_average.toFixed(1)}</span>
           </div>
