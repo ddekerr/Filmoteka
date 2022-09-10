@@ -1,6 +1,7 @@
 .films {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   padding-top: 20px;
   @media (min-width: 768px) {
     padding-top: 60px;
@@ -16,7 +17,7 @@
 
   @media (min-width: 768px) and (max-width: 1279px) {
     max-width: 336px;
-    margin-right: 32px;
+
     margin-bottom: 22px;
     &:nth-child(2n) {
       margin-right: 0;
@@ -24,7 +25,7 @@
   }
   @media (min-width: 1280px) {
     max-width: 395px;
-    margin-right: 15px;
+
     margin-bottom: 22px;
     &:nth-child(3n + 3) {
       margin-right: 0;
