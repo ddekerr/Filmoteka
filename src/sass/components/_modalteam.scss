@@ -144,27 +144,31 @@
 }
 
 .modalteam__article h2 {
-    font-size: 20px;
+    font-size: 23px;
     line-height: 1;
     text-align: center;
-    padding-top: 10px;
-    padding-right: 38px;
-    padding-bottom: 6px;
+    padding-top: 20px;
+    padding-right: 40px;
+    padding-bottom: 10px;
     font-weight: 500;
     text-transform: uppercase;
     color: $card-accent-color;
 
     @media (min-width: 768px) {
         font-size: 16px;
+        padding-top: 20px;
+        padding-bottom: 10px;
     }
 
     @media (min-width: 1280px) {
         font-size: 28px;
+        padding-top: 10px;
+        padding-bottom: 6px;
     }
 }
 
 .modalteam__text {
-    font-size: 10px;
+    font-size: 20px;
     line-height: 1;
     width: 100%;
     text-align: center;
@@ -175,9 +179,9 @@
     font-weight: 400;
 
     @media (min-width: 768px) {
-        font-size: 10px;
-        padding-left: 18px;
-        padding-right: 25px;
+        font-size: 14px;
+        padding-left: 20px;
+        padding-right: 27px;
     }
 
     @media (min-width: 1280px) {
@@ -233,6 +237,7 @@
     @media (min-width: 768px) {
         display: block;
         height: 153px;
+        width: 272px;
     }
 }
 

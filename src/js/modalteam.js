@@ -1,6 +1,6 @@
 (() => {
    const refs = {
-      openModalTeamButton: document.querySelector("[modalteam-open]"),
+      openModalTeamButton: document.querySelector(".footer__link"),
       closeModalTeamButton: document.querySelector("[modalteam-close]"),
       modalTeam: document.querySelector("[modalteam]"),
       backdropTeam: document.querySelector('.backdropteam'),
