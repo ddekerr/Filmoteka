@@ -2,7 +2,7 @@ import { gallery } from './refs';
 // import config from './config';
 
 import modal from './modal';
-
+import modalteam from './modalteam';
 // import './modal-log-in';
 // import './log-in';
 
