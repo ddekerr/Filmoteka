@@ -36,19 +36,21 @@ export async function fetchTrendingMovies(page) {
  * @param {Integer} page current page number to be loaded
  * @returns {Promise} with data about films collection
  */
-export async function fetchMoviesByQuery(query, page = 1) {
+
+export async function fetchMoviesByQuery(query, page) {
   const config = {
     baseURL: globalConfig.base_url,
     params: {
         api_key: globalConfig.api_key,
-        query: query.trim(),
+        query: query,
         page: page,
         language: 'en-US'
     }
   }
 
   try {
-    const response = await axios.get('/search/movie', config);
+    const response = await axios.get('/search/movie', config)
+      .then(response => response.data);
     return response;
   } catch (error) {
     console.log(error.message);
