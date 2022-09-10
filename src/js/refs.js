@@ -49,6 +49,7 @@ export const {
   formTitleSignUp,
   formWrapName,
   inputPassword,
+  inputSearch,
   buttonShowPassword,
   iconForShowPassword,
   iconForUnShowPassword,

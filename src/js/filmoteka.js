@@ -36,12 +36,13 @@ export async function fetchTrendingMovies(page) {
  * @param {Integer} page current page number to be loaded
  * @returns {Promise} with data about films collection
  */
-export async function fetchMoviesByQuery(page) {
+
+export async function fetchMoviesByQuery(query, page) {
   const config = {
     baseURL: globalConfig.base_url,
     params: {
         api_key: globalConfig.api_key,
-        query: query.trim(),
+        query: query,
         page: page,
         language: 'en-US'
     }
