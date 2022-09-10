@@ -52,9 +52,6 @@ function showPassword() {
   };
 };
 
-
-// для темної версії
-
 // function setThemOnModalLogIn() {
 //   if (document.querySelector('body').classList.contains('dark')) {
 //     modalDivLogIn.classList.add('modal_login--dark');
