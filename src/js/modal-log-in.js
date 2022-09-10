@@ -1,6 +1,5 @@
 import { openModalBtn, closeModalBtn, modal, backdropLogIn, formLogIn, buttonRegister, inputPassword, buttonShowPassword, iconForShowPassword, iconForUnShowPassword } from './refs';
 import { goToSignIn } from './log-in';
-import { chooseThemeForNotiflix } from './notiflix';
 
 if (openModalBtn) { 
   openModalBtn.addEventListener("click", openModalLogIn);
