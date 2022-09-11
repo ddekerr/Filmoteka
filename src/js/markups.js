@@ -106,7 +106,7 @@ export function createModalFilm(item) {
 
 
 /**
- * Render markup yo container
+ * Render markup to container
  * @param {HTML Object} container 
  * @param {String} markup 
  */
