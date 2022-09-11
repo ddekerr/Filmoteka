@@ -72,7 +72,7 @@ export function createModalFilm(item) {
           </tr>
           <tr class="modal-info__row">
             <td><p>Genre</p></td>
-            <td><p>Треба адаптувати функцію пошуку жанрів</p></td>
+            <td><p>${item.genres.map(item => item.name).join(', ')}</p></td>
           </tr>
         </tbody>
       </table>

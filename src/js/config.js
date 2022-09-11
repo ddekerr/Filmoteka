@@ -5,16 +5,3 @@ export default {
   postersSize: 'w500',
   altPosterUrl: 'https://www.vaureal.fr/sites/vaureal/files/styles/_site_contenu_image_principale/public/image/2022-03/Solidarit%C3%A9%20ukraine.jpg?itok=Gcqq2tD3'
 };
-
-export function noReloadByEnter(e) {
-  if (e.keyCode === 13) {
-    e.preventDefault();
-  }
-}
-
-export function topFunction() {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
-}

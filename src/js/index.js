@@ -1,5 +1,5 @@
 import { gallery } from './refs';
-// import config from './config';
+import {topFunction, noReloadByEnter} from './functions'
 
 import modal from './modal';
 import modalteam from './modalteam';
@@ -7,7 +7,7 @@ import modalteam from './modalteam';
 // import './log-in';
 import searchMovie from './search-movie';
 // import './library-buttons';
-import { pagination, topFunction } from './pagination';
+import { pagination } from './pagination';
 import { spinner } from './spinner';
 
 import {
@@ -18,14 +18,16 @@ import {
 } from './filmoteka';
 import { createFilmsGallery } from './markups';
 
+
+const pagin = pagination();
+const page = pagin.getCurrentPage();
+console.log(page)
+spinner.spin(gallery);
+
 /**
  * Default request when page opening
  * if everything fine render films gallery
  */
-const pagin = pagination();
-const page = pagin.getCurrentPage();
-spinner.spin(gallery);
-
 fetchTrendingMovies(page).then(data => {
   const total = data.total_results;
   pagin.reset(total);
@@ -33,6 +35,8 @@ fetchTrendingMovies(page).then(data => {
   gallery.innerHTML = markup;
   spinner.stop(gallery);
 });
+
+
 
 pagin.on('beforeMove', event => {
   spinner.spin(gallery);
