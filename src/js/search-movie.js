@@ -22,7 +22,6 @@ export function searchMovie(e) {
 
   repeatQuery = query;
   query = e.target.value.trim();
-  console.log(query);
 
   if (query === '') {
     Notify.info('Please enter a movie name to search.', options);
