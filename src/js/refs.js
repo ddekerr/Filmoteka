@@ -34,7 +34,9 @@ const refs = {
   gallery: document.querySelector('.films'),
 
   //search movies button on index.html page
-  inputSearch: document.querySelector('.search-form__input')
+  inputSearch: document.querySelector('.search-form__input'),
+
+  cardLink: document.querySelector('.films list'),
 };
 
 export const {
@@ -65,5 +67,6 @@ export const {
   signInLink,
   logOut,
   pag,
-  gallery
+  gallery,
+  cardLink,
 } = refs;

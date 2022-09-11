@@ -18,11 +18,13 @@
   margin-left: 5px;
   padding-top: 12px;
   padding-bottom: 12px;
-  // padding: 12px;
   text-align: center;
   color: $text-color-primary;
   text-decoration: none;
   vertical-align: middle;
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
 }
 .tui-pagination .tui-page-btn:hover {
   background-color: $bg-color-secondary;
@@ -40,17 +42,10 @@
   background: $card-accent-color;
 }
 
-// .tui-pagination .tui-prev,
-// .tui-pagination .tui-next,
-// .tui-pagination .tui-prev-is-ellip,
-// .tui-pagination .tui-next-is-ellip {
-//   @media screen and (max-width: 767px) {
-//     display: none;
-//   }
-// }
-
 .tui-pagination .tui-prev,
 .tui-pagination .tui-next,
+.tui-pagination .tui-first,
+.tui-pagination .tui-last,
 .tui-pagination .tui-prev-is-ellip,
 .tui-pagination .tui-next-is-ellip {
   overflow: hidden;
@@ -107,6 +102,15 @@
   width: 15px;
   height: 16px;
   background-position: center;
+}
+
+.tui-pagination .tui-next-is-ellip,
+.tui-pagination .tui-prev-is-ellip,
+.tui-pagination .tui-prev,
+.tui-pagination .tui-next {
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 // .tui-pagination .tui-is-disabled {
 //   display: none;
