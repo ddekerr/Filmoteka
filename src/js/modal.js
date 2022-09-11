@@ -1,24 +1,32 @@
+import { createModalFilm } from './markups';
+import {fetchMovieByID} from './filmoteka';
+
+
 (() => {
    const refs = {
       openModalButton: document.querySelector("[modal-open]"),
       closeModalButton: document.querySelector("[modal-close]"),
       modalFilm: document.querySelector("[modal]"),
       backdrop: document.querySelector('.backdrop'),
+      cardLink: document.querySelector('.films'),
+      modalBox: document.querySelector('.modal__movie')
    };
 
    if (refs.openModalButton) {
-      refs.openModalButton.addEventListener("click", openModal);
+      refs.cardLink.addEventListener("click", openModal);
    }
 
    if (refs.closeModalButton) {
       refs.closeModalButton.addEventListener("click", closeModal);
    }
 
-   function openModal() {
+   function openModal(e) {
       refs.modalFilm.classList.toggle("is-open");
       document.body.style.overflow = 'hidden';
       document.addEventListener('keydown', offModalForEscape);
-      document.addEventListener('click', offModalBackdrop)
+      document.addEventListener('click', offModalBackdrop);
+      refs.modalBox.innerHTML = '';
+      selectFilm(e);
    };
 
    function closeModal() {
@@ -39,4 +47,20 @@
          closeModal();
       }
    }
+
+      function selectFilm(event) {
+      const linkID = document.querySelector('.film__image');
+      console.log(event.target.dataset.id);
+      const FilmID = event.target.dataset.id;
+            
+      fetchMovieByID(FilmID).then(data => {
+         console.log(data);
+         const markup = createModalFilm(data);
+         refs.modalBox.innerHTML = markup;
+      })
+   }
 })();
+
+
+
+   
