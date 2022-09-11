@@ -149,3 +149,11 @@ main {
    height: 100%;
    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+// Позиционирует нотификашку
+[id^=NotiflixNotifyWrap]>div>span.nx-message {
+      @include mq(mobile-only) {
+          width: 280px;
+          inset: 140px 0 auto;
+        }
+  inset: 130px 0 auto;
+}

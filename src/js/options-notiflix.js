@@ -1,13 +1,11 @@
 export default options = {
   width: '393px',
   position: 'center-top',
-  distance: '150px',
-  zindex: 4001,
   timeout: 2000,
   fontFamily: 'Roboto',
   fontSize: '14px',
   useIcon: false,
-          
+    
   success: {
     background: 'transparent',
     textColor: '#FF6B08',
@@ -24,5 +22,6 @@ export default options = {
     background: 'transparent',
     textColor: '#08C4FF',
   }
-};
 
+  
+};
