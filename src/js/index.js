@@ -14,10 +14,15 @@ import { fetchTrendingMovies, fetchMoviesByQuery, fetchMovieByID, } from './film
 import { createFilmsGallery,  } from './markups';
 
 
+// Set pagination
 const pagin = pagination();
 const page = pagin.getCurrentPage();
-console.log(page)
+
+// start spinner
 spinner.spin(gallery);
+
+// Listeners
+pagin.on('beforeMove', onPaginClick);
 
 /**
  * Default request when page opening
@@ -30,20 +35,20 @@ fetchTrendingMovies(page).then(data => {
   // Init counts of page depends of pagination instance (20 count on page)
   pagin.reset(total);
 
+  // Render list of objects
   const markup = createFilmsGallery(data.results);
-  renderMarkup(gallery, markup);
   spinner.stop(gallery);
+  renderMarkup(gallery, markup);
 });
 
 
-/**
- * Event click on pagination elements
- */
-pagin.on('beforeMove', event => {
-  spinner.spin(gallery);
+//Pagination event function
+function onPaginClick(e) {
   topFunction();
+  spinner.spin(gallery);
+
   // получаем номер активной страницы на кнопках
-  const currentPage = event.page;
+  const currentPage = e.page;
 
   // получаем фильмы согласно страницы
   fetchTrendingMovies(currentPage).then(data => {
@@ -51,4 +56,4 @@ pagin.on('beforeMove', event => {
     renderMarkup(gallery, markup);
     spinner.stop(gallery);
   });
-});
+}
