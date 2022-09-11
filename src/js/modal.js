@@ -50,6 +50,7 @@ function createModal(event) {
       // const movieData = moviesData.find(movie => movie.id === selectedMovieId);
       // renderModalContent(movieData);
       // const movieData = moviesData.find(movie => movie.id === selectedMovieId);
+      
       openModal()
       console.log(selectedMovieId)
    }
