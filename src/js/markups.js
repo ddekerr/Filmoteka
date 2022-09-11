@@ -45,9 +45,9 @@ export function createModalFilm(item) {
   const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
     return `
     <button class="modal__close" modal-close>
-      <svg class="modal__btn" width="20px" height="20px">
-        <use href="../images/icons.svg#icon-close" fill="black"></use>
-      </svg>
+    <svg class="modal__btn" width="20px" height="20px">
+       <use href="./images/icons.svg#icon-arrow-left" fill="black"></use>
+    </svg>
     </button>
     <div class="modal__img">
       <img src="${src}" alt="${item.original_title}" />
@@ -72,7 +72,7 @@ export function createModalFilm(item) {
           </tr>
           <tr class="modal-info__row">
             <td><p>Genre</p></td>
-            <td><p>Треба адаптувати функцію пошуку жанрів</p></td>
+            <td><p>${item.genre_ids}</p></td>
           </tr>
         </tbody>
       </table>
