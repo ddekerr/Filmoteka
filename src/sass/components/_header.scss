@@ -1,4 +1,5 @@
 .header {
+  height: 230px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -10,7 +11,8 @@
     background-image: url('../images/header-background-mobile2x.jpg');           
   }
 
-  @media screen and (min-width: 768px) {            
+  @media screen and (min-width: 768px) {  
+    height: 216px;          
     background-image: url('../images/header-background-tablet.jpg');
     @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -20,6 +22,7 @@
   }
 
   @media screen and (min-width: 1280px) {
+    height: 216px;
     background-image: url('../images/header-background-desktop.jpg');
     @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -66,7 +69,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 40px;
-  padding-bottom: 60px;      
+  // padding-bottom: 60px;      
 }
 
 .header__up {
