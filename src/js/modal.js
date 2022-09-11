@@ -21,11 +21,16 @@ import {fetchMovieByID} from './filmoteka';
    }
 
    function openModal(e) {
+      if (e.target.nodeName !== "IMG") {
+      return;
+      }
+      
       refs.modalFilm.classList.toggle("is-open");
       document.body.style.overflow = 'hidden';
       document.addEventListener('keydown', offModalForEscape);
       document.addEventListener('click', offModalBackdrop);
       refs.modalBox.innerHTML = '';
+
       selectFilm(e);
    };
 
@@ -48,7 +53,9 @@ import {fetchMovieByID} from './filmoteka';
       }
    }
 
-      function selectFilm(event) {
+   function selectFilm(event) {
+
+
       const linkID = document.querySelector('.film__image');
       console.log(event.target.dataset.id);
       const FilmID = event.target.dataset.id;
