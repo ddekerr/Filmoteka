@@ -10,8 +10,14 @@
           <li class="nav__item"><a class="nav__link active link" href="./index.html">Home</a></li>
           <li class="nav__item"><a class="nav__link link" href="./library.html"
             id="header-mylibrary">my library</a></li></li>
-          <li class="nav__item header-logIn"><a class="nav__link " id="header-login" data-modal-open>Log In</a></li>
-          <li class="nav__item header-logOut is-hidden"><a class="nav__link" id="header-logout">Log Out</a></li>
+
+          <li class="nav__item logged-out">
+            <a class="nav__link modal-trigger" data-target="modal-login">
+            Log In</a></li>
+          <li class="nav__item logged-out">
+            <a class="nav__link modal-trigger" data-target="modal-signup">
+            Log Out</a></li>
+
         </ul>
       </nav>
     </div>
