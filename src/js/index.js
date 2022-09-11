@@ -1,13 +1,12 @@
 import { pagination } from './pagination';
 import { spinner } from './spinner';
 import { gallery, inputSearch, pag } from './refs';
-
 import debounce from 'lodash.debounce';
 import { topFunction, noReloadByEnter } from './functions';
 import { fetchTrendingMovies, fetchMovieByID } from './filmoteka';
 import { searchMovie } from './search-movie';
 import { createFilmsGallery, renderMarkup } from './markups';
-import { saveFilm, removeFilm } from './local-storage';
+import { onHoverBtnCLick } from './local-storage';
 
 import './modal';
 import modalteam from './modalteam';
@@ -63,23 +62,4 @@ function onPaginClick(e) {
     renderMarkup(gallery, markup);
     spinner.stop(gallery);
   });
-}
-
-/**
- * add or remove film from locale storage
- * Toggle data-action attr
- * Toggle innerHtml
- */
-function onHoverBtnCLick(e) {
-  if(e.target.nodeName === "BUTTON") {
-    if(e.target.dataset.action === 'add') {
-      saveFilm(e);
-      e.target.dataset.action = 'remove';
-      e.target.innerHTML = `Remove from ${e.target.dataset.btn}`
-    } else {
-      removeFilm(e);
-      e.target.dataset.action = 'add';
-      e.target.innerHTML = `add to ${e.target.dataset.btn}`
-    }
-  }
 }
