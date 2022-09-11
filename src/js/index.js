@@ -1,6 +1,7 @@
 import { pagination } from './pagination';
 import { spinner } from './spinner';
-import { gallery, inputSearch, addToWatchedBtn, addToQueueBtn } from './refs';
+import { gallery, inputSearch, pag } from './refs';
+
 import debounce from 'lodash.debounce';
 import { topFunction, noReloadByEnter } from './functions';
 import { fetchTrendingMovies, fetchMovieByID } from './filmoteka';
@@ -44,6 +45,8 @@ fetchTrendingMovies(page).then(data => {
   const markup = createFilmsGallery(data.results);
   spinner.stop(gallery);
   renderMarkup(gallery, markup);
+
+  pag.classList.remove('is-hidden');
 });
 
 //Pagination event function
