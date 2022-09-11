@@ -10,13 +10,8 @@ import searchMovie from './search-movie';
 import { pagination } from './pagination';
 import { spinner } from './spinner';
 
-import {
-  fetchTrendingMovies,
-  fetchMoviesByQuery,
-  fetchMovieByID,
-  genersForFilmCard,
-} from './filmoteka';
-import { createFilmsGallery } from './markups';
+import { fetchTrendingMovies, fetchMoviesByQuery, fetchMovieByID, } from './filmoteka';
+import { createFilmsGallery,  } from './markups';
 
 
 const pagin = pagination();
