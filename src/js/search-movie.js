@@ -7,13 +7,19 @@ import { pagination } from './pagination';
 import { fetchMoviesByQuery } from './filmoteka';
 import { createFilmsGallery, renderMarkup } from './markups';
 
+
+// Set pagination
 const pagin = pagination();
 const page = pagin.getCurrentPage();
+
 
 let query = '';
 let repeatQuery = null;
 
 export function searchMovie(e) {
+  // start spinner
+  spinner.spin(gallery);
+
   repeatQuery = query;
   query = e.target.value.trim();
   console.log(query);
@@ -40,6 +46,7 @@ export function searchMovie(e) {
     pagin.reset(total);
 
     const markup = createFilmsGallery(data.results);
+    spinner.stop(gallery);
     renderMarkup(gallery, markup);
   });
   
