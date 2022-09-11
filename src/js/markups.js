@@ -29,7 +29,7 @@ export function createFilmsGallery(items) {
           <div class="overlay">
             <ul class="option list">
               <li class="option__item">
-                <button type="button" data-btn="watched" class="option__button button">add to Watched</button>
+                <button type="button" data-id="${item.id}" data-btn="watched" class="option__button button">add to Watched</button>
               </li>
               <li class="option__item">
                 <button type="button" data-btn="queue" class="option__button button">add to queue</button>
