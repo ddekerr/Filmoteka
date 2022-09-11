@@ -46,12 +46,3 @@ var opts = {
 
 // включить спиннер
 export const spinner = new Spinner(opts);
-
-// выключить спиннер
-// var noSpinner = spinner.stop(target);
-
-
-
-
-
-
