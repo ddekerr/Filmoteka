@@ -8,6 +8,7 @@ import { genersForFilmCard } from './getGenres';
 export function createFilmsGallery(items) {
   const markupСard = items.map(item => {
     const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
+
     return `<li class="film">
       <a class="film__link link" href="#" ">
         <div class="film__image-container">

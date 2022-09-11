@@ -60,7 +60,3 @@ import {fetchMovieByID} from './filmoteka';
       })
    }
 })();
-
-
-
-   
