@@ -2,7 +2,7 @@ import { Notify } from 'notiflix';
 import { spinner } from './spinner';
 import options from './options-notiflix';
 import { gallery } from './refs';
-import { renderMarkup } from './functions'
+import { topFunction } from './functions';
 import { pagination } from './pagination';
 import { fetchMoviesByQuery } from './filmoteka';
 import { createFilmsGallery, renderMarkup } from './markups';
