@@ -10,3 +10,9 @@ export function topFunction() {
     behavior: 'smooth',
   });
 }
+
+function offModalForEscape(event) {
+  if (event.key === 'Escape') {
+     closeModal();
+  }
+}
