@@ -9,7 +9,7 @@ import { searchMovie } from './search-movie';
 import { createFilmsGallery, renderMarkup } from './markups';
 import { saveFilm, removeFilm } from './local-storage';
 
-import modal from './modal';
+import './modal';
 import modalteam from './modalteam';
 
 import './modal-log-in';
@@ -71,13 +71,15 @@ function onPaginClick(e) {
  * Toggle innerHtml
  */
 function onHoverBtnCLick(e) {
-  if(e.target.dataset.action === 'add') {
-    saveFilm(e);
-    e.target.dataset.action = 'remove';
-    e.target.innerHTML = `Remove from ${e.target.dataset.btn}`
-  } else {
-    removeFilm(e);
-    e.target.dataset.action = 'add';
-    e.target.innerHTML = `add to ${e.target.dataset.btn}`
+  if(e.target.nodeName === "BUTTON") {
+    if(e.target.dataset.action === 'add') {
+      saveFilm(e);
+      e.target.dataset.action = 'remove';
+      e.target.innerHTML = `Remove from ${e.target.dataset.btn}`
+    } else {
+      removeFilm(e);
+      e.target.dataset.action = 'add';
+      e.target.innerHTML = `add to ${e.target.dataset.btn}`
+    }
   }
 }
