@@ -5,7 +5,7 @@ import modal from './modal';
 import modalteam from './modalteam';
 // import './modal-log-in';
 // import './log-in';
-
+import searchMovie from './search-movie'
 // import './library-buttons';
 import { pagination } from './pagination';
 import {spinner} from './spinner';
