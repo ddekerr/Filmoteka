@@ -43,7 +43,7 @@ function offModalBackdrop(event) {
 
 
 function createModal(event) {
-   const selectedMovie = event.target.closest('li');
+   const selectedMovie = event.target.closest('.film__image');
    // let moviesData = JSON.parse(localStorage.getItem('moviesData'));
    if (selectedMovie) {
       const selectedMovieId = Number(selectedMovie.getAttribute('key'));
