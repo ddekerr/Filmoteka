@@ -10,7 +10,7 @@ export function createFilmsGallery(items) {
     const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
 
     return `<li class="film">
-      <a class="film__link link" href="#" ">
+      <a class="film__link link" href="" ">
         <div class="film__image-container">
           <img class="film__image" src="${src}" alt="${item.original_title}" load="lazy" data-id='${item.id}'/>
         </div>

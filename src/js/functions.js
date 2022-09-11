@@ -10,3 +10,7 @@ export function topFunction() {
     behavior: 'smooth',
   });
 }
+
+export function renderMarkup (container, markup) {
+  container.innerHTML = markup;
+}

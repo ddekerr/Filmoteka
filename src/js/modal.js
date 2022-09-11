@@ -21,6 +21,7 @@ import {fetchMovieByID} from './filmoteka';
    }
 
    function openModal(e) {
+      e.preventDefault();
       if (e.target.nodeName !== "IMG") {
       return;
       }
