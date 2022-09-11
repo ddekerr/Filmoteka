@@ -19,7 +19,7 @@ let user;
 headerMyLibrary.addEventListener('click', checkLogInForMyLibrary);
 
 function checkLogInForMyLibrary() {
-    chooseThemeForNotiflix();
+
     if (auth.currentUser === null) {
         headerMyLibrary.removeAttribute('href');
         Notiflix.Report.info('Stop', 'Please Log In', 'Okay');
