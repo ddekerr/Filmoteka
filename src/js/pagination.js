@@ -26,11 +26,6 @@ export function pagination(params = {}) {
         `</a>`,
     },
   };
+  
   return new Pagination(pag, { ...options, ...params });
-}
-export function topFunction() {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
 }
