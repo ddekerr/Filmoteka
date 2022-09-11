@@ -1,30 +1,30 @@
-.backdropteam {
-    z-index: 200;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    background-color: rgba(0, 0, 0, 0.56);
-    overflow: overlay;
-    padding: 20px 10px 38px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+// .backdropteam {
+//     z-index: 200;
+//     position: fixed;
+//     bottom: 0;
+//     right: 0;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     overflow-y: auto;
+//     background-color: rgba(0, 0, 0, 0.56);
+//     overflow: overlay;
+//     padding: 20px 10px 38px;
+//     opacity: 0;
+//     visibility: hidden;
+//     pointer-events: none;
+//     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+// }
 
-.backdropteam.is-open {
-    pointer-events: all;
-    opacity: 1;
-    visibility: visible;
-    padding-top: 20px;
-    padding-bottom: 38px;
-    z-index: 300;
-}
+// .backdropteam.is-open {
+//     pointer-events: all;
+//     opacity: 1;
+//     visibility: visible;
+//     padding-top: 20px;
+//     padding-bottom: 38px;
+//     z-index: 300;
+// }
 
 .modalteam__close {
     position: absolute;
@@ -133,9 +133,13 @@
 }
 
 .modalteam__article:hover {
-    transform: scale(1.17);
+    transform: scale(1.1);
     transition: 1s;
     filter: drop-shadow(0 0 1rem #ff6b0199);
+
+    @media (min-width: 768px) {
+        transform: scale(1.17);
+    }
 }
 
 .modalteam__article:hover .modalteam__img {
@@ -144,64 +148,92 @@
 }
 
 .modalteam__article h2 {
-    font-size: 23px;
+    font-size: 12px;
+    padding-top: 13px;
+    padding-right: 30px;
     line-height: 1;
     text-align: center;
-    padding-top: 20px;
-    padding-right: 40px;
-    padding-bottom: 10px;
     font-weight: 500;
     text-transform: uppercase;
     color: $card-accent-color;
 
+    @media (min-width: 576px) {
+        font-size: 23px;
+        padding-top: 20px;
+        padding-right: 40px;
+        padding-bottom: 10px;
+    }
+
     @media (min-width: 768px) {
         font-size: 16px;
-        padding-top: 20px;
+        padding-top: 12px;
+        padding-bottom: 5px;
+    }
+
+    @media (min-width: 1024px) {
+        font-size: 20px;
+        padding-top: 10px;
         padding-bottom: 10px;
     }
 
     @media (min-width: 1280px) {
-        font-size: 28px;
-        padding-top: 10px;
+        font-size: 26px;
         padding-bottom: 6px;
     }
 }
 
 .modalteam__text {
-    font-size: 20px;
+    font-size: 0.7vh;
+    padding-left: 35px;
+    padding-right: 40px;
     line-height: 1;
     width: 100%;
     text-align: center;
-    padding-left: 18px;
-    padding-right: 34px;
     color: $text-color-primary;
     margin: auto;
     font-weight: 400;
 
+    @media (min-width: 576px) {
+        font-size: 1.3vh;
+        padding-left: 20px;
+        padding-right: 38px;
+    }
+
     @media (min-width: 768px) {
-        font-size: 14px;
+        font-size: 0.9vh;
+
         padding-left: 20px;
         padding-right: 27px;
     }
 
+    @media (min-width: 1024px) {
+        padding-left: 20px;
+        padding-right: 33px;
+    }
+
     @media (min-width: 1280px) {
-        font-size: 17px;
+        font-size: 1.2vh;
         padding-left: 18px;
-        padding-right: 34px;
+        padding-right: 38px;
     }
 }
 
 .modalteam__link {
-    font-size: 14px;
-    color: $bg-color-primary;
-    padding-right: 5px;
+    display: none;
+
+    @media (min-width: 576px) {
+        display: block;
+        font-size: 1.3vh;
+        color: $bg-color-primary;
+        padding-right: 5px;
+    }
 
     @media (min-width: 768px) {
-        font-size: 10px;
+        font-size: 0.8vh;
     }
 
     @media (min-width: 1280px) {
-        font-size: 14px;
+        font-size: 1.2vh;
     }
 }
 
@@ -212,7 +244,6 @@
     justify-content: center;
     max-width: 50%;
     height: 100%;
-    font-size: calc(9 / var(--Nhexa) * 1vw);
     line-height: 1;
     color: $bg-color-primary;
     transition: 0.75s 0.05s;
@@ -231,10 +262,9 @@
     margin: 0;
     padding: 0px 16px;
     border-bottom-left-radius: 4px;
-
     z-index: 300;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1280px) {
         display: block;
         height: 153px;
         width: 272px;
@@ -245,10 +275,13 @@
     width: 100vw;
     background: $card-accent-color;
     margin-bottom: calc(var(--size) * 0.55 + var(--gap));
-    padding: 40px 0;
+    padding: 40px 60px 40px 0px;
     text-align: center;
     font-weight: 400;
     color: $bg-color-primary;
-    z-index: 100;
     filter: drop-shadow(0 0 1rem #ff6b0199);
+
+    @media (min-width: 576px) {
+        padding: 40px 70px 40px 0px;
+    }
 }
