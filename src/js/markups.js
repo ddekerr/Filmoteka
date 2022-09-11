@@ -44,9 +44,10 @@ export function createFilmsGallery(items) {
 export function createModalFilm(item) {
   const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
     return `
+    <div class="modal__movie">
     <button class="modal__close" modal-close>
     <svg class="modal__btn" width="20px" height="20px">
-       <use href="./images/icons.svg#icon-arrow-left" fill="black"></use>
+       <use  href="../src/images/icons.svg#icon-arrow-left" fill="black"></use>
     </svg>
     </button>
     <div class="modal__img">
@@ -91,4 +92,5 @@ export function createModalFilm(item) {
            <button type="button" data-btn="queue" class="modal-info__button button">add to queue</button>
          </li>
        </ul>
+    </div>
     </div>`}
