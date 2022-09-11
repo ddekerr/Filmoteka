@@ -23,24 +23,21 @@ export function createFilmsGallery(items) {
             <span class="film__rating">${item.vote_average.toFixed(1)}</span>
           </div>
         </div>
-      <div class="thumb">
-        <div class="overlay">
-        <ul class="option list">
-          <li class="option__item">
-      <button type="button" data-btn="watched" class="option__button button">
-        add to Watched
-      </button>
-        </li>
-        <li class="option__item">
-      <button type="button" data-btn="queue" class="option__button button">add to queue</button>
-        </li>
-      </ul>
-      </div>
-      </div>
+        <div class="thumb">
+          <div class="overlay">
+            <ul class="option list">
+              <li class="option__item">
+                <button type="button" data-btn="watched" class="option__button button">add to Watched</button>
+              </li>
+              <li class="option__item">
+                <button type="button" data-btn="queue" class="option__button button">add to queue</button>
+              </li>
+            </ul>
+          </div>
+        </div>
       </a>
     </li>
-  `}
-  ).join('');
+  `}).join('');
 
   return markupСard;
 }
