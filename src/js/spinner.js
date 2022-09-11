@@ -23,7 +23,7 @@ var opts = {
 };
 
 // // css спиннера для кнопки
-// var opts = {
+// var optsBtn = {
 //   lines: 9, // The number of lines to draw
 //   length: 5, // The length of each line
 //   width: 4, // The line thickness
