@@ -1,49 +1,66 @@
-import { gallery } from './refs';
-// import config from './config';
+import { pagination } from './pagination';
+import { spinner } from './spinner';
+import { gallery, inputSearch } from './refs';
+import debounce from 'lodash.debounce';
+import {topFunction, noReloadByEnter} from './functions'
+import { fetchTrendingMovies, fetchMovieByID, } from './filmoteka';
+import {searchMovie} from './search-movie';
+import { createFilmsGallery, renderMarkup } from './markups';
+
 
 import modal from './modal';
 import modalteam from './modalteam';
+
 import './modal-log-in';
 import './log-in';
-import searchMovie from './search-movie';
-// import './library-buttons';
-import { pagination, topFunction } from './pagination';
-import { spinner } from './spinner';
 
-import {
-  fetchTrendingMovies,
-  fetchMoviesByQuery,
-  fetchMovieByID,
-  genersForFilmCard,
-} from './filmoteka';
-import { createFilmsGallery } from './markups';
+
+// import './library-buttons';
+
+
+// Set pagination
+const pagin = pagination();
+const page = pagin.getCurrentPage();
+
+// start spinner
+spinner.spin(gallery);
+
+// Listeners
+pagin.on('beforeMove', onPaginClick);
+inputSearch.addEventListener('input', debounce(searchMovie, 1000));
+inputSearch.addEventListener('keydown', noReloadByEnter);
+
 
 /**
  * Default request when page opening
  * if everything fine render films gallery
+ * @param {Integer} page getting from pagination object
  */
-const pagin = pagination();
-const page = pagin.getCurrentPage();
-spinner.spin(gallery);
-
 fetchTrendingMovies(page).then(data => {
+  // Total films result - array.length of data.results object
   const total = data.total_results;
+  // Init counts of page depends of pagination instance (20 count on page)
   pagin.reset(total);
+
+  // Render list of objects
   const markup = createFilmsGallery(data.results);
-  gallery.innerHTML = markup;
   spinner.stop(gallery);
+  renderMarkup(gallery, markup);
 });
 
-pagin.on('beforeMove', event => {
-  spinner.spin(gallery);
+
+//Pagination event function
+function onPaginClick(e) {
   topFunction();
+  spinner.spin(gallery);
+
   // получаем номер активной страницы на кнопках
-  const currentPage = event.page;
+  const currentPage = e.page;
 
   // получаем фильмы согласно страницы
   fetchTrendingMovies(currentPage).then(data => {
     const markup = createFilmsGallery(data.results);
-    gallery.innerHTML = markup;
+    renderMarkup(gallery, markup);
     spinner.stop(gallery);
   });
-});
+}

@@ -51,7 +51,7 @@ export async function fetchMoviesByQuery(query, page) {
   try {
     const response = await axios.get('/search/movie', config)
       .then(response => response.data);
-    console.log(response);
+
       return response;
   } catch (error) {
     console.log(error.message);
@@ -76,6 +76,7 @@ export async function fetchMovieByID(id) {
   try {
     const response = await axios.get(`movie/${id}`, config)
       .then(response => response.data);
+      
     return response;
   } catch (error) {
     console.log(error.message);
