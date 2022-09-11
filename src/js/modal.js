@@ -52,7 +52,6 @@ import { fetchMovieByID } from './filmoteka';
       if (selectedMovie) {
          // console.log(event.target.dataset.id);
          fetchMovieByID(FilmID).then(data => {
-            console.log(data);
             const markup = createModalFilm(data);
             refs.backdrop.innerHTML = markup;
          });
