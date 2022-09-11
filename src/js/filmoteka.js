@@ -74,7 +74,8 @@ export async function fetchMovieByID(id) {
   }
 
   try {
-    const response = await axios.get(`movie/${id}`, config);
+    const response = await axios.get(`movie/${id}`, config)
+      .then(response => response.data);
     return response;
   } catch (error) {
     console.log(error.message);
