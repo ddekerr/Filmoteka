@@ -37,6 +37,9 @@ const refs = {
   inputSearch: document.querySelector('.search-form__input'),
 
   cardLink: document.querySelector('.films list'),
+
+  addToWatchedBtn: document.querySelector('[data-btn="watched"]'),
+  addToQueueBtn: document.querySelector('[data-btn="queue"]')
 };
 
 export const {

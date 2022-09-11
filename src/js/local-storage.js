@@ -3,7 +3,7 @@ import {fetchMovieByID} from './filmoteka';
 import './refs';
 
 
-function addFilmToLocaleStorage(newFilm, localeStorageKey) {
+export function addFilmToLocaleStorage(newFilm, localeStorageKey) {
   const localStData = JSON.parse(localStorage.getItem(localeStorageKey)) || [];
   const isFilmHere = localStData.find(film => film.id === newFilm.id) || false;
   if(!isFilmHere) {
@@ -12,7 +12,7 @@ function addFilmToLocaleStorage(newFilm, localeStorageKey) {
   }
 }
 
-function removeFilmFromLocalrStorage(newFilm, localeStorageKey){
+export function removeFilmFromLocalrStorage(newFilm, localeStorageKey){
   const localStData = JSON.parse(localStorage.getItem(localeStorageKey)) || false;
   if(localStData) {
     const newArr = localStData.filter(film => film.id !== newFilm.id);
