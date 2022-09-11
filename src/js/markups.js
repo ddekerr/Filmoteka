@@ -9,8 +9,7 @@ export function createFilmsGallery(items) {
   const markupСard = items.map(item => {
     const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
     return `
-    <li class="film">
-      <a class="film__link link" href="">
+    <li class="film" key='${item.id}'>
         <div class="film__image-container">
           <img class="film__image" src="${src}" alt="${item.original_title}" load="lazy"/>
         </div>
@@ -35,7 +34,6 @@ export function createFilmsGallery(items) {
             </ul>
           </div>
         </div>
-      </a>
     </li>
   `}).join('');
 
