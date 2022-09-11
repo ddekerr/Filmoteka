@@ -25,7 +25,7 @@
         @content;
       }
     } @else if $range == notDesktop {
-      @media (mix-width: #{$desktop - 0.02}) {
+      @media (max-width: #{$desktop - 0.02}) {
         @content;
       }
     } @else if $range == retina {

@@ -7,6 +7,10 @@
     bottom: 60px;
     width: 100%;
     transform: translateY(100%);
+
+        @include mq(notDesktop) {
+        bottom: 40px;
+        }
 }
 
 .option {
@@ -17,16 +21,21 @@
 }
 
 .option__item {
-    width: 136px;
-    height: 45px;
+
 }
 
 .option__button {
     display: block;
+    height: 45px;
+    padding: 0 10px;
     color: #fdfdfd;
-    height: 44px;
+    font-size: 14px;
     background-color: #eb11118a;
     border: none;
+
+    @include mq(notDesktop) {
+        width: 90px;
+    }
 }
 
 .option__button:hover,

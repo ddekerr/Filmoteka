@@ -7,6 +7,7 @@ import { inputSearch } from './refs';
 import { gallery } from './refs';
 
 import { pagination } from './pagination';
+import { noReloadByEnter } from './config'
 import { fetchMoviesByQuery } from './filmoteka';
 import { createFilmsGallery } from './markups';
 
@@ -14,12 +15,12 @@ const pagin = pagination();
 const page = pagin.getCurrentPage();
 
 inputSearch.addEventListener('input', debounce(searchMovie, 1000));
+inputSearch.addEventListener('keydown', noReloadByEnter);
 
 let query = '';
 let repeatQuery = null;
 
 export async function searchMovie(e) {
-  e.preventDefault();
   repeatQuery = query;
   query = e.target.value.trim();
   console.log(query);
