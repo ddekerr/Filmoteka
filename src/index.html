@@ -26,12 +26,37 @@
   <include src="./partials/modal.html"></include>
   
   <!-- Modal form for authentication and authorization -->
-  <include src="./partials/modal-log-in.html"></include>
-  <!-- Compiled and minified authorization -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <include src="./partials/auth.html"></include>
+
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+
+  <script>
+    // Initialize Firebase
+    const config = {
+      apiKey: 'AIzaSyCQJz2vOBbe5EiJc3t4fitywdYVLNeFXIs',
+      authDomain: 'filmotekanew-2fb4d.firebaseapp.com',
+      projectId: 'filmotekanew-2fb4d',
+      storageBucket: 'filmotekanew-2fb4d.appspot.com',
+      messagingSenderId: '26802429231',
+      appId: '1:26802429231:web:2077e86ecbb42fc16595da',
+      measurementId: 'G-B2L28LWY5L',
+    };
+    firebase.initializeApp(config);
+
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // update firestore settings
+    db.settings({ timestampsInSnapshots: true });
+  </script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script src="js/firebase.js"></script>
   <!-- Modal form for Singlr card film -->
   <include src="./partials/modal-team.html"></include>
 
