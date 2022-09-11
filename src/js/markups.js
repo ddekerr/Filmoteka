@@ -103,3 +103,13 @@ export function createModalFilm(item) {
     </div>
   `
 }
+
+
+/**
+ * Render markup yo container
+ * @param {HTML Object} container 
+ * @param {String} markup 
+ */
+export function renderMarkup (container, markup) {
+  container.innerHTML = markup;
+}

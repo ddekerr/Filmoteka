@@ -1,17 +1,18 @@
-import { gallery } from './refs';
-import {topFunction, noReloadByEnter, renderMarkup} from './functions'
+import { pagination } from './pagination';
+import { spinner } from './spinner';
+import { gallery, inputSearch } from './refs';
+import debounce from 'lodash.debounce';
+import {topFunction, noReloadByEnter} from './functions'
+import { fetchTrendingMovies, fetchMovieByID, } from './filmoteka';
+import {searchMovie} from './search-movie';
+import { createFilmsGallery, renderMarkup } from './markups';
+
 
 import modal from './modal';
 import modalteam from './modalteam';
 // import './modal-log-in';
 // import './log-in';
-import searchMovie from './search-movie';
 // import './library-buttons';
-import { pagination } from './pagination';
-import { spinner } from './spinner';
-
-import { fetchTrendingMovies, fetchMoviesByQuery, fetchMovieByID, } from './filmoteka';
-import { createFilmsGallery,  } from './markups';
 
 
 // Set pagination
@@ -23,6 +24,9 @@ spinner.spin(gallery);
 
 // Listeners
 pagin.on('beforeMove', onPaginClick);
+inputSearch.addEventListener('input', debounce(searchMovie, 1000));
+inputSearch.addEventListener('keydown', noReloadByEnter);
+
 
 /**
  * Default request when page opening

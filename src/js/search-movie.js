@@ -1,21 +1,14 @@
-import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix';
-
+import { spinner } from './spinner';
 import options from './options-notiflix';
-
-import { inputSearch } from './refs';
 import { gallery } from './refs';
-
+import { renderMarkup } from './functions'
 import { pagination } from './pagination';
-import { noReloadByEnter } from './config'
 import { fetchMoviesByQuery } from './filmoteka';
-import { createFilmsGallery } from './markups';
+import { createFilmsGallery, renderMarkup } from './markups';
 
 const pagin = pagination();
 const page = pagin.getCurrentPage();
-
-inputSearch.addEventListener('input', debounce(searchMovie, 1000));
-inputSearch.addEventListener('keydown', noReloadByEnter);
 
 let query = '';
 let repeatQuery = null;
@@ -35,31 +28,35 @@ export async function searchMovie(e) {
   }
   
   fetchMoviesByQuery(query, page).then(data => {
-    console.log(data)
     if (data.results.length === 0) {
-      gallery.innerHTML = '';
+      renderMarkup(gallery, '');
       Notify.failure('Search result not successful. Enter the correct movie name and try again please.', options);
       return;
     }
     
-    Notify.success(
-      `According to your request, we found ${data.total_results} movies.`,
-      options);
+    Notify.success(`According to your request, we found ${data.total_results} movies.`, options);
     
-  const total = data.total_results;
-  pagin.reset(total);
-  const markup = createFilmsGallery(data.results);
-  gallery.innerHTML = markup;
+    const total = data.total_results;
+    pagin.reset(total);
+
+    const markup = createFilmsGallery(data.results);
+    renderMarkup(gallery, markup);
   });
   
-  pagin.on('beforeMove', event => {
+  pagin.on('beforeMove', onPaginClick);
+}
+
+//Pagination event function
+function onPaginClick(e) {
+  topFunction();
+  spinner.spin(gallery);
+
   // получаем номер активной страницы на кнопках
-  const currentPage = event.page;
+  const currentPage = e.page;
+
   // получаем фильмы согласно страницы
   fetchMoviesByQuery(query, currentPage).then(data => {
     const markup = createFilmsGallery(data.results);
-    gallery.innerHTML = markup;
+    renderMarkup(gallery, markup);
   });
-});
 }
-
