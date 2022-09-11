@@ -13,7 +13,7 @@ const page = pagin.getCurrentPage();
 let query = '';
 let repeatQuery = null;
 
-export async function searchMovie(e) {
+export function searchMovie(e) {
   repeatQuery = query;
   query = e.target.value.trim();
   console.log(query);
