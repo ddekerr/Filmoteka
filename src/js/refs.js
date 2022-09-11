@@ -5,8 +5,9 @@ const refs = {
   modal: document.querySelector('[data-modal-login]'),
 
     // for log-in
-  headerLogIn: document.querySelector('.header-logIn'),
-  headerLogOut: document.querySelector('.header-logOut'),
+  headerMyLibrary: document.querySelector('#header-mylibrary'),
+  headerLogIn: document.querySelector('#header-login'),
+  headerLogOut: document.querySelector('#header-logout'),
   backdropLogIn: document.querySelector('.backdrop_login'),
   modalDivLogIn: document.querySelector('.modal_login'),
   formLogIn: document.querySelector('.modal_login__form'),
@@ -37,6 +38,7 @@ const refs = {
 };
 
 export const {
+  headerMyLibrary,
   headerLogIn,
   headerLogOut,
   openModalBtn,

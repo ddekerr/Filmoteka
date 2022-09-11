@@ -1,0 +1,254 @@
+.backdropteam {
+    z-index: 200;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.56);
+    overflow: overlay;
+    padding: 20px 10px 38px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdropteam.is-open {
+    pointer-events: all;
+    opacity: 1;
+    visibility: visible;
+    padding-top: 20px;
+    padding-bottom: 38px;
+    z-index: 300;
+}
+
+.modalteam__close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: transparent;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+:root {
+    --Nhexa: 4;
+    --gap: 2vw;
+    --size: calc(calc(100vw / var(--Nhexa)) - var(--gap));
+}
+
+@media (min-width: 1100px) {
+    :root {
+        --Nhexa: 4;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --Nhexa: 2;
+    }
+
+    body {
+        margin-right: calc(var(--size) * 0.3);
+    }
+}
+
+* {
+    position: relative;
+}
+
+.modalteam {
+    padding-right: calc(var(--size) * 0.5);
+    overflow-x: hidden;
+    border: 0 none;
+    background-color: $bg-color-primary;
+    width: 90%;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    border-radius: 15px;
+}
+
+.modalteam__section {
+    width: calc(var(--size) * calc(var(--Nhexa) - 1));
+    display: grid;
+    grid-template-columns: repeat(var(--Nhexa), 1fr);
+    grid-gap: var(--gap);
+    border-radius: 2px;
+    position: relative;
+
+    @media (min-width: 768px) {
+        margin: calc(var(--size) * 0.3) auto 0;
+    }
+}
+
+.modalteam__article {
+    background: radial-gradient(circle at 50% 0,
+            rgba(243, 108, 33, 0.2),
+            rgba(243, 108, 33, 0) 70.71%),
+        radial-gradient(circle at 6.7% 80%,
+            rgba(127, 20, 22, 0.2),
+            rgba(127, 20, 22, 0) 70.71%),
+        radial-gradient(circle at 93.3% 80%,
+            rgba(237, 31, 36, 0.2),
+            rgba(237, 31, 36, 0) 70.71%) beige;
+    width: var(--size);
+    height: calc(var(--size) / 1.1111111);
+    clip-path: url(#hexagono);
+    clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+    margin-right: calc(var(--size) / 2);
+    color: $bg-color-primary;
+    overflow: hidden;
+}
+
+.modalteam__article:nth-child(2n) {
+    margin: calc(var(--size) * -0.5) calc(var(--size) * -0.25) 0 calc(var(--size) * -0.75);
+}
+
+.modalteam__article:before {
+    content: ' ';
+    float: left;
+    width: 25%;
+    height: 100%;
+    clip-path: polygon(0% 0%, 100% 0%, 0% 50%, 100% 100%, 0% 100%);
+    shape-outside: polygon(0% 0%, 100% 0%, 0% 50%, 100% 100%, 0% 100%);
+}
+
+.modalteam__img {
+    width: var(--size);
+    height: var(--size);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: 0% 50%;
+    transition: 0.75s;
+    clip-path: url(#hexagono);
+    clip-path: inherit;
+    z-index: 100;
+}
+
+.modalteam__article:hover {
+    transform: scale(1.17);
+    transition: 1s;
+    filter: drop-shadow(0 0 1rem #ff6b0199);
+}
+
+.modalteam__article:hover .modalteam__img {
+    transform: translate(-50%, -50%) rotate(-120deg);
+    transition: 0.8s;
+}
+
+.modalteam__article h2 {
+    font-size: 23px;
+    line-height: 1;
+    text-align: center;
+    padding-top: 20px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $card-accent-color;
+
+    @media (min-width: 768px) {
+        font-size: 16px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+
+    @media (min-width: 1280px) {
+        font-size: 28px;
+        padding-top: 10px;
+        padding-bottom: 6px;
+    }
+}
+
+.modalteam__text {
+    font-size: 20px;
+    line-height: 1;
+    width: 100%;
+    text-align: center;
+    padding-left: 18px;
+    padding-right: 34px;
+    color: $text-color-primary;
+    margin: auto;
+    font-weight: 400;
+
+    @media (min-width: 768px) {
+        font-size: 14px;
+        padding-left: 20px;
+        padding-right: 27px;
+    }
+
+    @media (min-width: 1280px) {
+        font-size: 17px;
+        padding-left: 18px;
+        padding-right: 34px;
+    }
+}
+
+.modalteam__link {
+    font-size: 14px;
+    color: $bg-color-primary;
+    padding-right: 5px;
+
+    @media (min-width: 768px) {
+        font-size: 10px;
+    }
+
+    @media (min-width: 1280px) {
+        font-size: 14px;
+    }
+}
+
+.modalteam__figure {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    max-width: 50%;
+    height: 100%;
+    font-size: calc(9 / var(--Nhexa) * 1vw);
+    line-height: 1;
+    color: $bg-color-primary;
+    transition: 0.75s 0.05s;
+    text-align: center;
+}
+
+.modalteam__header {
+    position: relative;
+}
+
+.modalteam__mainimg {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0px 16px;
+    border-bottom-left-radius: 4px;
+
+    z-index: 300;
+
+    @media (min-width: 768px) {
+        display: block;
+        height: 153px;
+        width: 272px;
+    }
+}
+
+.modalteam__title {
+    width: 100vw;
+    background: $card-accent-color;
+    margin-bottom: calc(var(--size) * 0.55 + var(--gap));
+    padding: 40px 0;
+    text-align: center;
+    font-weight: 400;
+    color: $bg-color-primary;
+    z-index: 100;
+    filter: drop-shadow(0 0 1rem #ff6b0199);
+}

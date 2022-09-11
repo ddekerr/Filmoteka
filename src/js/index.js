@@ -3,6 +3,7 @@ import { gallery } from './refs';
 
 import modal from './modal';
 import modalFilmmarkup from'./modalFilmMarkup';
+import modalteam from './modalteam';
 // import './modal-log-in';
 // import './log-in';
 
