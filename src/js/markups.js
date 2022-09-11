@@ -1,5 +1,7 @@
 import config from './config';
 import { genersForFilmCard } from './getGenres';
+
+
 /**
  * Function generate markup string from array of objects
  * @param {Array of Objects} items
@@ -41,6 +43,13 @@ export function createFilmsGallery(items) {
 
   return markupСard;
 }
+
+
+/**
+ * Function generate markup string from object
+ * @param {Object} item film object
+ * @returns {String} markup
+ */
 export function createModalFilm(item) {
   const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
   return `
