@@ -7,8 +7,6 @@ if (openModalBtn) {
 };
 
 function openModalLogIn() {
-  setThemOnModalLogIn();
-  chooseThemeForNotiflix();
   document.body.style.overflow = 'hidden';
   buttonShowPassword.addEventListener("click", showPassword);
   modal.classList.remove("is-hidden");
@@ -53,14 +51,3 @@ function showPassword() {
     iconForUnShowPassword.classList.add('visually-hidden');
   };
 };
-
-
-// для темної версії
-
-// function setThemOnModalLogIn() {
-//   if (document.querySelector('body').classList.contains('dark')) {
-//     modalDivLogIn.classList.add('modal_login--dark');
-//   } else {
-//     modalDivLogIn.classList.remove('modal_login--dark');
-//   };
-// };
