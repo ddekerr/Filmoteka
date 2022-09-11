@@ -46,6 +46,7 @@ import { fetchMovieByID } from './filmoteka';
    };
 
    function createModal(event) {
+      event.preventDefault();
       const selectedMovie = event.target.closest('.film__image');
       const FilmID = event.target.dataset.id;
       if (selectedMovie) {
@@ -55,7 +56,7 @@ import { fetchMovieByID } from './filmoteka';
             const markup = createModalFilm(data);
             refs.backdrop.innerHTML = markup;
          });
-         openModal()      
+         openModal();
          refs.backdrop.innerHTML = '';
       }
    };
