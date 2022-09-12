@@ -14,6 +14,7 @@ export function createFilmsGallery(items) {
     if(item.hasOwnProperty('genre_ids')) {genres = genersForFilmCard(item.genre_ids)}
     else {genres = item.genres.map(item => item.name).join(', ')}
 
+
     return `<li class="film">
       <a class="film__link link" href="" ">
         <div class="film__image-container">
