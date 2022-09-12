@@ -8,14 +8,14 @@ import { genersForFilmCard } from './getGenres';
  * @returns {String} markup
  */
 export function createFilmsGallery(items) {
-  const markupСard = items.map(item => {
-    const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
-    let genres;
-    if(item.hasOwnProperty('genre_ids')) {genres = genersForFilmCard(item.genre_ids)}
-    else {genres = item.genres.map(item => item.name).join(', ')}
+   const markupСard = items.map(item => {
+      const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
+      let genres;
+      if (item.hasOwnProperty('genre_ids')) { genres = genersForFilmCard(item.genre_ids) }
+      else { genres = item.genres.map(item => item.name).join(', ') }
 
 
-    return `<li class="film">
+      return `<li class="film">
       <a class="film__link link" href="" ">
         <div class="film__image-container">
           <img class="film__image" src="${src}" alt="${item.original_title}" load="lazy" data-id='${item.id}'/>
@@ -45,7 +45,7 @@ export function createFilmsGallery(items) {
     </li>
   `}).join('');
 
-  return markupСard;
+   return markupСard;
 }
 
 /**
@@ -53,13 +53,15 @@ export function createFilmsGallery(items) {
  * @param {Object} item film object
  * @returns {String} markup
  */
- export function createModalFilm(item) {
-  const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
-    return `
+export function createModalFilm(item) {
+   const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
+   return `
     <div class="modal__movie">
     <button class="modal__close">
     <svg class="modal__btn" width="20px" height="20px">
-      <use  href="./images/icons.svg#icon-close" fill="black"></use>
+    width="20" height="20" viewBox="0 0 20 20">
+    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+    </svg>
     </svg>
     </button>
       <div class="modal__img">
@@ -114,6 +116,6 @@ export function createFilmsGallery(items) {
  * @param {HTML Object} container 
  * @param {String} markup 
  */
-export function renderMarkup (container, markup) {
-  container.innerHTML = markup;
+export function renderMarkup(container, markup) {
+   container.innerHTML = markup;
 }

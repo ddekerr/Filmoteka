@@ -40,13 +40,15 @@
    background-color: transparent;
    cursor: pointer;
    transition: all $tr-duration $tr-function;
-
-   &:hover,
-   :focus{
-      background-color: $card-accent-color;
-   }
 }
 
+.modal__btn{
+   fill:$text-color-secondary;
+   &:hover,
+   :focus{
+      fill: $card-accent-color;
+   }
+}
 
 
 .modal__movie {
