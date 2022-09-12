@@ -18,9 +18,8 @@ import { fetchMovieByID } from './filmoteka';
       document.addEventListener('keydown', offModalForEscape);
       document.addEventListener('click', offModalBackdrop);
       document.addEventListener('click', offModalButton);
-      document
-      .querySelector('.modal__close')
-      .addEventListener('click', closeModal);
+      document.querySelector('.modal__close')
+      document.addEventListener('click', closeModal);
    };
 
    function closeModal() {
@@ -58,9 +57,6 @@ import { fetchMovieByID } from './filmoteka';
             return data;
          })
          openModal();
-
       }
-
    };
-
 })();

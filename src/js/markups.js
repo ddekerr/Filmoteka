@@ -60,9 +60,6 @@ export function createFilmsGallery(items, hide) {
     return `
     <div class="modal__movie">
     <button class="modal__close">
-    <svg class="modal__btn" width="20px" height="20px">
-      <use  href="./images/icons.svg#icon-close" fill="black"></use>
-    </svg>
     </button>
       <div class="modal__img">
         <img src="${src}" alt="${item.original_title}" />
