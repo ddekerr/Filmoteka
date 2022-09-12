@@ -18,7 +18,7 @@
       refs.modalTeam.classList.toggle("is-open");
       document.body.style.overflow = 'hidden';
       document.addEventListener('keydown', offModalForEscape);
-      document.addEventListener('click', offModalBackdrop)
+      document.addEventListener('click', offModalBackdropTeam)
    };
 
    function closeModalTeam() {
