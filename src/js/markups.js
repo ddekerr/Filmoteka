@@ -54,11 +54,11 @@ export function createFilmsGallery(items) {
   const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
     return `
     <div class="modal__movie">
-      <button class="modal__close" modal-close>
-      <svg class="modal__btn" width="20px" height="20px">
-        <use  href="./images/icons.svg#icon-arrow-left" fill="black"></use>
-      </svg>
-      </button>
+    <button class="modal__close">
+    <svg class="modal__btn" width="20px" height="20px">
+      <use  href="./images/icons.svg#icon-close" fill="black"></use>
+    </svg>
+    </button>
       <div class="modal__img">
         <img src="${src}" alt="${item.original_title}" />
       </div>
@@ -73,15 +73,15 @@ export function createFilmsGallery(items) {
               </td>
             </tr>
             <tr class="modal-info__row">
-              <td><p>Popularity</p></td>
+              <td><p class="modal-info__attribute">Popularity</p></td>
               <td><p>${item.popularity}</p></td>
             </tr>
             <tr class="modal-info__row">
-              <td><p>Original Title</p></td>
+              <td><p class="modal-info__attribute">Original Title</p></td>
               <td><p>${item.original_title}</p></td>
             </tr>
             <tr class="modal-info__row">
-              <td><p>Genre</p></td>
+              <td><p class="modal-info__attribute">Genre</p></td>
               <td><p>${item.genres.map(item => item.name).join(', ')}</p></td>
             </tr>
           </tbody>
@@ -96,7 +96,7 @@ export function createFilmsGallery(items) {
               add to Watched
             </button>
           </li>
-          <li class="modal-info__button-item">
+          <li class="modal-info__button-item modal-info__btn">
             <button type="button" data-btn="queue" class="modal-info__button button">add to queue</button>
           </li>
         </ul>

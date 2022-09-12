@@ -6,7 +6,7 @@ import { fetchMovieByID } from './filmoteka';
    const refs = {
       openModalButton: document.querySelector(".films"),
       closeModalButton: document.querySelector(".modal__close"),
-      backdrop: document.querySelector('.backdrop'),
+      backdrop: document.querySelector('.backdrop-film'),
    };
 
    if (refs.openModalButton) {
@@ -17,13 +17,13 @@ import { fetchMovieByID } from './filmoteka';
       refs.closeModalButton.addEventListener("click", closeModal);
    }
 
+
    function openModal() {
       refs.backdrop.classList.toggle("is-open");
       document.body.style.overflow = 'hidden';
       document.addEventListener('keydown', offModalForEscape);
       document.addEventListener('click', offModalBackdrop);
-      refs.modalBox.innerHTML = '';
-      selectFilm(e);
+
    };
 
    function closeModal() {
@@ -31,7 +31,7 @@ import { fetchMovieByID } from './filmoteka';
       document.body.style.overflow = 'overlay';
       document.removeEventListener('keydown', offModalForEscape);
       document.removeEventListener('click', offModalBackdrop)
-
+      refs.backdrop.innerHTML = '';
    };
 
    function offModalForEscape(event) {
@@ -56,7 +56,7 @@ import { fetchMovieByID } from './filmoteka';
             refs.backdrop.innerHTML = markup;
          });
          openModal();
-         refs.backdrop.innerHTML = '';
+         // refs.backdrop.innerHTML = '';
       }
    };
 })();
