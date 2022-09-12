@@ -55,7 +55,7 @@ import { fetchMovieByID } from './filmoteka';
          await fetchMovieByID(FilmID).then(data => {
             const markup = createModalFilm(data);
             refs.backdrop.innerHTML = markup;
-            return dataLocal = data;
+            return data;
          })
          openModal();
 
