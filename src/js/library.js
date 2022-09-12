@@ -3,7 +3,7 @@ import { getWatchedItems } from './library-buttons';
 import { createFilmsGallery } from './markups';
 import { pagination } from './pagination';
 import './plug-for-library';
-
+import './modal';
 import modalteam from './modalteam';
 
 const pagin = pagination();
