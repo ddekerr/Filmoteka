@@ -10,6 +10,12 @@ import { genersForFilmCard } from './getGenres';
 export function createFilmsGallery(items) {
   const markupСard = items.map(item => {
     const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
+    let genres;
+    if(item.hasOwnProperty('genre_ids')) {
+      genres = genersForFilmCard(item.genre_ids);
+    } else {
+      genres = item.genres.map(item => item.name).join(', ');
+    }
 
     return `<li class="film">
       <a class="film__link link" href="" ">
@@ -19,7 +25,7 @@ export function createFilmsGallery(items) {
         <div class="film__info">
           <h2 class="film__name title">${item.title}</h2>
           <div class="film__description">
-            <span class="film__genre">${genersForFilmCard(item.genre_ids)}</span>
+            <span class="film__genre">${genres}</span>
             <span class="film__span">&#124;</span>
             <span class="film__year">${item.release_date.slice(0, 4)}</span>
             <span class="film__rating">${item.vote_average.toFixed(1)}</span>
