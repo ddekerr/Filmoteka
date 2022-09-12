@@ -35,7 +35,7 @@ const refs = {
 
   //search movies button on index.html page
   inputSearch: document.querySelector('.search-form__input'),
-
+  svgSearch: document.querySelector('.search-form__icon'),
   cardLink: document.querySelector('.films list'),
 
   addToWatchedBtn: document.querySelector('[data-btn="watched"]'),
@@ -57,6 +57,7 @@ export const {
   formWrapName,
   inputPassword,
   inputSearch,
+  svgSearch,
   buttonShowPassword,
   iconForShowPassword,
   iconForUnShowPassword,

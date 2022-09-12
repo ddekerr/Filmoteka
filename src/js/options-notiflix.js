@@ -22,6 +22,4 @@ export default options = {
     background: 'transparent',
     textColor: '#08C4FF',
   }
-
-  
 };

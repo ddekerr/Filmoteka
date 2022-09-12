@@ -1,7 +1,7 @@
 import { Notify } from 'notiflix';
 import { spinner } from './spinner';
 import options from './options-notiflix';
-import { gallery } from './refs';
+import { gallery, svgSearch, imp } from './refs';
 import { topFunction } from './functions';
 import { pagination } from './pagination';
 import { fetchMoviesByQuery } from './filmoteka';
@@ -45,10 +45,11 @@ export function searchMovie(e) {
     pagin.reset(total);
 
     const markup = createFilmsGallery(data.results);
-    spinner.stop(gallery);
     renderMarkup(gallery, markup);
+
+    spinner.stop(gallery);
   });
-  
+  svgSearch.classList.remove('animation');
   pagin.on('beforeMove', onPaginClick);
 }
 
@@ -66,3 +67,4 @@ function onPaginClick(e) {
     renderMarkup(gallery, markup);
   });
 }
+

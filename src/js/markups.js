@@ -11,11 +11,9 @@ export function createFilmsGallery(items) {
   const markupСard = items.map(item => {
     const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
     let genres;
-    if(item.hasOwnProperty('genre_ids')) {
-      genres = genersForFilmCard(item.genre_ids);
-    } else {
-      genres = item.genres.map(item => item.name).join(', ');
-    }
+    if(item.hasOwnProperty('genre_ids')) {genres = genersForFilmCard(item.genre_ids)}
+    else {genres = item.genres.map(item => item.name).join(', ')}
+
 
     return `<li class="film">
       <a class="film__link link" href="" ">
@@ -50,7 +48,6 @@ export function createFilmsGallery(items) {
   return markupСard;
 }
 
-
 /**
  * Function generate markup string from object
  * @param {Object} item film object
@@ -75,7 +72,7 @@ export function createFilmsGallery(items) {
             <tr class="modal-info__row">
               <td><p class="modal-info__attribute">Vote / Votes</p></td>
               <td>
-                <p><span class="film__rating modal-info__rating">${item.vote_average}</span> / ${item.vote_count}</p>
+                <p><span class="film__rating modal-info__rating">${item.vote_average.toFixed(1)}</span> / ${item.vote_count}</p>
               </td>
             </tr>
             <tr class="modal-info__row">
