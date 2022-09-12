@@ -1,4 +1,4 @@
-import { pagination } from './pagination';
+import pagination from './pagination';
 import { spinner } from './spinner';
 import { gallery, inputSearch, svgSearch, pag, cardModal } from './refs';
 import debounce from 'lodash.debounce';
@@ -18,14 +18,13 @@ import './modal-log-in';
 // import './library-buttons';
 
 // Set pagination
-const pagin = pagination();
-const page = pagin.getCurrentPage();
+const page = pagination.getCurrentPage();
 
 // start spinner
 spinner.spin(gallery);
 
 // Listeners
-pagin.on('beforeMove', onPaginClick);
+pagination.on('beforeMove', onPaginClick);
 inputSearch.addEventListener('input', debounce(searchMovie, 1000));
 inputSearch.addEventListener('keydown', noReloadByEnter);
 inputSearch.addEventListener('input', debounce(addAnimation, 100));
@@ -40,7 +39,7 @@ fetchTrendingMovies(page).then(data => {
   // Total films result - array.length of data.results object
   const total = data.total_results;
   // Init counts of page depends of pagination instance (20 count on page)
-  pagin.reset(total);
+  pagination.reset(total);
 
   // Render list of objects
   const markup = createFilmsGallery(data.results);
