@@ -4,6 +4,7 @@ import { createFilmsGallery } from './markups';
 import { pagination } from './pagination';
 import './plug-for-library';
 
+import modalteam from './modalteam';
 
 const pagin = pagination();
 
