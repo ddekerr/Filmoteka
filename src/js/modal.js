@@ -6,7 +6,7 @@ import { fetchMovieByID } from './filmoteka';
    const refs = {
       openModalButton: document.querySelector(".films"),
       closeModalButton: document.querySelector(".modal__close"),
-      backdrop: document.querySelector('.backdrop-film'),
+      backdrop: document.querySelector('.backdrop'),
    };
 
    if (refs.openModalButton) {
@@ -16,7 +16,6 @@ import { fetchMovieByID } from './filmoteka';
    if (refs.closeModalButton) {
       refs.closeModalButton.addEventListener("click", closeModal);
    }
-
 
    function openModal() {
       refs.backdrop.classList.toggle("is-open");
@@ -31,7 +30,7 @@ import { fetchMovieByID } from './filmoteka';
       document.body.style.overflow = 'overlay';
       document.removeEventListener('keydown', offModalForEscape);
       document.removeEventListener('click', offModalBackdrop)
-      refs.backdrop.innerHTML = '';
+
    };
 
    function offModalForEscape(event) {
@@ -45,18 +44,17 @@ import { fetchMovieByID } from './filmoteka';
       }
    };
 
-   function createModal(event) {
+async function createModal(event) {
       event.preventDefault();
       const selectedMovie = event.target.closest('.film__image');
       const FilmID = event.target.dataset.id;
       if (selectedMovie) {
-         // console.log(event.target.dataset.id);
-         fetchMovieByID(FilmID).then(data => {
+await  fetchMovieByID(FilmID).then(data => {
             const markup = createModalFilm(data);
             refs.backdrop.innerHTML = markup;
-         });
+            return dataLocal = data;
+         })
          openModal();
-         // refs.backdrop.innerHTML = '';
       }
    };
 })();
