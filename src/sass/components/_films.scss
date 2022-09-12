@@ -74,14 +74,10 @@
   }
 }
 .film__name {
-  margin-top: 8px;
   overflow: auto;
   height: 17px;
   @media (min-width: 768px) {
     height: 24px;
-  }
-  @media (min-width: 1280px) {
-    margin-top: 12px;
   }
 }
 
