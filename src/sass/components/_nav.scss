@@ -1,6 +1,11 @@
+.nav {
+  margin-left: auto;
+  margin-right: 30px;  
+}
+
 .nav__list {
-  display: flex;
-  margin-left: auto;    
+  display: flex; 
+  margin-left: auto;  
 }
 
 .nav__item:not(:first-child) {
@@ -10,6 +15,7 @@
     margin-left: 40px;
   }
 }
+
 
 .nav__link {
   position: relative;    
