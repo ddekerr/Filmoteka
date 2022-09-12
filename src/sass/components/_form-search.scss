@@ -1,26 +1,12 @@
-.search-form {
+.search-form { 
     position: relative;
-    margin-top: 60px;    
-    margin-left: auto;
-    margin-right: auto;
+    margin: 60px auto 0;
+    width: 280px; 
+      
 
     @media screen and (min-width: 768px) {
         margin-top: 40px;
     }
-}
-
-.search-form__input {    
-    display: block;
-    width: 280px;
-    height: 20px;
-    border-top: 1px transparent;
-    border-right: 1px transparent;
-    border-bottom: 1px solid $bg-color-primary;
-    border-left: 1px transparent;
-    outline: none; 
-    background-color: transparent;
-    color: $text-color-active;
-
     @media screen and (min-width: 768px) {
         width: 336px;  
     }
@@ -28,6 +14,19 @@
     @media screen and (min-width: 1280px) {
         width: 394px;  
     }
+}
+
+.search-form__input {       
+    display: block;    
+    height: 20px; 
+    width: 100%;   
+    border-top: 1px transparent;
+    border-right: 1px transparent;
+    border-bottom: 1px solid $bg-color-primary;
+    border-left: 1px transparent;
+    outline: none; 
+    background-color: transparent;
+    color: $text-color-active;    
 }
 
 ::placeholder {

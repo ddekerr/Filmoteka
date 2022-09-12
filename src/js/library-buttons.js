@@ -1,8 +1,9 @@
 import { createFilmsGallery } from './markups';
 import { pagination } from './pagination';
 import { topFunction } from './functions';
+import { pag, gallery } from './refs';
 
-const gallery = document.querySelector('.films');
+
 const queueBtn = document.querySelector('[data-queue="data-queue"]');
 const watchedBtn = document.querySelector('[data-watched="data-watched"]');
 
@@ -24,8 +25,15 @@ const paginate = (array, pageSize, pageNumber) => {
 export function getWatchedItems() {
   const watchedMovies = localStorage.getItem('watched');
     let arrayOFWatched = JSON.parse(watchedMovies);
+    const total = arrayOFWatched.length;
 
-  const total = arrayOFWatched.length;
+    // включаем пагинацию если больше 20 фильмов
+    if (arrayOFWatched.length > 20) {
+        pag.classList.remove('is-hidden');
+    } else if (arrayOFWatched.length <= 20) {
+       pag.classList.add('is-hidden'); 
+    }
+
   // рендерим первые 20 фильмов
   const markup = createFilmsGallery(paginate(arrayOFWatched, 20, 1));
   gallery.innerHTML = markup;
@@ -37,9 +45,16 @@ export function getWatchedItems() {
 function getQueueItems() {
   const queueMovies = localStorage.getItem('queue');
     let arrayOFQueue = JSON.parse(queueMovies);
-
-  const total = arrayOFQueue.length;
-  // рендерим первые 20 фильмов
+    const total = arrayOFQueue.length;
+    
+  // включаем пагинацию если больше 20 фильмов
+     if (arrayOFQueue.length > 20) {
+        pag.classList.remove('is-hidden');
+    } else if (arrayOFQueue.length <= 20) {
+       pag.classList.add('is-hidden'); 
+     }
+    
+    // рендерим первые 20 фильмов
   const markup = createFilmsGallery(paginate(arrayOFQueue, 20, 1));
   gallery.innerHTML = markup;
   pagin.reset(total);
@@ -51,8 +66,9 @@ function getQueueItems() {
 // функции нажатия на кнопки 
 
 function onClickWatched(e) {
-  getWatchedItems();
-  // рендерим пагинацию остальных страниц
+    getWatchedItems();
+    
+    // рендерим пагинацию остальных страниц
     pagin.on('beforeMove', event => {
         topFunction();
     // получаем номер активной страницы на кнопках
@@ -62,7 +78,9 @@ function onClickWatched(e) {
     console.log(arrayForMarkup);
     const markup = createFilmsGallery(arrayForMarkup);
     gallery.innerHTML = markup;
-  });
+    });
+
+    // вкл/выкл кнопок
   queueBtn.disabled = false;
   queueBtn.classList.remove('active');
   watchedBtn.classList.add('active');
@@ -71,8 +89,9 @@ function onClickWatched(e) {
 
 
 function onclickQueue(e) {
- getQueueItems();
-  // рендерим пагинацию остальных страниц
+    getQueueItems();
+    
+    // рендерим пагинацию остальных страниц
     pagin.on('beforeMove', event => {
         topFunction();
     // получаем номер активной страницы на кнопках
@@ -82,7 +101,9 @@ function onclickQueue(e) {
     console.log(arrayForMarkup);
     const markup = createFilmsGallery(arrayForMarkup);
     gallery.innerHTML = markup;
-  });
+    });
+
+    // вкл/выкл кнопок
   watchedBtn.disabled = false;
   queueBtn.classList.add('active');
   watchedBtn.classList.remove('active');
