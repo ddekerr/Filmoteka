@@ -35,7 +35,7 @@ export function getWatchedItems() {
     }
 
   // рендерим первые 20 фильмов
-  const markup = createFilmsGallery(paginate(arrayOFWatched, 20, 1));
+  const markup = createFilmsGallery(paginate(arrayOFWatched, 20, 1), true);
   gallery.innerHTML = markup;
   pagin.reset(total);
   return arrayOFWatched;
