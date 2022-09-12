@@ -55,8 +55,5 @@ await  fetchMovieByID(FilmID).then(data => {
          })
          openModal();
       }
-         console.log(FilmID);
-         console.log(dataLocal)
    };
 })();
-
