@@ -66,6 +66,6 @@ export function removeFilmFromLocalrStorage(id, localeStorageKey){
   const localStData = JSON.parse(localStorage.getItem(localeStorageKey)) || false;
   if(localStData) {
     const newArr = localStData.filter(film => film.id !== id);
-    localStorage.removeItem(localeStorageKey, JSON.stringify(newArr));
+    localStorage.setItem(localeStorageKey, JSON.stringify(newArr));
   }
 }
