@@ -24,7 +24,7 @@ const paginate = (array, pageSize, pageNumber) => {
 
 export function getWatchedItems() {
   const watchedMovies = localStorage.getItem('watched');
-    let arrayOFWatched = JSON.parse(watchedMovies);
+    let arrayOFWatched = JSON.parse(watchedMovies) || [];
     const total = arrayOFWatched.length;
 
     // включаем пагинацию если больше 20 фильмов
@@ -44,7 +44,7 @@ export function getWatchedItems() {
 
 function getQueueItems() {
   const queueMovies = localStorage.getItem('queue');
-    let arrayOFQueue = JSON.parse(queueMovies);
+    let arrayOFQueue = JSON.parse(queueMovies) || [];
     const total = arrayOFQueue.length;
     
   // включаем пагинацию если больше 20 фильмов
