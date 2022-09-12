@@ -1,28 +1,30 @@
-.header {
-  height: 230px;
+.header { 
+  position: relative; 
+  padding-top: 40px;
+  padding-bottom: 60px; 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-image: url('../images/header-background-mobile.jpg');
   
+  
   @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
-    background-image: url('../images/header-background-mobile2x.jpg');           
+  background-image: url('../images/header-background-mobile2x.jpg');           
   }
 
-  @media screen and (min-width: 768px) {  
-    height: 216px;          
+  @media screen and (min-width: 768px) { 
+    padding-bottom: 80px;           
     background-image: url('../images/header-background-tablet.jpg');
     @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-      background-image: url('../images/header-background-tablet2x.jpg');   
+     background-image: url('../images/header-background-tablet2x.jpg');   
     }
   }
 
-  @media screen and (min-width: 1280px) {
-    height: 216px;
+  @media screen and (min-width: 1280px) {    
     background-image: url('../images/header-background-desktop.jpg');
     @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -62,15 +64,7 @@
   }
 }
 
-.header__container {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 40px;
-  // padding-bottom: 60px;      
-}
+
 
 .header__up {
   display: flex;
