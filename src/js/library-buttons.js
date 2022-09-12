@@ -1,4 +1,4 @@
-import { createLibraryFilmsGallery } from './markups';
+import { createFilmsGallery } from './markups';
 import { pagination } from './pagination';
 import { topFunction } from './functions';
 
@@ -27,7 +27,7 @@ export function getWatchedItems() {
 
   const total = arrayOFWatched.length;
   // рендерим первые 20 фильмов
-  const markup = createLibraryFilmsGallery(paginate(arrayOFWatched, 20, 1));
+  const markup = createFilmsGallery(paginate(arrayOFWatched, 20, 1));
   gallery.innerHTML = markup;
   pagin.reset(total);
   return arrayOFWatched;
@@ -40,7 +40,7 @@ function getQueueItems() {
 
   const total = arrayOFQueue.length;
   // рендерим первые 20 фильмов
-  const markup = createLibraryFilmsGallery(paginate(arrayOFQueue, 20, 1));
+  const markup = createFilmsGallery(paginate(arrayOFQueue, 20, 1));
   gallery.innerHTML = markup;
   pagin.reset(total);
   return arrayOFQueue;
@@ -60,7 +60,7 @@ function onClickWatched(e) {
     // создаем массив для рендера по 20 айтемов на страницу
     const arrayForMarkup = paginate(getWatchedItems(), 20, currentPage);
     console.log(arrayForMarkup);
-    const markup = createLibraryFilmsGallery(arrayForMarkup);
+    const markup = createFilmsGallery(arrayForMarkup);
     gallery.innerHTML = markup;
   });
   queueBtn.disabled = false;
@@ -80,7 +80,7 @@ function onclickQueue(e) {
     // создаем массив для рендера по 20 айтемов на страницу
     const arrayForMarkup = paginate(getQueueItems(), 20, currentPage);
     console.log(arrayForMarkup);
-    const markup = createLibraryFilmsGallery(arrayForMarkup);
+    const markup = createFilmsGallery(arrayForMarkup);
     gallery.innerHTML = markup;
   });
   watchedBtn.disabled = false;

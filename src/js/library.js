@@ -1,7 +1,8 @@
 import './refs';
 import config from './config';
 import modal from './modal';
-import {getWatchedItems} from './library-buttons';
+import { getWatchedItems } from './library-buttons';
+import { createFilmsGallery } from './markups';
 import spinner from './spinner';
 import { pagination } from './pagination';
 import './plug-for-library';
@@ -17,6 +18,6 @@ getWatchedItems();
     // создаем массив для рендера по 20 айтемов на страницу
     const arrayForMarkup = paginate(getWatchedItems(), 20, currentPage);
     console.log(arrayForMarkup);
-    const markup = createLibraryFilmsGallery(arrayForMarkup);
+    const markup = createFilmsGallery(arrayForMarkup);
     gallery.innerHTML = markup;
   });
