@@ -44,7 +44,6 @@ export function createFilmsGallery(items) {
   return markupСard;
 }
 
-
 /**
  * Function generate markup string from object
  * @param {Object} item film object
