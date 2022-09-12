@@ -10,7 +10,7 @@ import './refs';
  */
  export function onHoverBtnCLick(e) {
   if(e.target.nodeName === "BUTTON") {
-    if(e.target.dataset.action === 'add') {
+    if (e.target.dataset.action === 'add') {
       saveFilm(e);
       e.target.dataset.action = 'remove';
       e.target.innerHTML = `Remove from ${e.target.dataset.btn}`
