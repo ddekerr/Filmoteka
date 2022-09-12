@@ -69,7 +69,7 @@ export function createFilmsGallery(items) {
             <tr class="modal-info__row">
               <td><p class="modal-info__attribute">Vote / Votes</p></td>
               <td>
-                <p><span class="film__rating modal-info__rating">${item.vote_average}</span> / ${item.vote_count}</p>
+                <p><span class="film__rating modal-info__rating">${item.vote_average.toFixed(1)}</span> / ${item.vote_count}</p>
               </td>
             </tr>
             <tr class="modal-info__row">

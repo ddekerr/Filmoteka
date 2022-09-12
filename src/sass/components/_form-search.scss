@@ -37,10 +37,29 @@
     color: $bg-color-primary;
 }
 
-.search-form__button {
+.search-form__icon {
     position: absolute;
-    right: 0;
-    bottom: 3px;
-    border: transparent;
-    background-color: transparent;
+    bottom: 5px;
+    right: 5px;
 }
+
+.animation {
+    animation-name: Orbita;
+    animation-duration: 1s;
+    animation-iteration-count: 3;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+}
+
+
+@keyframes Orbita {
+    from {
+        transform: rotate(0deg) translateX(2px) rotate(0deg);
+        filter: contrast(100%) brightness(80%);
+    }
+
+    to {
+        transform: rotate(360deg) translateX(2px) rotate(-360deg);
+        filter: contrast(100%) brightness(100%);
+    }
+};
