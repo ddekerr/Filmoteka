@@ -13,7 +13,7 @@ import modalteam from './modalteam';
 
 import './modal-log-in';
 // import './log-in';
-import './library'
+// import './library'
 // import './library-buttons';
 
 // Set pagination
