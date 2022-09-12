@@ -1,6 +1,6 @@
 import { pagination } from './pagination';
 import { spinner } from './spinner';
-import { gallery, inputSearch, svgSearch, pag } from './refs';
+import { gallery, inputSearch, svgSearch, pag, cardModal } from './refs';
 import debounce from 'lodash.debounce';
 import { topFunction, noReloadByEnter, addAnimation } from './functions';
 import { fetchTrendingMovies, fetchMovieByID } from './filmoteka';
@@ -13,6 +13,7 @@ import modalteam from './modalteam';
 
 import './modal-log-in';
 // import './log-in';
+// import './library'
 
 // import './library-buttons';
 
@@ -29,7 +30,7 @@ inputSearch.addEventListener('input', debounce(searchMovie, 1000));
 inputSearch.addEventListener('keydown', noReloadByEnter);
 inputSearch.addEventListener('input', debounce(addAnimation, 100));
 gallery.addEventListener('click', onHoverBtnCLick);
-
+cardModal.addEventListener('click', onHoverBtnCLick);
 /**
  * Default request when page opening
  * if everything fine render films gallery

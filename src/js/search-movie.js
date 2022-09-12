@@ -22,6 +22,7 @@ export function searchMovie(e) {
   query = e.target.value.trim();
 
   if (query === '') {
+    spinner.stop(gallery);
     Notify.info('Please enter a movie name to search.', options);
     return;
   }
