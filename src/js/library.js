@@ -1,15 +1,11 @@
 import './refs';
-import config from './config';
-import modal from './modal';
-import modalteam from './modalteam';
 import { getWatchedItems } from './library-buttons';
 import { createFilmsGallery } from './markups';
-import spinner from './spinner';
 import { pagination } from './pagination';
 import './plug-for-library';
 
 
-
+const pagin = pagination();
 
 getWatchedItems();
   // рендерим пагинацию остальных страниц
