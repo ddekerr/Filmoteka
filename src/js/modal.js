@@ -22,7 +22,6 @@ import { fetchMovieByID } from './filmoteka';
       document.body.style.overflow = 'hidden';
       document.addEventListener('keydown', offModalForEscape);
       document.addEventListener('click', offModalBackdrop);
-
    };
 
    function closeModal() {
