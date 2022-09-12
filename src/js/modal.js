@@ -22,8 +22,6 @@ import { fetchMovieByID } from './filmoteka';
       document.body.style.overflow = 'hidden';
       document.addEventListener('keydown', offModalForEscape);
       document.addEventListener('click', offModalBackdrop);
-      refs.modalBox.innerHTML = '';
-      selectFilm(e);
    };
 
    function closeModal() {
@@ -45,18 +43,17 @@ import { fetchMovieByID } from './filmoteka';
       }
    };
 
-   function createModal(event) {
+async function createModal(event) {
       event.preventDefault();
       const selectedMovie = event.target.closest('.film__image');
       const FilmID = event.target.dataset.id;
       if (selectedMovie) {
-         // console.log(event.target.dataset.id);
-         fetchMovieByID(FilmID).then(data => {
+await  fetchMovieByID(FilmID).then(data => {
             const markup = createModalFilm(data);
             refs.backdrop.innerHTML = markup;
-         });
+            return dataLocal = data;
+         })
          openModal();
-         refs.backdrop.innerHTML = '';
       }
    };
 })();

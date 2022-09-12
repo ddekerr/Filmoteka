@@ -1,5 +1,6 @@
 import { createFilmsGallery } from './markups';
 import { pagination } from './pagination';
+import { topFunction } from './functions';
 
 const gallery = document.querySelector('.films');
 const queueBtn = document.querySelector('[data-queue="data-queue"]');
@@ -17,12 +18,6 @@ const pagin = pagination();
 const paginate = (array, pageSize, pageNumber) => {
   return array.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
 };
-
-
-localStorage.setItem('watched', JSON.stringify(watchMovieObject));
-localStorage.setItem('queue', JSON.stringify(queueMovieObject));
-
-
 
 // функции получения данных из локалстора и рендеринга их
 
@@ -58,7 +53,8 @@ function getQueueItems() {
 function onClickWatched(e) {
   getWatchedItems();
   // рендерим пагинацию остальных страниц
-  pagin.on('beforeMove', event => {
+    pagin.on('beforeMove', event => {
+        topFunction();
     // получаем номер активной страницы на кнопках
     const currentPage = event.page;
     // создаем массив для рендера по 20 айтемов на страницу
@@ -77,7 +73,8 @@ function onClickWatched(e) {
 function onclickQueue(e) {
  getQueueItems();
   // рендерим пагинацию остальных страниц
-  pagin.on('beforeMove', event => {
+    pagin.on('beforeMove', event => {
+        topFunction();
     // получаем номер активной страницы на кнопках
     const currentPage = event.page;
     // создаем массив для рендера по 20 айтемов на страницу
