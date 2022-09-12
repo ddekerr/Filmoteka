@@ -1,7 +1,13 @@
 import Pagination from 'tui-pagination';
 import { pag } from './refs';
 
+let instance = null;
+
 export function pagination(params = {}) {
+  if (null !== instance) {
+    return instance;
+  }
+
   const options = {
     itemsPerPage: 20,
     visiblePages: 5,
@@ -26,6 +32,8 @@ export function pagination(params = {}) {
         `</a>`,
     },
   };
-  
-  return new Pagination(pag, { ...options, ...params });
+
+  instance = new Pagination(pag, { ...options, ...params });
+
+  return instance;
 }
