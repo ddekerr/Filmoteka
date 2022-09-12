@@ -1,4 +1,4 @@
-export default options = {
+export default {
   width: '393px',
   position: 'center-top',
   timeout: 2000,
