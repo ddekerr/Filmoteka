@@ -19,10 +19,10 @@ pagin.on('beforeMove', event => {
   topFunction();
   // получаем номер активной страницы на кнопках
   const currentPage = event.page;
-  console.log(currentPage);
+ 
   // создаем массив для рендера по 20 айтемов на страницу
   const arrayForMarkup = paginate(getWatchedItems(), 20, currentPage);
-  console.log(arrayForMarkup);
+
   const markup = createFilmsGallery(arrayForMarkup);
   gallery.innerHTML = markup;
 });
