@@ -57,7 +57,8 @@ export function createFilmsGallery(items, hide) {
  */
  export function createModalFilm(item) {
   const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
-    return `
+
+   return `
     <div class="modal__movie">
     <button class="modal__close">
     <svg class="modal__btn" width="20px" height="20px">
@@ -97,12 +98,12 @@ export function createFilmsGallery(items, hide) {
         </p>
         <ul class="modal-info__buttons-list">
           <li class="movie-data__button-item">
-            <button type="button" data-btn="watched" class="modal-info__button button active">
+            <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" class="modal-info__button button active">
               add to Watched
             </button>
           </li>
           <li class="modal-info__button-item modal-info__btn">
-            <button type="button" data-btn="queue" class="modal-info__button button">add to queue</button>
+            <button type="button" data-action="add" data-id="${item.id}" data-btn="queue" class="modal-info__button button">add to queue</button>
           </li>
         </ul>
       </div>

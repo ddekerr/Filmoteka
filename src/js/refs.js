@@ -37,6 +37,7 @@ const refs = {
   inputSearch: document.querySelector('.search-form__input'),
   svgSearch: document.querySelector('.search-form__icon'),
   cardLink: document.querySelector('.films list'),
+  cardModal: document.querySelector('.backdrop'),
 
   addToWatchedBtn: document.querySelector('[data-btn="watched"]'),
   addToQueueBtn: document.querySelector('[data-btn="queue"]')
@@ -73,4 +74,5 @@ export const {
   pag,
   gallery,
   cardLink,
+  cardModal,
 } = refs;
