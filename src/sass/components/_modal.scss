@@ -36,9 +36,12 @@
    right: 8px;
    border: transparent;
    margin: 0;
+   width: 20px;
+   height: 20px;
    border-radius: 50%;
    background-color: transparent;
    cursor: pointer;
+   background-image: url('/src/images/icon-close.svg');
    transition: all $tr-duration $tr-function;
 
    &:hover,

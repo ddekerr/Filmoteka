@@ -3,9 +3,11 @@ import { getWatchedItems } from './library-buttons';
 import { createFilmsGallery } from './markups';
 import { pagination } from './pagination';
 import './plug-for-library';
+
+import './modal'
+
 import { gallery } from './refs';
 import { topFunction } from './functions';
-
 import modalteam from './modalteam';
 
 const pagin = pagination();
