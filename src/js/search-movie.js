@@ -1,6 +1,6 @@
 import { Notify } from 'notiflix';
 import { spinner } from './spinner';
-import  options  from './options-notiflix';
+import options from './options-notiflix';
 import { gallery, formSearch, imp, pag } from './refs';
 import { topFunction, addAnimation, removeAnimation } from './functions';
 import pagination from './pagination';
@@ -41,13 +41,17 @@ export function searchMovie(e) {
       // pagination does not show up
       pag.classList.add('is-hidden');
       spinner.stop(gallery);
-      Notify.failure('Search result not successful. Enter the correct movie name and try again please.',
-        options);
+      Notify.failure(
+        'Search result not successful. Enter the correct movie name and try again please.',
+        options
+      );
       return;
     }
 
-    Notify.success(`According to your request, we found ${data.total_results} movies.`,
-      options);
+    Notify.success(
+      `According to your request, we found ${data.total_results} movies.`,
+      options
+    );
 
     const total = data.total_results;
     pagination.reset(total);

@@ -8,30 +8,45 @@ let hidden = '';
  * @returns {String} markup
  */
 export function createFilmsGallery(items, hide) {
-  const markupСard = items.map(item => {
-    const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
-    let genres;
-    if(item.hasOwnProperty('genre_ids')) {genres = genersForFilmCard(item.genre_ids)}
-    else { genres = item.genres.map(item => item.name).join(', ') }
-    if (hide === true) {
-      hidden = 'is-hidden';
-    }
+  const markupСard = items
+    .map(item => {
+      const src =
+        item.poster_path === null
+          ? config.altPosterUrl
+          : config.postersUrl + config.postersSize + item.poster_path;
+      let genres;
+      if (item.hasOwnProperty('genre_ids')) {
+        genres = genersForFilmCard(item.genre_ids);
+      } else {
+        genres = item.genres.map(item => item.name).join(', ');
+      }
+      if (hide === true) {
+        hidden = 'is-hidden';
+      }
 
-    return `<li class="film">
+      return `<li class="film">
       <a class="film__link link" href="" ">
         <div class="film__image-container">
-          <img class="film__image" src="${src}" alt="${item.original_title}" load="lazy" data-id='${item.id}'/>
+          <img class="film__image" src="${src}" alt="${
+        item.original_title
+      }" load="lazy" data-id='${item.id}'/>
           <div class="thumb">
             <div class="overlay">
               <ul class="option list">
                 <li class="option__item ${hidden}">
-                 <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" class="option__button button">add to Watched</button>
+                 <button type="button" data-action="add" data-id="${
+                   item.id
+                 }" data-btn="watched" class="option__button button">add to Watched</button>
                 </li>
                 <li class="option__item ${hidden}">
-                 <button type="button" data-action="add" data-id="${item.id}" data-btn="queue" class="option__button button">add to queue</button>
+                 <button type="button" data-action="add" data-id="${
+                   item.id
+                 }" data-btn="queue" class="option__button button">add to queue</button>
                 </li>
                 <li class="option__item">
-                 <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" data-btn="queue" class="option__button button">remove film</button>
+                 <button type="button" data-action="add" data-id="${
+                   item.id
+                 }" data-btn="watched" data-btn="queue" class="option__button button">remove film</button>
                 </li>
               </ul>
             </div>
@@ -48,9 +63,11 @@ export function createFilmsGallery(items, hide) {
         </div>
       </a>
     </li>
-  `}).join('');
+  `;
+    })
+    .join('');
 
-   return markupСard;
+  return markupСard;
 }
 
 /**
@@ -58,10 +75,13 @@ export function createFilmsGallery(items, hide) {
  * @param {Object} item film object
  * @returns {String} markup
  */
- export function createModalFilm(item) {
-  const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
+export function createModalFilm(item) {
+  const src =
+    item.poster_path === null
+      ? config.altPosterUrl
+      : config.postersUrl + config.postersSize + item.poster_path;
 
-   return `
+  return `
     <div class="modal__movie">
     <button class="modal__close">
     <svg class="modal__btn" width="20px" height="20px">
@@ -80,7 +100,9 @@ export function createFilmsGallery(items, hide) {
             <tr class="modal-info__row">
               <td><p class="modal-info__attribute">Vote / Votes</p></td>
               <td>
-                <p><span class="film__rating modal-info__rating">${item.vote_average.toFixed(1)}</span> / ${item.vote_count}</p>
+                <p><span class="film__rating modal-info__rating">${item.vote_average.toFixed(
+                  1
+                )}</span> / ${item.vote_count}</p>
               </td>
             </tr>
             <tr class="modal-info__row">
@@ -103,25 +125,28 @@ export function createFilmsGallery(items, hide) {
         </p>
         <ul class="modal-info__buttons-list modal-info__btn">
           <li class="movie-data__button-item">
-            <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" class="modal-info__button button active">
+            <button type="button" data-action="add" data-id="${
+              item.id
+            }" data-btn="watched" class="modal-info__button button active">
               add to Watched
             </button>
           </li>
           <li class="modal-info__button-item modal-info__btn">
-            <button type="button" data-action="add" data-id="${item.id}" data-btn="queue" class="modal-info__button button">add to queue</button>
+            <button type="button" data-action="add" data-id="${
+              item.id
+            }" data-btn="queue" class="modal-info__button button">add to queue</button>
           </li>
         </ul>
       </div>
     </div>
-  `
+  `;
 }
-
 
 /**
  * Render markup to container
- * @param {HTML Object} container 
- * @param {String} markup 
+ * @param {HTML Object} container
+ * @param {String} markup
  */
 export function renderMarkup(container, markup) {
-   container.innerHTML = markup;
+  container.innerHTML = markup;
 }

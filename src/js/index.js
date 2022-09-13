@@ -27,7 +27,6 @@ spinner.spin(gallery);
 pagination.on('beforeMove', onPaginClick);
 formSearch.addEventListener('submit', searchMovie);
 
-
 gallery.addEventListener('click', onHoverBtnCLick);
 cardModal.addEventListener('click', onHoverBtnCLick);
 /**
