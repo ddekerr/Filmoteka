@@ -52,7 +52,7 @@ export function searchMovie(e) {
     const total = data.total_results;
     pagination.reset(total);
 
-    const markup = createFilmsGallery(data.results);
+    const markup = createFilmsGallery(data.results, true, false);
     renderMarkup(gallery, markup);
     pag.classList.remove('is-hidden');
     spinner.stop(gallery);
@@ -71,7 +71,7 @@ function onPaginClick(e) {
 
   // получаем фильмы согласно страницы
   fetchMoviesByQuery(query, currentPage).then(data => {
-    const markup = createFilmsGallery(data.results);
+    const markup = createFilmsGallery(data.results, true, false);
     renderMarkup(gallery, markup);
   });
 }

@@ -30,7 +30,7 @@ export function getWatchedItems() {
   }
 
   // рендерим первые 20 фильмов
-  const markup = createFilmsGallery(paginate(arrayOFWatched, 20, 1), true);
+  const markup = createFilmsGallery(paginate(arrayOFWatched, 20, 1), false, true);
   gallery.innerHTML = markup;
   pagination.reset(total);
   return arrayOFWatched;
@@ -49,7 +49,7 @@ function getQueueItems() {
   }
 
   // рендерим первые 20 фильмов
-  const markup = createFilmsGallery(paginate(arrayOFQueue, 20, 1));
+  const markup = createFilmsGallery(paginate(arrayOFQueue, 20, 1), false, true);
   gallery.innerHTML = markup;
   pagination.reset(total);
   return arrayOFQueue;
