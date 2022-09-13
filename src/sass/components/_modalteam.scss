@@ -1,243 +1,231 @@
 .modalteam__close {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    border: transparent;
-    background-color: transparent;
-    cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: transparent;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 :root {
-    --Nhexa: 4;
-    --gap: 2vw;
-    --size: calc(calc(100vw / var(--Nhexa)) - var(--gap));
+  --Nhexa: 4;
+  --gap: 2vw;
+  --size: calc(calc(100vw / var(--Nhexa)) - var(--gap));
 }
 
 @media (min-width: 1100px) {
-    :root {
-        --Nhexa: 4;
-    }
+  :root {
+    --Nhexa: 4;
+  }
 }
 
 @media (max-width: 768px) {
-    :root {
-        --Nhexa: 2;
-    }
+  :root {
+    --Nhexa: 2;
+  }
 }
 
 * {
-    position: relative;
+  position: relative;
 }
 
 .modalteam {
-    padding-right: calc(var(--size) * 0.5);
-    overflow-x: hidden;
-    background-color: $bg-color-primary;
-    width: 90%;
-    margin: auto;
-    padding-top: 40px;
-    padding-bottom: 30px;
-    border-radius: 15px;
+  padding-right: calc(var(--size) * 0.5);
+  overflow-x: hidden;
+  background-color: $bg-color-primary;
+  width: 90%;
+  margin: auto;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  border-radius: 15px;
 }
 
 .modalteam__section {
-    width: calc(var(--size) * calc(var(--Nhexa) - 1));
-    display: grid;
-    grid-template-columns: repeat(var(--Nhexa), 1fr);
-    grid-gap: var(--gap);
+  width: calc(var(--size) * calc(var(--Nhexa) - 1));
+  display: grid;
+  grid-template-columns: repeat(var(--Nhexa), 1fr);
+  grid-gap: var(--gap);
 
-    @media (min-width: 768px) {
-        margin: calc(var(--size) * 0.3) auto 0;
-    }
+  @media (min-width: 768px) {
+    margin: calc(var(--size) * 0.3) auto 0;
+  }
 }
 
 .modalteam__article {
-    background: radial-gradient(circle at 50% 0,
-            rgba(243, 108, 33, 0.2),
-            rgba(243, 108, 33, 0) 70.71%),
-        radial-gradient(circle at 6.7% 80%,
-            rgba(127, 20, 22, 0.2),
-            rgba(127, 20, 22, 0) 70.71%),
-        radial-gradient(circle at 93.3% 80%,
-            rgba(237, 31, 36, 0.2),
-            rgba(237, 31, 36, 0) 70.71%) beige;
-    width: var(--size);
-    height: calc(var(--size) / 1.1111111);
-    clip-path: url(#hexagono);
-    clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
-    margin-right: calc(var(--size) / 2);
+  background: radial-gradient(
+      circle at 50% 0,
+      rgba(243, 108, 33, 0.2),
+      rgba(243, 108, 33, 0) 70.71%
+    ),
+    radial-gradient(
+      circle at 6.7% 80%,
+      rgba(127, 20, 22, 0.2),
+      rgba(127, 20, 22, 0) 70.71%
+    ),
+    radial-gradient(
+        circle at 93.3% 80%,
+        rgba(237, 31, 36, 0.2),
+        rgba(237, 31, 36, 0) 70.71%
+      )
+      beige;
+  width: var(--size);
+  height: calc(var(--size) / 1.1111111);
+  clip-path: url(#hexagono);
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  margin-right: calc(var(--size) / 2);
 }
 
 .modalteam__article:nth-child(2n) {
-    margin: calc(var(--size) * -0.5) calc(var(--size) * -0.25) 0 calc(var(--size) * -0.75);
+  margin: calc(var(--size) * -0.5) calc(var(--size) * -0.25) 0
+    calc(var(--size) * -0.75);
 }
 
 .modalteam__article:before {
-    content: ' ';
-    float: left;
-    width: 25%;
-    height: 100%;
-    clip-path: polygon(0% 0%, 100% 0%, 0% 50%, 100% 100%, 0% 100%);
-    shape-outside: polygon(0% 0%, 100% 0%, 0% 50%, 100% 100%, 0% 100%);
+  content: ' ';
+  float: left;
+  width: 25%;
+  height: 100%;
+  clip-path: polygon(0% 0%, 100% 0%, 0% 50%, 100% 100%, 0% 100%);
+  shape-outside: polygon(0% 0%, 100% 0%, 0% 50%, 100% 100%, 0% 100%);
 }
 
 .modalteam__img {
-    height: var(--size);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transform-origin: 0% 50%;
-    transition: 0.75s;
-    clip-path: url(#hexagono);
-    clip-path: inherit;
-    z-index: 100;
+  height: var(--size);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: 0% 50%;
+  transition: 0.75s;
+  clip-path: url(#hexagono);
+  clip-path: inherit;
+  z-index: 100;
 }
 
 .modalteam__article:hover {
-    transform: scale(1.1);
-    transition: 1s;
-    filter: drop-shadow(0 0 1rem #ff6b0199);
+  transform: scale(1.1);
+  transition: 1s;
+  filter: drop-shadow(0 0 1rem #ff6b0199);
 
-    @media (min-width: 768px) {
-        transform: scale(1.17);
-    }
+  @media (min-width: 768px) {
+    transform: scale(1.17);
+  }
 }
 
 .modalteam__article:hover .modalteam__img {
-    transform: translate(-50%, -50%) rotate(-120deg);
-    transition: 0.8s;
+  transform: translate(-50%, -50%) rotate(-120deg);
+  transition: 0.8s;
 }
 
 .modalteam__article h2 {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: $card-accent-color;
+
+  display: block;
+  width: 120px;
+  height: 50px;
+
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  @media (min-width: 768px) and (max-width: 1279px) {
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 160px;
+  }
+
+  @media (min-width: 1280px) {
     font-size: 20px;
-    padding-top: 0px;
-    padding-right: 30px;
-    line-height: 1;
-    text-align: center;
-    font-weight: 500;
-    text-transform: uppercase;
-    color: $card-accent-color;
-
-    @media (min-width: 576px) {
-        font-size: 23px;
-        padding-right: 40px;
-        padding-bottom: 10px;
-    }
-
-    @media (min-width: 768px) {
-        font-size: 16px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-
-    @media (min-width: 1024px) {
-        font-size: 18px;
-        padding-top: 0px;
-        padding-bottom: 5px;
-    }
-
-    @media (min-width: 1280px) {
-        font-size: 24px;
-        padding-bottom: 6px;
-    }
+    margin-bottom: 20px;
+  }
 }
 
 .modalteam__text {
+  display: block;
+  width: 160px;
+
+  font-size: 12px;
+  font-weight: 400;
+  color: $text-color-primary;
+  line-height: 1.15;
+
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  @media (min-width: 768px) {
     font-size: 14px;
-    padding-left: 35px;
-    padding-right: 40px;
-    line-height: 1;
-    text-align: center;
-    color: $text-color-primary;
-    margin: auto;
-    font-weight: 400;
+    width: 200px;
+  }
 
-    @media (min-width: 576px) {
-        font-size: 16px;
-        padding-left: 20px;
-        padding-right: 38px;
-    }
-
-    @media (min-width: 768px) {
-        font-size: 10px;
-        padding-right: 27px;
-    }
-
-    @media (min-width: 950px) {
-        font-size: 12px;
-        padding-right: 30px;
-    }
-
-    @media (min-width: 1024px) {
-        font-size: 15px;
-        padding-right: 33px;
-    }
-
-    @media (min-width: 1280px) {
-        font-size: 19px;
-        padding-left: 18px;
-        padding-right: 38px;
-    }
+  @media (min-width: 1280px) {
+    font-size: 16px;
+    width: 220px;
+    line-height: 1.2;
+  }
 }
 
 .modalteam__link {
-    display: none;
+  display: none;
 
-    @media (min-width: 576px) {
-        display: block;
-        font-size: 17px;
-        color: $bg-color-primary;
-        padding-right: 5px;
-    }
+  @media (min-width: 576px) {
+    display: block;
+    font-size: 17px;
+    color: $bg-color-primary;
+    padding-right: 5px;
+  }
 
-    @media (min-width: 768px) {
-        font-size: 10px;
-    }
+  @media (min-width: 768px) {
+    font-size: 10px;
+  }
 
-    @media (min-width: 1024px) {
-        font-size: 14px;
-    }
+  @media (min-width: 1024px) {
+    font-size: 14px;
+  }
 
-    @media (min-width: 1280px) {
-        font-size: 16px;
-    }
+  @media (min-width: 1280px) {
+    font-size: 16px;
+  }
 }
 
-.modalteam__figure {}
+// .modalteam__figure {}
 
 .modalteam__header {
-    position: relative;
+  position: relative;
 }
 
 .modalteam__mainimg {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0px 16px;
-    border-bottom-left-radius: 4px;
-    z-index: 300;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0px 16px;
+  border-bottom-left-radius: 4px;
+  z-index: 300;
 
-    @media (min-width: 1280px) {
-        display: block;
-        height: 153px;
-        width: 272px;
-    }
+  @media (min-width: 1280px) {
+    display: block;
+    height: 153px;
+    width: 272px;
+  }
 }
 
 .modalteam__title {
-    width: 100vw;
-    background: $card-accent-color;
-    margin-bottom: calc(var(--size) * 0.55 + var(--gap));
-    padding: 40px 60px 40px 0px;
-    text-align: center;
-    font-weight: 400;
-    color: $bg-color-primary;
-    filter: drop-shadow(0 0 1rem #ff6b0199);
+  width: 100vw;
+  background: $card-accent-color;
+  margin-bottom: calc(var(--size) * 0.55 + var(--gap));
+  padding: 40px 60px 40px 0px;
+  text-align: center;
+  font-weight: 400;
+  color: $bg-color-primary;
+  filter: drop-shadow(0 0 1rem #ff6b0199);
 
-    @media (min-width: 576px) {
-        padding: 40px 70px 40px 0px;
-    }
+  @media (min-width: 576px) {
+    padding: 40px 70px 40px 0px;
+  }
 }
