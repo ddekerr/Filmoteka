@@ -1,40 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <include src="./partials/title.html">{"title": "Filmoteka"}</include>
-  <link type="image/png" sizes="16x16" rel="icon" href="./images/favicon.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <include src="./partials/title.html">{"title": "Filmoteka"}</include>
+    <link
+      type="image/png"
+      sizes="16x16"
+      rel="icon"
+      href="./images/favicon.png"
+    />
 
-  <link rel="stylesheet" href="/node_modules/spin.js/spin.css">
-  <link rel="stylesheet" href="./sass/index.scss" />
-</head>
-<body>
-  <div class="wrapper">
-    <include src="./partials/header.html"></include>
-    <include src="./partials/main.html"></include>
-    <include src="./partials/footer.html"></include>
-  </div>
+    <link rel="stylesheet" href="/node_modules/spin.js/spin.css" />
+    <link rel="stylesheet" href="./sass/index.scss" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <include src="./partials/header.html"></include>
+      <include src="./partials/main.html"></include>
+      <include src="./partials/footer.html"></include>
+    </div>
 
-  <!--Scroll -->
-  <include src="./partials/scroll.html"></include>
+    <!--Scroll -->
+    <include src="./partials/scroll.html"></include>
 
-  <!-- <button modal-open>Модалка</button> -->
+    <!-- <button modal-open>Модалка</button> -->
 
-  <!-- Modal form for Singlr card film -->
-  <include src="./partials/modal.html"></include>
-  
-  <!-- Modal form for authentication and authorization -->
-  <include src="./partials/modal-log-in.html"></include>
-  <!-- Compiled and minified authorization -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
-  <!-- Modal form for Singlr card film -->
-  <include src="./partials/modal-team.html"></include>
+    <!-- Modal form for Singlr card film -->
+    <include src="./partials/modal.html"></include>
+
+    <!-- Modal form for authentication and authorization -->
+    <include src="./partials/modal-log-in.html"></include>
+    <!-- Compiled and minified authorization -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+    <!-- Modal form for Singlr card film -->
+    <include src="./partials/modal-team.html"></include>
 
     <script type="module" src="./js/index.js"></script>
   </body>
+
+
 </html>
