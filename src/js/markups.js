@@ -1,26 +1,25 @@
 import config from './config';
 import { genersForFilmCard } from './getGenres';
 
-let hidden = '';
 /**
  * Function generate markup string from array of objects
  * @param {Array of Objects} items
  * @returns {String} markup
  */
-export function createFilmsGallery(items, hide) {
+export function createFilmsGallery(items, hide, hideLibr) {
   const markupСard = items.map(item => {
     const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
     let genres;
     if(item.hasOwnProperty('genre_ids')) {genres = genersForFilmCard(item.genre_ids)}
     else { genres = item.genres.map(item => item.name).join(', ') }
-    if (hide === true) {
-      hidden = 'is-hidden';
-    }
+
+    let hidden = (hide) ?  '' : 'is-hidden'
+    let hiddenRemove = (hideLibr) ? '' : 'is-hidden';
 
     return `<li class="film">
       <a class="film__link link" href="" ">
         <div class="film__image-container">
-          <img class="film__image" src="${src}" alt="${item.original_title}" load="lazy" data-id='${item.id}'/>
+          <img class="film__image" src="${src}" alt="${item.original_title}" data-id='${item.id}'/>
           <div class="thumb">
             <div class="overlay">
               <ul class="option list">
@@ -30,7 +29,7 @@ export function createFilmsGallery(items, hide) {
                 <li class="option__item ${hidden}">
                  <button type="button" data-action="add" data-id="${item.id}" data-btn="queue" class="option__button button">add to queue</button>
                 </li>
-                <li class="option__item">
+                <li class="option__item ${hiddenRemove}">
                  <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" data-btn="queue" class="option__button button">remove film</button>
                 </li>
               </ul>

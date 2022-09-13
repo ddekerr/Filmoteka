@@ -42,7 +42,7 @@ fetchTrendingMovies(page).then(data => {
   pagination.reset(total);
 
   // Render list of objects
-  const markup = createFilmsGallery(data.results);
+  const markup = createFilmsGallery(data.results, true, false);
   spinner.stop(gallery);
   renderMarkup(gallery, markup);
 
@@ -59,7 +59,7 @@ function onPaginClick(e) {
 
   // получаем фильмы согласно страницы
   fetchTrendingMovies(currentPage).then(data => {
-    const markup = createFilmsGallery(data.results);
+    const markup = createFilmsGallery(data.results, true, false);
     renderMarkup(gallery, markup);
     spinner.stop(gallery);
   });
