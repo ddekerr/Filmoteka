@@ -16,7 +16,7 @@ export function createFilmsGallery(items, hide) {
     if (hide === true) {
       hidden = 'is-hidden';
     }
-    console.log(hidden);
+
     return `<li class="film">
       <a class="film__link link" href="" ">
         <div class="film__image-container">

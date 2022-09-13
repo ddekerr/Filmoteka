@@ -63,7 +63,6 @@ export function searchMovie(e) {
 
 //Pagination event function
 function onPaginClick(e) {
-  e.preventDefault();
   topFunction();
   spinner.spin(gallery);
 
