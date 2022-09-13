@@ -46,3 +46,4 @@ var opts = {
 
 // включить спиннер
 export const spinner = new Spinner(opts);
+// export const spinnerBtn = new Spinner(optsBtn);
