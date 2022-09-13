@@ -2,7 +2,7 @@ import pagination from './pagination';
 import { spinner } from './spinner';
 import { gallery, pag, cardModal, formSearch } from './refs';
 import debounce from 'lodash.debounce';
-import { topFunction, noReloadByEnter } from './functions';
+import { topFunction } from './functions';
 import { fetchTrendingMovies, fetchMovieByID } from './filmoteka';
 import { searchMovie } from './search-movie';
 import { createFilmsGallery, renderMarkup } from './markups';

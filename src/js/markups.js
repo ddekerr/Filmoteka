@@ -16,23 +16,23 @@ export function createFilmsGallery(items, hide) {
     if (hide === true) {
       hidden = 'is-hidden';
     }
-    console.log(hidden);
+
     return `<li class="film">
       <a class="film__link link" href="" ">
         <div class="film__image-container">
           <img class="film__image" src="${src}" alt="${item.original_title}" load="lazy" data-id='${item.id}'/>
           <div class="thumb ${hidden}">
-          <div class="overlay">
-            <ul class="option list">
-              <li class="option__item">
-                <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" class="option__button button">add to Watched</button>
-              </li>
-              <li class="option__item">
-                <button type="button" data-action="add" data-id="${item.id}" data-btn="queue" class="option__button button">add to queue</button>
-              </li>
-            </ul>
+            <div class="overlay">
+              <ul class="option list">
+                <li class="option__item">
+                 <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" class="option__button button">add to Watched</button>
+                </li>
+                <li class="option__item">
+                 <button type="button" data-action="add" data-id="${item.id}" data-btn="queue" class="option__button button">add to queue</button>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
         </div>
         <div class="film__info">
           <h2 class="film__name title">${item.title}</h2>
