@@ -4,6 +4,7 @@ import pagination from './pagination';
 import { topFunction } from './functions';
 import { pag, gallery } from './refs';
 
+
 const queueBtn = document.querySelector('[data-queue="data-queue"]');
 const watchedBtn = document.querySelector('[data-watched="data-watched"]');
 let tab = 'watched';
