@@ -118,15 +118,19 @@
 
    &__btn {
       font-size: 12px;
+      font-weight: 500;
       width: 125px;
-      height: 44px;
+      &:first-child {
+         filter: drop-shadow(0 0 1rem #ff6b0199);
+      }
    }
 
    &__button {
       width: 110px;
       height: 45px;
-      background-color: $button-bg-color;
-      border: solid 1px $button-border-color-black;
+      background-color: #eee;
+      border: solid 1px #8c8c8c;
+      transition: all $tr-duration $tr-function;
 
       &__button-item {
          &:first-child {
@@ -144,4 +148,10 @@
 
 .modal-info__attribute {
    color: #8c8c8c;
+}
+
+.modal-info__button:hover,
+.modal-info__button:focus {
+   box-shadow: 0 0 5px #642a00;
+   border-color: transparent;
 }

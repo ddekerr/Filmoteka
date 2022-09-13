@@ -100,7 +100,7 @@ export function createFilmsGallery(items, hide) {
         </p>
         <ul class="modal-info__buttons-list modal-info__btn">
           <li class="movie-data__button-item">
-            <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" class="modal-info__button button active">
+            <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" class="modal-info__button button">
               add to Watched
             </button>
           </li>
