@@ -1,5 +1,5 @@
-const { Notify } = require("notiflix");
-import {fetchMovieByID} from './filmoteka';
+const { Notify } = require('notiflix');
+import { fetchMovieByID } from './filmoteka';
 import './refs';
 
 
@@ -8,23 +8,23 @@ import './refs';
  * Toggle data-action attr
  * Toggle innerHtml
  */
- export function onHoverBtnCLick(e) {
-  if(e.target.nodeName === "BUTTON") {
-    if(e.target.dataset.action === 'add') {
+export function onHoverBtnCLick(e) {
+  if (e.target.nodeName === 'BUTTON') {
+    if (e.target.dataset.action === 'add') {
       saveFilm(e);
       e.target.dataset.action = 'remove';
-      e.target.innerHTML = `Remove from ${e.target.dataset.btn}`
+      e.target.innerHTML = `Remove from ${e.target.dataset.btn}`;
     } else {
       removeFilm(e);
       e.target.dataset.action = 'add';
-      e.target.innerHTML = `add to ${e.target.dataset.btn}`
+      e.target.innerHTML = `add to ${e.target.dataset.btn}`;
     }
   }
 }
 
 /**
  * Call function to save local film
- * @param {event} e 
+ * @param {event} e
  */
 export async function saveFilm(e) {
   const filmId = e.target.dataset.id;
@@ -35,7 +35,7 @@ export async function saveFilm(e) {
 
 /**
  * Call function to remove local film
- * @param {event} e 
+ * @param {event} e
  */
 export function removeFilm(e) {
   const filmId = e.target.dataset.id;
@@ -51,7 +51,7 @@ export function removeFilm(e) {
 function addFilmToLocaleStorage(newFilm, localeStorageKey) {
   const localStData = JSON.parse(localStorage.getItem(localeStorageKey)) || [];
   const isFilmHere = localStData.find(film => film.id === newFilm.id) || false;
-  if(!isFilmHere) {
+  if (!isFilmHere) {
     const newArr = localStData.concat(newFilm);
     localStorage.setItem(localeStorageKey, JSON.stringify(newArr));
   }
@@ -62,9 +62,10 @@ function addFilmToLocaleStorage(newFilm, localeStorageKey) {
  * @param {Integer} id id by which the movie will be deleted
  * @param {String} localeStorageKey key of locale storage which film will be adding
  */
-export function removeFilmFromLocalrStorage(id, localeStorageKey){
-  const localStData = JSON.parse(localStorage.getItem(localeStorageKey)) || false;
-  if(localStData) {
+export function removeFilmFromLocalrStorage(id, localeStorageKey) {
+  const localStData =
+    JSON.parse(localStorage.getItem(localeStorageKey)) || false;
+  if (localStData) {
     const newArr = localStData.filter(film => film.id !== +id);
     localStorage.setItem(localeStorageKey, JSON.stringify(newArr));
   }

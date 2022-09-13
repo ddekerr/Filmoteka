@@ -1,64 +1,68 @@
-.search-form { 
-    position: relative;
-    margin: 60px auto 0;
-    width: 280px; 
-      
+.search-form {
+  position: relative;
+  margin: 60px auto 0;
+  width: 280px;
 
-    @media screen and (min-width: 768px) {
-        margin-top: 40px;
-    }
-    @media screen and (min-width: 768px) {
-        width: 336px;  
-    }
+  @media screen and (min-width: 768px) {
+    margin-top: 40px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
 
-    @media screen and (min-width: 1280px) {
-        width: 394px;  
-    }
+  @media screen and (min-width: 1280px) {
+    width: 394px;
+  }
 }
 
-.search-form__input {       
-    display: block;    
-    height: 20px; 
-    width: 100%;   
-    border-top: 1px transparent;
-    border-right: 1px transparent;
-    border-bottom: 1px solid $bg-color-primary;
-    border-left: 1px transparent;
-    outline: none; 
-    background-color: transparent;
-    color: $text-color-active;    
+.search-form__input {
+  display: block;
+  height: 20px;
+  width: 100%;
+  border-top: 1px transparent;
+  border-right: 1px transparent;
+  border-bottom: 1px solid $bg-color-primary;
+  border-left: 1px transparent;
+  outline: none;
+  background-color: transparent;
+  color: $text-color-active;
 }
 
 ::placeholder {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.17;
-    color: $bg-color-primary;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.17;
+  color: $bg-color-primary;
 }
 
-.search-form__icon {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
+.search-form__button {
+  background-color: #0000;
+  border: #0000;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
+
+// .search-form__icon {
+
+// }
 
 .animation {
-    animation-name: Orbita;
-    animation-duration: 1s;
-    animation-iteration-count: 3;
-    animation-timing-function: linear;
-    animation-fill-mode: both;
+  animation-name: Orbita;
+  animation-duration: 1s;
+  animation-iteration-count: 3;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
 }
 
-
 @keyframes Orbita {
-    from {
-        transform: rotate(0deg) translateX(2px) rotate(0deg);
-        filter: contrast(100%) brightness(80%);
-    }
+  from {
+    transform: rotate(0deg) translateX(2px) rotate(0deg);
+    filter: contrast(100%) brightness(80%);
+  }
 
-    to {
-        transform: rotate(360deg) translateX(2px) rotate(-360deg);
-        filter: contrast(100%) brightness(100%);
-    }
-};
+  to {
+    transform: rotate(360deg) translateX(2px) rotate(-360deg);
+    filter: contrast(100%) brightness(100%);
+  }
+} ;

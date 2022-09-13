@@ -12,8 +12,8 @@ function pagination(params = {}) {
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',
     template: {
-      page: `<a href="#" class="tui-page-btn">{{page}}</a>`,
-      currentPage: `<strong class="tui-page-btn tui-is-selected">{{page}}</strong>`,
+      page: `<a href="#" class="tui-page-btn" data-page-number="{{page}}">{{page}}</a>`,
+      currentPage: `<strong class="tui-page-btn tui-is-selected" data-page-number="{{page}}">{{page}}</strong>`,
       moveButton:
         `<a href="#" class="tui-page-btn tui-{{type}}">` +
         `<span class="tui-ico-{{type}}">{{type}}</span>` +

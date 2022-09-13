@@ -1,11 +1,14 @@
-export default {
+export default options = {
   width: '393px',
   position: 'center-top',
-  timeout: 2000,
+  distance: '',
   fontFamily: 'Roboto',
   fontSize: '14px',
+  timeout: 2000,
   useIcon: false,
-    
+  cssAnimation: false,
+  showOnlyTheLastOne: true,
+
   success: {
     background: 'transparent',
     textColor: '#FF6B08',
@@ -21,5 +24,5 @@ export default {
   info: {
     background: 'transparent',
     textColor: '#08C4FF',
-  }
+  },
 };

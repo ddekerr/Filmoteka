@@ -2,34 +2,57 @@
   <div class="container">
     <div class="header__up">
       <a href="./index.html" class="logo link">
-        <svg width=24 height=24><use class="logo__icon" href="./images/icons.svg#icon-film"></use></svg>
+        <svg width="24" height="24">
+          <use class="logo__icon" href="./images/icons.svg#icon-film"></use>
+        </svg>
         <span class="logo__text">Filmoteka</span>
       </a>
       <nav class="nav">
         <ul class="nav__list list">
-          <li class="nav__item"><a class="nav__link active link" href="./index.html">Home</a></li>
-          <li class="nav__item"><a class="nav__link link" href="./library.html"
-            id="header-mylibrary">my library</a></li>
+          <li class="nav__item">
+            <a class="nav__link active link" href="./index.html">Home</a>
+          </li>
+          <li class="nav__item">
+            <a
+              class="nav__link link"
+              href="./library.html"
+              id="header-mylibrary"
+              >my library</a
+            >
+          </li>
         </ul>
       </nav>
       <div class="registration">
-        <button class="registration__logged-out modal-trigger" data-target="modal-login">          
-          Log In</button>
-        <button class="registration__logged-out modal-trigger" data-target="modal-signup">          
-          Log Out</button>
+        <button
+          class="registration__logged-out modal-trigger"
+          data-target="modal-login"
+        >
+          Log In
+        </button>
+        <button
+          class="registration__logged-out modal-trigger"
+          data-target="modal-signup"
+        >
+          Log Out
+        </button>
       </div>
     </div>
     <form class="search-form" id="search-form">
       <input
-        class ="search-form__input" 
+        class="search-form__input"
         type="text"
         name="searchQuery"
         autocomplete="off"
         placeholder="Movie search"
       />
-        <svg width=12 height=12 class ="search-form__icon">              
-          <use class="logo__icon" href="./images/icons.svg#icon-search"></use>        
-        </svg>  
+      <button class="search-form__button button" type="submit">
+        <svg width="12" height="12" class="search-form__icon">
+          <use
+            class="search-form__icon"
+            href="./images/icons.svg#icon-search"
+          ></use>
+        </svg>
+      </button>
     </form>
   </div>
 </header>

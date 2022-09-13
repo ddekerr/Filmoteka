@@ -1,10 +1,9 @@
 const refs = {
-
   openModalBtn: document.querySelector('[data-modal-open]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal-login]'),
 
-    // for log-in
+  // for log-in
   headerMyLibrary: document.querySelector('#header-mylibrary'),
   headerLogIn: document.querySelector('#header-login'),
   headerLogOut: document.querySelector('#header-logout'),
@@ -34,13 +33,15 @@ const refs = {
   gallery: document.querySelector('.films'),
 
   //search movies button on index.html page
+  formSearch: document.querySelector('.search-form'),
   inputSearch: document.querySelector('.search-form__input'),
+  buttonSearch: document.querySelector('.search-form__button'),
   svgSearch: document.querySelector('.search-form__icon'),
   cardLink: document.querySelector('.films list'),
   cardModal: document.querySelector('.backdrop'),
 
   addToWatchedBtn: document.querySelector('[data-btn="watched"]'),
-  addToQueueBtn: document.querySelector('[data-btn="queue"]')
+  addToQueueBtn: document.querySelector('[data-btn="queue"]'),
 };
 
 export const {
@@ -56,9 +57,11 @@ export const {
   formTitleSignIn,
   formTitleSignUp,
   formWrapName,
+  formSearch,
   inputPassword,
   inputSearch,
   svgSearch,
+  buttonSearch,
   buttonShowPassword,
   iconForShowPassword,
   iconForUnShowPassword,

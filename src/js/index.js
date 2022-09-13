@@ -1,8 +1,9 @@
 import pagination from './pagination';
+import { first, deletePageButton } from './pagination-layout';
 import { spinner } from './spinner';
-import { gallery, inputSearch, svgSearch, pag, cardModal } from './refs';
+import { gallery, pag, cardModal, formSearch } from './refs';
 import debounce from 'lodash.debounce';
-import { topFunction, noReloadByEnter, addAnimation } from './functions';
+import { topFunction } from './functions';
 import { fetchTrendingMovies, fetchMovieByID } from './filmoteka';
 import { searchMovie } from './search-movie';
 import { createFilmsGallery, renderMarkup } from './markups';
@@ -17,6 +18,8 @@ import './modal-log-in';
 
 // import './library-buttons';
 
+let totalPages;
+
 // Set pagination
 const page = pagination.getCurrentPage();
 
@@ -25,9 +28,9 @@ spinner.spin(gallery);
 
 // Listeners
 pagination.on('beforeMove', onPaginClick);
-inputSearch.addEventListener('input', debounce(searchMovie, 1000));
-inputSearch.addEventListener('keydown', noReloadByEnter);
-inputSearch.addEventListener('input', debounce(addAnimation, 100));
+pagination.on('afterMove', renderPagin);
+formSearch.addEventListener('submit', searchMovie);
+
 gallery.addEventListener('click', onHoverBtnCLick);
 cardModal.addEventListener('click', onHoverBtnCLick);
 /**
@@ -38,15 +41,16 @@ cardModal.addEventListener('click', onHoverBtnCLick);
 fetchTrendingMovies(page).then(data => {
   // Total films result - array.length of data.results object
   const total = data.total_results;
+  totalPages = data.total_pages;
   // Init counts of page depends of pagination instance (20 count on page)
   pagination.reset(total);
 
   // Render list of objects
-  const markup = createFilmsGallery(data.results);
+  const markup = createFilmsGallery(data.results, true, false);
   spinner.stop(gallery);
   renderMarkup(gallery, markup);
-
   pag.classList.remove('is-hidden');
+  renderPagin();
 });
 
 //Pagination event function
@@ -59,8 +63,20 @@ function onPaginClick(e) {
 
   // получаем фильмы согласно страницы
   fetchTrendingMovies(currentPage).then(data => {
-    const markup = createFilmsGallery(data.results);
+    const markup = createFilmsGallery(data.results, true, false);
     renderMarkup(gallery, markup);
     spinner.stop(gallery);
   });
+}
+
+// рендерим кастомную пагинацию
+function renderPagin() {
+  first();
+
+  const last = document.querySelector('.tui-pagination .tui-ico-last');
+
+  last.textContent = totalPages;
+
+  deletePageButton(1, '.tui-first');
+  deletePageButton(totalPages, '.tui-last');
 }

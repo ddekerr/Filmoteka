@@ -1,4 +1,4 @@
-import {Spinner} from 'spin.js';
+import { Spinner } from 'spin.js';
 
 // css спиннера для страници
 var opts = {
@@ -46,3 +46,4 @@ var opts = {
 
 // включить спиннер
 export const spinner = new Spinner(opts);
+// export const spinnerBtn = new Spinner(optsBtn);

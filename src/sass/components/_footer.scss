@@ -19,7 +19,7 @@
   line-height: 1.17;
   font-weight: 400;
 
-  &:first-child{
+  &:first-child {
     @include mq(mobile-only) {
       margin-bottom: 10px;
     }
@@ -35,6 +35,3 @@
     color: #ff6b01;
   }
 }
-
-
-

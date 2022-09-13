@@ -1,19 +1,16 @@
 // setup materialize components
-document.addEventListener('DOMContentLoaded', function() {
-
+document.addEventListener('DOMContentLoaded', function () {
   let modals = document.querySelectorAll('.modal');
   M.Modal.init(modals);
 
   let items = document.querySelectorAll('.collapsible');
   M.Collapsible.init(items);
-
 });
-
 
 // import { openModalBtn, closeModalBtn, modal, backdropLogIn, formLogIn, buttonRegister, inputPassword, buttonShowPassword, iconForShowPassword, iconForUnShowPassword } from './refs';
 // import { goToSignIn } from './log-in';
 
-// if (openModalBtn) { 
+// if (openModalBtn) {
 //   openModalBtn.addEventListener("click", openModalLogIn);
 //   closeModalBtn.addEventListener("click", closeModalLogIn);
 // };

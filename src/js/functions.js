@@ -16,3 +16,7 @@ export function topFunction() {
 export function addAnimation() {
   svgSearch.classList.add('animation');
 }
+
+export function removeAnimation() {
+  svgSearch.classList.remove('animation');
+}

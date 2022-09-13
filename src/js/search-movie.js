@@ -1,24 +1,27 @@
 import { Notify } from 'notiflix';
 import { spinner } from './spinner';
 import options from './options-notiflix';
-import { gallery, svgSearch, imp, pag } from './refs';
-import { topFunction } from './functions';
+import { gallery, formSearch, imp, pag } from './refs';
+import { topFunction, addAnimation, removeAnimation } from './functions';
 import pagination from './pagination';
+import { first, deletePageButton } from './pagination-layout';
 import { fetchMoviesByQuery } from './filmoteka';
 import { createFilmsGallery, renderMarkup } from './markups';
 
 // Set pagination
 const page = pagination.getCurrentPage();
+let totalPages;
 
 let query = '';
 let repeatQuery = null;
 
 export function searchMovie(e) {
+  e.preventDefault();
   // start spinner
   spinner.spin(gallery);
 
   repeatQuery = query;
-  query = e.target.value.trim();
+  query = formSearch.searchQuery.value.trim();
 
   if (query === '') {
     spinner.stop(gallery);
@@ -26,15 +29,20 @@ export function searchMovie(e) {
     return;
   }
   if (query === repeatQuery) {
+    spinner.stop(gallery);
     Notify.warning('Please enter another movie name to search.', options);
     return;
   }
+
+  addAnimation();
+  setTimeout(removeAnimation, 1500);
 
   fetchMoviesByQuery(query, page).then(data => {
     if (data.results.length === 0) {
       renderMarkup(gallery, '');
       // pagination does not show up
       pag.classList.add('is-hidden');
+      spinner.stop(gallery);
       Notify.failure(
         'Search result not successful. Enter the correct movie name and try again please.',
         options
@@ -48,16 +56,18 @@ export function searchMovie(e) {
     );
 
     const total = data.total_results;
+    totalPages = data.total_pages;
     pagination.reset(total);
 
-    const markup = createFilmsGallery(data.results);
+    const markup = createFilmsGallery(data.results, true, false);
     renderMarkup(gallery, markup);
+    renderPagin();
     pag.classList.remove('is-hidden');
-
     spinner.stop(gallery);
   });
-  svgSearch.classList.remove('animation');
+
   pagination.on('beforeMove', onPaginClick);
+  pagination.on('afterMove', renderPagin);
 }
 
 //Pagination event function
@@ -70,7 +80,19 @@ function onPaginClick(e) {
 
   // получаем фильмы согласно страницы
   fetchMoviesByQuery(query, currentPage).then(data => {
-    const markup = createFilmsGallery(data.results);
+    const markup = createFilmsGallery(data.results, true, false);
     renderMarkup(gallery, markup);
   });
+}
+
+// рендерим кастомную пагинацию
+function renderPagin() {
+  first();
+
+  const last = document.querySelector('.tui-pagination .tui-ico-last');
+
+  last.textContent = totalPages;
+
+  deletePageButton(1, '.tui-first');
+  deletePageButton(totalPages, '.tui-last');
 }
