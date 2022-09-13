@@ -110,15 +110,3 @@ function onclickQueue(e) {
   watchedBtn.classList.remove('active');
   queueBtn.disabled = true;
 }
-
-// рендер кастомной пагинации
-function renderPagin(totalPages) {
-  first();
-
-  const last = document.querySelector('.tui-pagination .tui-ico-last');
-
-  last.textContent = totalPages;
-
-  deletePageButton(1, '.tui-first');
-  deletePageButton(totalPages, '.tui-last');
-}
