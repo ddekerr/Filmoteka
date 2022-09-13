@@ -107,13 +107,15 @@ function onclickQueue() {
 }
 
 
-gallery.addEventListener('click', e => {
+gallery.addEventListener('click', clickBtn);
+
+cardModal.addEventListener('click', clickBtn);
+
+function clickBtn(e) {
   onHoverBtnCLick(e);
   if(tab === 'watched') {
     onClickWatched();
   } else {
     onclickQueue()
   }
-});
-
-cardModal.addEventListener('click', onHoverBtnCLick);
+}
