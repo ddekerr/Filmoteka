@@ -4,7 +4,7 @@ import { gallery, pag, cardModal, formSearch } from './refs';
 import debounce from 'lodash.debounce';
 import { topFunction } from './functions';
 import { fetchTrendingMovies, fetchMovieByID } from './filmoteka';
-import { searchMovie } from './search-movie';
+// import { searchMovie } from './search-movie';
 import { createFilmsGallery, renderMarkup } from './markups';
 import { onHoverBtnCLick } from './local-storage';
 
@@ -17,6 +17,8 @@ import './modal-log-in';
 
 // import './library-buttons';
 
+let totalPages;
+
 // Set pagination
 const page = pagination.getCurrentPage();
 
@@ -25,8 +27,7 @@ spinner.spin(gallery);
 
 // Listeners
 pagination.on('beforeMove', onPaginClick);
-formSearch.addEventListener('submit', searchMovie);
-
+// formSearch.addEventListener('submit', searchMovie);
 
 gallery.addEventListener('click', onHoverBtnCLick);
 cardModal.addEventListener('click', onHoverBtnCLick);
@@ -38,6 +39,7 @@ cardModal.addEventListener('click', onHoverBtnCLick);
 fetchTrendingMovies(page).then(data => {
   // Total films result - array.length of data.results object
   const total = data.total_results;
+  totalPages = data.total_pages;
   // Init counts of page depends of pagination instance (20 count on page)
   pagination.reset(total);
 
@@ -46,8 +48,41 @@ fetchTrendingMovies(page).then(data => {
   spinner.stop(gallery);
   renderMarkup(gallery, markup);
 
+  renderPagin();
+
   pag.classList.remove('is-hidden');
 });
+
+pagination.on('afterMove', renderPagin);
+
+function first() {
+  const first = document.querySelector('.tui-ico-first');
+  first.textContent = '1';
+  console.log(first.textContent);
+}
+
+function renderPagin() {
+  first();
+
+  const last = document.querySelector('.tui-pagination .tui-ico-last');
+
+  last.textContent = totalPages;
+
+  deletePageButton(1, '.tui-first');
+  deletePageButton(totalPages, '.tui-last');
+}
+
+function deletePageButton(index, edgeButtonSelector) {
+  let button = document.querySelector(
+    `.tui-pagination .tui-page-btn[data-page-number="${index}"]`
+  );
+  if (null !== button) {
+    if (button.classList.contains('tui-is-selected')) {
+      button = document.querySelector(edgeButtonSelector);
+    }
+    button.remove();
+  }
+}
 
 //Pagination event function
 function onPaginClick(e) {

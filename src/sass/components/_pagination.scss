@@ -1,4 +1,16 @@
+.pagination-wrap {
+  text-align: center;
+}
+
+.tui-pagination .tui-next {
+  float: right; //меняет местами порядок кнопок следующая и последняя
+}
+.tui-pagination .tui-prev {
+  float: left; //меняет местами порядок кнопок предыдущая и первая
+}
+
 .tui-pagination {
+  display: inline-block;
   margin-bottom: 40px;
   margin-top: 40px;
   height: 40px;
@@ -92,23 +104,25 @@
   background-position: center;
 }
 .tui-pagination .tui-ico-first {
-  background: url('/src/images/double-arrow-left.svg');
-  width: 15px;
-  height: 16px;
-  background-position: center;
+  // background: url('/src/images/double-arrow-left.svg');
+  // width: 15px;
+  // height: 16px;
+  // background-position: center;
+  font-size: 12px;
 }
 .tui-pagination .tui-ico-last {
-  background: url('/src/images/double-arrow-right.svg');
-  width: 15px;
-  height: 16px;
-  background-position: center;
+  // background: url('/src/images/double-arrow-right.svg');
+  // width: 15px;
+  // height: 16px;
+  // background-position: center;
+  font-size: 12px;
 }
 
 .tui-pagination .tui-next-is-ellip,
 .tui-pagination .tui-prev-is-ellip,
 .tui-pagination .tui-prev,
 .tui-pagination .tui-next {
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     display: none;
   }
 }
@@ -116,3 +130,6 @@
 //   display: none;
 //   cursor: default;
 // }
+.tui-pagination .tui-page-btn .button-is-hidden {
+  display: none;
+}
