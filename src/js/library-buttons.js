@@ -22,7 +22,6 @@ export function getWatchedItems() {
   const watchedMovies = localStorage.getItem('watched');
   let arrayOFWatched = JSON.parse(watchedMovies) || [];
   const total = arrayOFWatched.length;
-  totalPagesWached = Math.ceil(total / 20);
 
   // включаем пагинацию если больше 20 фильмов
   if (arrayOFWatched.length > 20) {
@@ -34,7 +33,6 @@ export function getWatchedItems() {
   // рендерим первые 20 фильмов
   const markup = createFilmsGallery(paginate(arrayOFWatched, 20, 1), true);
   gallery.innerHTML = markup;
-  renderPagin(totalPagesWached);
   pagination.reset(total);
   return arrayOFWatched;
 }
@@ -43,7 +41,6 @@ function getQueueItems() {
   const queueMovies = localStorage.getItem('queue');
   let arrayOFQueue = JSON.parse(queueMovies) || [];
   const total = arrayOFQueue.length;
-  totalPagesQueu = Math.ceil(total / 20);
 
   // включаем пагинацию если больше 20 фильмов
   if (arrayOFQueue.length > 20) {
