@@ -63,9 +63,11 @@
    @media (min-width: 768px) {
       margin-left: 50px;
       margin-top: 0;
+      max-width: 265px;
    }
    @media (min-width: 1280px) {
       margin-left: 20px;
+      max-width: 390px;
    }
 
    &__row > td:first-child {
@@ -93,14 +95,13 @@
       line-height: 1.67;
       margin-bottom: 20px;
       font-size: 12px;
-      max-width: 240px;
 
-      @media (min-width: 768px) {
-         max-width: 300px;
-      }
-      @media (min-width: 1280px) {
-         max-width: 390px;
-      }
+      // @media (min-width: 768px) {
+      //    max-width: 300px;
+      // }
+      // @media (min-width: 1280px) {
+      //    max-width: 390px;
+      // }
    }
    &__about-title {
       font-size: 20px;
