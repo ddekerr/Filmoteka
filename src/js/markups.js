@@ -6,7 +6,7 @@ import { genersForFilmCard } from './getGenres';
  * @param {Array of Objects} items
  * @returns {String} markup
  */
-export function createFilmsGallery(items, hide, hideLibr) {
+export function createFilmsGallery(items, hide, hideLibr, actionBtn) {
   const markupСard = items.map(item => {
     const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
     let genres;
@@ -30,7 +30,7 @@ export function createFilmsGallery(items, hide, hideLibr) {
                  <button type="button" data-action="add" data-id="${item.id}" data-btn="queue" class="option__button button">add to queue</button>
                 </li>
                 <li class="option__item ${hiddenRemove}">
-                 <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" data-btn="queue" class="option__button button">remove film</button>
+                 <button type="button" data-action="remove" data-id="${item.id}" data-btn="${actionBtn}" class="option__button button">remove film</button>
                 </li>
               </ul>
             </div>

@@ -1,10 +1,12 @@
 import { createFilmsGallery } from './markups';
+import { onHoverBtnCLick } from './local-storage';
 import pagination from './pagination';
 import { topFunction } from './functions';
 import { pag, gallery } from './refs';
 
 const queueBtn = document.querySelector('[data-queue="data-queue"]');
 const watchedBtn = document.querySelector('[data-watched="data-watched"]');
+let tab = 'watched';
 
 queueBtn.addEventListener('click', onclickQueue);
 watchedBtn.addEventListener('click', onClickWatched);
@@ -18,6 +20,7 @@ const paginate = (array, pageSize, pageNumber) => {
 // функции получения данных из локалстора и рендеринга их
 
 export function getWatchedItems() {
+  tab = 'watched';
   const watchedMovies = localStorage.getItem('watched');
   let arrayOFWatched = JSON.parse(watchedMovies) || [];
   const total = arrayOFWatched.length;
@@ -30,13 +33,14 @@ export function getWatchedItems() {
   }
 
   // рендерим первые 20 фильмов
-  const markup = createFilmsGallery(paginate(arrayOFWatched, 20, 1), false, true);
+  const markup = createFilmsGallery(paginate(arrayOFWatched, 20, 1), false, true, 'watched');
   gallery.innerHTML = markup;
   pagination.reset(total);
   return arrayOFWatched;
 }
 
 function getQueueItems() {
+  tab = 'queue';
   const queueMovies = localStorage.getItem('queue');
   let arrayOFQueue = JSON.parse(queueMovies) || [];
   const total = arrayOFQueue.length;
@@ -49,7 +53,7 @@ function getQueueItems() {
   }
 
   // рендерим первые 20 фильмов
-  const markup = createFilmsGallery(paginate(arrayOFQueue, 20, 1), false, true);
+  const markup = createFilmsGallery(paginate(arrayOFQueue, 20, 1), false, true, 'queue');
   gallery.innerHTML = markup;
   pagination.reset(total);
   return arrayOFQueue;
@@ -57,7 +61,7 @@ function getQueueItems() {
 
 // функции нажатия на кнопки
 
-function onClickWatched(e) {
+function onClickWatched() {
   getWatchedItems();
 
   // рендерим пагинацию остальных страниц
@@ -79,7 +83,7 @@ function onClickWatched(e) {
   watchedBtn.disabled = true;
 }
 
-function onclickQueue(e) {
+function onclickQueue() {
   getQueueItems();
 
   // рендерим пагинацию остальных страниц
@@ -100,3 +104,14 @@ function onclickQueue(e) {
   watchedBtn.classList.remove('active');
   queueBtn.disabled = true;
 }
+
+
+gallery.addEventListener('click', e => {
+  onHoverBtnCLick(e);
+  console.log(tab)
+  if(tab === 'watched') {
+    onClickWatched();
+  } else {
+    onclickQueue()
+  }
+});
