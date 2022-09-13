@@ -1,4 +1,4 @@
-import {Spinner} from 'spin.js';
+import { Spinner } from 'spin.js';
 
 // css спиннера для страници
 var opts = {

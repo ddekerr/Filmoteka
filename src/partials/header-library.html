@@ -2,26 +2,48 @@
   <div class="container">
     <div class="header__up">
       <a href="./index.html" class="logo link">
-        <svg width=24 height=24><use class="logo__icon" href="./images/icons.svg#icon-film"></use></svg>
+        <svg width="24" height="24">
+          <use class="logo__icon" href="./images/icons.svg#icon-film"></use>
+        </svg>
         <span class="logo__text">Filmoteka</span>
       </a>
       <nav class="nav">
         <ul class="nav__list list">
-          <li class="nav__item"><a class="nav__link link" href="./index.html">Home</a></li>
-          <li class="nav__item"><a class="nav__link active link" href="./library.html"
-            id="header-mylibrary">My library</a></li> 
+          <li class="nav__item">
+            <a class="nav__link link" href="./index.html">Home</a>
+          </li>
+          <li class="nav__item">
+            <a
+              class="nav__link active link"
+              href="./library.html"
+              id="header-mylibrary"
+              >My library</a
+            >
+          </li>
         </ul>
       </nav>
       <div class="registration">
-        <button class="registration__logged-out modal-trigger" data-target="modal-login">          
-          Log In</button>
-        <button class="registration__logged-out modal-trigger" data-target="modal-signup">          
-          Log Out</button>
+        <button
+          class="registration__logged-out modal-trigger"
+          data-target="modal-login"
+        >
+          Log In
+        </button>
+        <button
+          class="registration__logged-out modal-trigger"
+          data-target="modal-signup"
+        >
+          Log Out
+        </button>
       </div>
     </div>
-   <div class="buttons">
-    <button class="buttons__button button active" data-watched="data-watched">watched</button>
-    <button class="buttons__button button" data-queue="data-queue">queue</button>
-  </div>
+    <div class="buttons">
+      <button class="buttons__button button active" data-watched="data-watched">
+        watched
+      </button>
+      <button class="buttons__button button" data-queue="data-queue">
+        queue
+      </button>
+    </div>
   </div>
 </header>

@@ -3,10 +3,10 @@
   align-items: center;
 }
 
-.logo__text { 
+.logo__text {
   font-size: 30px;
-  line-height: 1.17;  
-  margin-left: 8px; 
+  line-height: 1.17;
+  margin-left: 8px;
   color: $text-color-active;
 
   @media screen and (min-width: 320px) {
@@ -14,6 +14,6 @@
   }
 
   @media screen and (min-width: 768px) {
-    display: block;        
+    display: block;
   }
 }

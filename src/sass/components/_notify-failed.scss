@@ -1,17 +1,17 @@
 .notify-failed {
-    position: absolute;
-    left: 20px;
-    bottom: 44px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.17;    
-    color: $error-color;
+  position: absolute;
+  left: 20px;
+  bottom: 44px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.17;
+  color: $error-color;
 
-    @media screen and (min-width: 768px) {
-        left: 187px;
-    }
+  @media screen and (min-width: 768px) {
+    left: 187px;
+  }
 
-    @media screen and (min-width: 1280px) {
-        left: 445px;
-    }
+  @media screen and (min-width: 1280px) {
+    left: 445px;
+  }
 }
