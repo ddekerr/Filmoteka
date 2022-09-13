@@ -1,6 +1,9 @@
 const { Notify } = require('notiflix');
 import { fetchMovieByID } from './filmoteka';
 import './refs';
+import './plug-for-library';
+
+
 
 /**
  * add or remove film from locale storage
