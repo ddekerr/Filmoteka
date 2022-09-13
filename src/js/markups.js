@@ -21,14 +21,17 @@ export function createFilmsGallery(items, hide) {
       <a class="film__link link" href="" ">
         <div class="film__image-container">
           <img class="film__image" src="${src}" alt="${item.original_title}" load="lazy" data-id='${item.id}'/>
-          <div class="thumb ${hidden}">
+          <div class="thumb">
             <div class="overlay">
               <ul class="option list">
-                <li class="option__item">
+                <li class="option__item ${hidden}">
                  <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" class="option__button button">add to Watched</button>
                 </li>
-                <li class="option__item">
+                <li class="option__item ${hidden}">
                  <button type="button" data-action="add" data-id="${item.id}" data-btn="queue" class="option__button button">add to queue</button>
+                </li>
+                <li class="option__item">
+                 <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" data-btn="queue" class="option__button button">remove film</button>
                 </li>
               </ul>
             </div>
