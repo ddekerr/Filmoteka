@@ -2,6 +2,7 @@ const { Notify } = require('notiflix');
 import { fetchMovieByID } from './filmoteka';
 import './refs';
 
+
 /**
  * add or remove film from locale storage
  * Toggle data-action attr

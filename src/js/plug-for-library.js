@@ -1,3 +1,6 @@
+const plugContainer = document.querySelector('.plug')
+ hidePlug ()
+
 const COLOR_LIST = ['#ff6b01'];
 let $targetList;
 
@@ -41,3 +44,12 @@ const onScroll = () => {
 };
 
 document.addEventListener('DOMContentLoaded', init, false);
+
+
+
+
+function hidePlug (){
+  if (localStorage.length > 1) {
+    plugContainer.remove()
+  }
+}
