@@ -1,8 +1,8 @@
 import pagination from './pagination';
 import { spinner } from './spinner';
-import { gallery, inputSearch, svgSearch, pag, cardModal } from './refs';
+import { gallery, pag, cardModal, formSearch } from './refs';
 import debounce from 'lodash.debounce';
-import { topFunction, noReloadByEnter, addAnimation } from './functions';
+import { topFunction, noReloadByEnter } from './functions';
 import { fetchTrendingMovies, fetchMovieByID } from './filmoteka';
 import { searchMovie } from './search-movie';
 import { createFilmsGallery, renderMarkup } from './markups';
@@ -25,9 +25,9 @@ spinner.spin(gallery);
 
 // Listeners
 pagination.on('beforeMove', onPaginClick);
-inputSearch.addEventListener('input', debounce(searchMovie, 1000));
-inputSearch.addEventListener('keydown', noReloadByEnter);
-inputSearch.addEventListener('input', debounce(addAnimation, 100));
+formSearch.addEventListener('submit', searchMovie);
+
+
 gallery.addEventListener('click', onHoverBtnCLick);
 cardModal.addEventListener('click', onHoverBtnCLick);
 /**

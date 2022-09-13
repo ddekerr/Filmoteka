@@ -33,7 +33,9 @@ const refs = {
   gallery: document.querySelector('.films'),
 
   //search movies button on index.html page
+  formSearch: document.querySelector('.search-form'),
   inputSearch: document.querySelector('.search-form__input'),
+  buttonSearch: document.querySelector('.search-form__button'),
   svgSearch: document.querySelector('.search-form__icon'),
   cardLink: document.querySelector('.films list'),
   cardModal: document.querySelector('.backdrop'),
@@ -55,9 +57,11 @@ export const {
   formTitleSignIn,
   formTitleSignUp,
   formWrapName,
+  formSearch,
   inputPassword,
   inputSearch,
   svgSearch,
+  buttonSearch,
   buttonShowPassword,
   iconForShowPassword,
   iconForUnShowPassword,
