@@ -22,9 +22,6 @@
       <include src="./partials/footer.html"></include>
     </div>
 
-    <!--Scroll -->
-    <include src="./partials/scroll.html"></include>
-
     <!-- <button modal-open>Модалка</button> -->
 
   <!-- Modal form for Singlr card film -->
@@ -41,7 +38,17 @@
   <include src="./partials/modal-team.html"></include>
 <!-- Lazysizes library script file -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
-
+<script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+<!--Scroll -->
+<script>
+  addBackToTop({
+    diameter: 40,
+    backgroundColor: '#ff6b08',
+    textColor: '#fff',
+    scrollDuration: 1000,
+    showWhenScrollTopIs: 1,
+  });
+</script>
     <script type="module" src="./js/index.js"></script>
   </body>
 
