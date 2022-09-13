@@ -2,7 +2,6 @@ import './refs';
 import { getWatchedItems } from './library-buttons';
 import { createFilmsGallery } from './markups';
 import pagination from './pagination';
-import { first, deletePageButton } from './pagination-layout';
 import './plug-for-library';
 import { createModalFilm } from './markups';
 import './modal';
@@ -30,18 +29,3 @@ pagination.on('beforeMove', event => {
   const markup = createFilmsGallery(arrayForMarkup);
   gallery.innerHTML = markup;
 });
-
-pagination.on('afterMove', renderPagin);
-
-function renderPagin() {
-  first();
-  const totalPages = Math.ceil(getWatchedItems().length / 20);
-  console.log(totalPages);
-
-  const last = document.querySelector('.tui-pagination .tui-ico-last');
-
-  last.textContent = totalPages;
-
-  deletePageButton(1, '.tui-first');
-  deletePageButton(totalPages, '.tui-last');
-}
