@@ -1,10 +1,11 @@
 import pagination from './pagination';
+import { first, deletePageButton } from './pagination-layout';
 import { spinner } from './spinner';
 import { gallery, pag, cardModal, formSearch } from './refs';
 import debounce from 'lodash.debounce';
 import { topFunction } from './functions';
 import { fetchTrendingMovies, fetchMovieByID } from './filmoteka';
-// import { searchMovie } from './search-movie';
+import { searchMovie } from './search-movie';
 import { createFilmsGallery, renderMarkup } from './markups';
 import { onHoverBtnCLick } from './local-storage';
 
@@ -27,7 +28,8 @@ spinner.spin(gallery);
 
 // Listeners
 pagination.on('beforeMove', onPaginClick);
-// formSearch.addEventListener('submit', searchMovie);
+pagination.on('afterMove', renderPagin);
+formSearch.addEventListener('submit', searchMovie);
 
 gallery.addEventListener('click', onHoverBtnCLick);
 cardModal.addEventListener('click', onHoverBtnCLick);
@@ -53,37 +55,6 @@ fetchTrendingMovies(page).then(data => {
   pag.classList.remove('is-hidden');
 });
 
-pagination.on('afterMove', renderPagin);
-
-function first() {
-  const first = document.querySelector('.tui-ico-first');
-  first.textContent = '1';
-  console.log(first.textContent);
-}
-
-function renderPagin() {
-  first();
-
-  const last = document.querySelector('.tui-pagination .tui-ico-last');
-
-  last.textContent = totalPages;
-
-  deletePageButton(1, '.tui-first');
-  deletePageButton(totalPages, '.tui-last');
-}
-
-function deletePageButton(index, edgeButtonSelector) {
-  let button = document.querySelector(
-    `.tui-pagination .tui-page-btn[data-page-number="${index}"]`
-  );
-  if (null !== button) {
-    if (button.classList.contains('tui-is-selected')) {
-      button = document.querySelector(edgeButtonSelector);
-    }
-    button.remove();
-  }
-}
-
 //Pagination event function
 function onPaginClick(e) {
   topFunction();
@@ -98,4 +69,16 @@ function onPaginClick(e) {
     renderMarkup(gallery, markup);
     spinner.stop(gallery);
   });
+}
+
+// рендерим кастомную пагинацию
+function renderPagin() {
+  first();
+
+  const last = document.querySelector('.tui-pagination .tui-ico-last');
+
+  last.textContent = totalPages;
+
+  deletePageButton(1, '.tui-first');
+  deletePageButton(totalPages, '.tui-last');
 }

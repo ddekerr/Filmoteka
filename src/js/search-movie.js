@@ -1,14 +1,16 @@
 import { Notify } from 'notiflix';
 import { spinner } from './spinner';
-import  options  from './options-notiflix';
+import options from './options-notiflix';
 import { gallery, formSearch, imp, pag } from './refs';
 import { topFunction, addAnimation, removeAnimation } from './functions';
 import pagination from './pagination';
+import { first, deletePageButton } from './pagination-layout';
 import { fetchMoviesByQuery } from './filmoteka';
 import { createFilmsGallery, renderMarkup } from './markups';
 
 // Set pagination
 const page = pagination.getCurrentPage();
+let totalPages;
 
 let query = '';
 let repeatQuery = null;
@@ -41,24 +43,32 @@ export function searchMovie(e) {
       // pagination does not show up
       pag.classList.add('is-hidden');
       spinner.stop(gallery);
-      Notify.failure('Search result not successful. Enter the correct movie name and try again please.',
-        options);
+      Notify.failure(
+        'Search result not successful. Enter the correct movie name and try again please.',
+        options
+      );
       return;
     }
 
-    Notify.success(`According to your request, we found ${data.total_results} movies.`,
-      options);
+    Notify.success(
+      `According to your request, we found ${data.total_results} movies.`,
+      options
+    );
 
     const total = data.total_results;
+    console.log(total);
+    totalPages = data.total_pages;
     pagination.reset(total);
 
     const markup = createFilmsGallery(data.results);
     renderMarkup(gallery, markup);
+    renderPagin();
     pag.classList.remove('is-hidden');
     spinner.stop(gallery);
   });
 
   pagination.on('beforeMove', onPaginClick);
+  pagination.on('afterMove', renderPagin);
 }
 
 //Pagination event function
@@ -74,4 +84,16 @@ function onPaginClick(e) {
     const markup = createFilmsGallery(data.results);
     renderMarkup(gallery, markup);
   });
+}
+
+// рендерим кастомную пагинацию
+function renderPagin() {
+  first();
+
+  const last = document.querySelector('.tui-pagination .tui-ico-last');
+
+  last.textContent = totalPages;
+
+  deletePageButton(1, '.tui-first');
+  deletePageButton(totalPages, '.tui-last');
 }
