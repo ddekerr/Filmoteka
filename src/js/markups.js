@@ -47,7 +47,7 @@ export function createFilmsGallery(items, hide) {
     </li>
   `}).join('');
 
-  return markupСard;
+   return markupСard;
 }
 
 /**
@@ -61,6 +61,11 @@ export function createFilmsGallery(items, hide) {
    return `
     <div class="modal__movie">
     <button class="modal__close">
+    <svg class="modal__btn" width="20px" height="20px">
+    width="20" height="20" viewBox="0 0 20 20">
+    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+    </svg>
+    </svg>
     </button>
       <div class="modal__img">
         <img src="${src}" alt="${item.original_title}" />
@@ -93,7 +98,7 @@ export function createFilmsGallery(items, hide) {
         <p class="modal-info__about">
           ${item.overview}
         </p>
-        <ul class="modal-info__buttons-list">
+        <ul class="modal-info__buttons-list modal-info__btn">
           <li class="movie-data__button-item">
             <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" class="modal-info__button button active">
               add to Watched
@@ -114,6 +119,6 @@ export function createFilmsGallery(items, hide) {
  * @param {HTML Object} container 
  * @param {String} markup 
  */
-export function renderMarkup (container, markup) {
-  container.innerHTML = markup;
+export function renderMarkup(container, markup) {
+   container.innerHTML = markup;
 }
