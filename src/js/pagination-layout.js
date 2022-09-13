@@ -1,7 +1,7 @@
 export function first() {
   const first = document.querySelector('.tui-ico-first');
+
   first.textContent = '1';
-  console.log(first.textContent);
 }
 
 export function deletePageButton(index, edgeButtonSelector) {

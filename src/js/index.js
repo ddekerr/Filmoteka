@@ -49,10 +49,8 @@ fetchTrendingMovies(page).then(data => {
   const markup = createFilmsGallery(data.results);
   spinner.stop(gallery);
   renderMarkup(gallery, markup);
-
-  renderPagin();
-
   pag.classList.remove('is-hidden');
+  renderPagin();
 });
 
 //Pagination event function

@@ -56,7 +56,6 @@ export function searchMovie(e) {
     );
 
     const total = data.total_results;
-    console.log(total);
     totalPages = data.total_pages;
     pagination.reset(total);
 

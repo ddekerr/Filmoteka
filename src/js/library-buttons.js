@@ -1,7 +1,11 @@
 import { createFilmsGallery } from './markups';
 import pagination from './pagination';
+import { first, deletePageButton } from './pagination-layout';
 import { topFunction } from './functions';
 import { pag, gallery } from './refs';
+
+let totalPagesWached;
+let totalPagesQueu;
 
 const queueBtn = document.querySelector('[data-queue="data-queue"]');
 const watchedBtn = document.querySelector('[data-watched="data-watched"]');
@@ -21,6 +25,7 @@ export function getWatchedItems() {
   const watchedMovies = localStorage.getItem('watched');
   let arrayOFWatched = JSON.parse(watchedMovies) || [];
   const total = arrayOFWatched.length;
+  totalPagesWached = Math.ceil(total / 20);
 
   // включаем пагинацию если больше 20 фильмов
   if (arrayOFWatched.length > 20) {
@@ -32,6 +37,7 @@ export function getWatchedItems() {
   // рендерим первые 20 фильмов
   const markup = createFilmsGallery(paginate(arrayOFWatched, 20, 1), true);
   gallery.innerHTML = markup;
+  renderPagin(totalPagesWached);
   pagination.reset(total);
   return arrayOFWatched;
 }
@@ -40,6 +46,7 @@ function getQueueItems() {
   const queueMovies = localStorage.getItem('queue');
   let arrayOFQueue = JSON.parse(queueMovies) || [];
   const total = arrayOFQueue.length;
+  totalPagesQueu = Math.ceil(total / 20);
 
   // включаем пагинацию если больше 20 фильмов
   if (arrayOFQueue.length > 20) {
@@ -51,6 +58,7 @@ function getQueueItems() {
   // рендерим первые 20 фильмов
   const markup = createFilmsGallery(paginate(arrayOFQueue, 20, 1));
   gallery.innerHTML = markup;
+  renderPagin(totalPagesQueu);
   pagination.reset(total);
   return arrayOFQueue;
 }
@@ -71,6 +79,7 @@ function onClickWatched(e) {
     const markup = createFilmsGallery(arrayForMarkup);
     gallery.innerHTML = markup;
   });
+  pagination.on('afterMove', renderPagin(totalPagesWached));
 
   // вкл/выкл кнопок
   queueBtn.disabled = false;
@@ -93,10 +102,23 @@ function onclickQueue(e) {
     const markup = createFilmsGallery(arrayForMarkup);
     gallery.innerHTML = markup;
   });
+  pagination.on('afterMove', renderPagin(totalPagesQueu));
 
   // вкл/выкл кнопок
   watchedBtn.disabled = false;
   queueBtn.classList.add('active');
   watchedBtn.classList.remove('active');
   queueBtn.disabled = true;
+}
+
+// рендер кастомной пагинации
+function renderPagin(totalPages) {
+  first();
+
+  const last = document.querySelector('.tui-pagination .tui-ico-last');
+
+  last.textContent = totalPages;
+
+  deletePageButton(1, '.tui-first');
+  deletePageButton(totalPages, '.tui-last');
 }
