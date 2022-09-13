@@ -65,11 +65,13 @@ img {
 .container {
   margin-left: auto;
   margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 
-  @media screen and (min-width: 320px) {
+  @media screen and (min-width: 480px) {
     padding-left: 20px;
     padding-right: 20px;
-    width: 320px;
+    width: 480px;
   }
   @media screen and (min-width: 768px) {
     padding-left: 32px;
@@ -120,40 +122,40 @@ main {
 }
 
 .backdrop {
-   z-index: 200;
-   position: fixed;
-   bottom: 0;
-   right: 0;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   overflow-y: auto;
-   background-color: rgba(0, 0, 0, 0.56);
-   overflow: overlay;
-   padding: 20px 10px 38px; 
-   opacity: 0;
-   visibility: hidden;
-   pointer-events: none; 
-   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 200;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.56);
+  overflow: overlay;
+  padding: 20px 10px 38px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-open {
-   pointer-events: all;
-   opacity: 1;
-   visibility: visible;
-   padding-top: 20px;
-   padding-bottom: 38px;
-   padding: 20px 10px 38px;
-   overflow: overlay;
-   width: 100%;
-   height: 100%;
-   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: all;
+  opacity: 1;
+  visibility: visible;
+  padding-top: 20px;
+  padding-bottom: 38px;
+  padding: 20px 10px 38px;
+  overflow: overlay;
+  width: 100%;
+  height: 100%;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 // Позиционирует нотификашку
-[id^=NotiflixNotifyWrap]>div>span.nx-message {
-      @include mq(mobile-only) {
-          width: 280px;
-          inset: 140px 0 auto;
-        }
+[id^='NotiflixNotifyWrap'] > div > span.nx-message {
+  @include mq(mobile-only) {
+    width: 280px;
+    inset: 140px 0 auto;
+  }
   inset: 130px 0 auto;
 }

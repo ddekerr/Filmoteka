@@ -1,11 +1,11 @@
-.buttons {  
+.buttons {
   margin-left: auto;
   margin-right: auto;
   margin-top: 60px;
   display: flex;
   gap: 20px;
   justify-content: center;
-  
+
   @media screen and (min-width: 768px) {
     margin-top: 40px;
     gap: 32px;

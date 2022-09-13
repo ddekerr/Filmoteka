@@ -1,10 +1,9 @@
 const refs = {
-
   openModalBtn: document.querySelector('[data-modal-open]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal-login]'),
 
-    // for log-in
+  // for log-in
   headerMyLibrary: document.querySelector('#header-mylibrary'),
   headerLogIn: document.querySelector('#header-login'),
   headerLogOut: document.querySelector('#header-logout'),
@@ -40,7 +39,7 @@ const refs = {
   cardModal: document.querySelector('.backdrop'),
 
   addToWatchedBtn: document.querySelector('[data-btn="watched"]'),
-  addToQueueBtn: document.querySelector('[data-btn="queue"]')
+  addToQueueBtn: document.querySelector('[data-btn="queue"]'),
 };
 
 export const {

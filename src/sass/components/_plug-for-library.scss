@@ -1,49 +1,67 @@
-  [data-js="reveal"] {
-    display: block;
-    padding: 10vw 33vw;
-    color: #000000;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.5vw;
-    font-weight: 700;
-    line-height: 1.2;
-  }
-  
-  [data-reveal="content"] {
-    display: inline-block;
-    position: relative;
-  }
-  
-  [data-reveal="cover"] {
-    position: absolute;
-    top: 0;
-    left: 0;
+[data-js='reveal'] {
+  display: block;
+  padding: 10vw 33vw;
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5vw;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+[data-reveal='content'] {
+  display: inline-block;
+  position: relative;
+}
+
+[data-reveal='cover'] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  z-index: 1;
+}
+
+[data-reveal='text'] {
+  opacity: 0;
+}
+
+@keyframes reveal-cover {
+  0% {
     width: 0;
-    height: 100%;
-    z-index: 1;
+    left: 0;
   }
-  
-  [data-reveal="text"] {
+  44% {
+    width: 100%;
+    left: 0;
+  }
+  54% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+@keyframes reveal-text {
+  0% {
     opacity: 0;
   }
-  
-  @keyframes reveal-cover {
-      0%   { width: 0;left: 0; }
-      44%  { width: 100%;left: 0; }
-      54%  { width: 100%;left: 0;  }
-      100% { width: 0;left: 100%; }
+  44% {
+    opacity: 0;
   }
-  
-  @keyframes reveal-text {
-      0%   { opacity: 0; }
-      44%  { opacity: 0; }
-      54%  {opacity: 1; }
-  }
-  
-  [data-js="reveal"].loaded [data-reveal="cover"] {
-    animation: reveal-cover 2s ease-in-out;
-  }
-  
-  [data-js="reveal"].loaded [data-reveal="text"] {
+  54% {
     opacity: 1;
-    animation: reveal-text 2s ease-in-out;
   }
+}
+
+[data-js='reveal'].loaded [data-reveal='cover'] {
+  animation: reveal-cover 2s ease-in-out;
+}
+
+[data-js='reveal'].loaded [data-reveal='text'] {
+  opacity: 1;
+  animation: reveal-text 2s ease-in-out;
+}

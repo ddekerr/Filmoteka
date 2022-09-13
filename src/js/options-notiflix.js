@@ -5,7 +5,7 @@ export default {
   fontFamily: 'Roboto',
   fontSize: '14px',
   useIcon: false,
-    
+
   success: {
     background: 'transparent',
     textColor: '#FF6B08',
@@ -21,5 +21,5 @@ export default {
   info: {
     background: 'transparent',
     textColor: '#08C4FF',
-  }
+  },
 };
