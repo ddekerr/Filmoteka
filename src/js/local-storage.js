@@ -1,8 +1,6 @@
 const { Notify } = require('notiflix');
 import { fetchMovieByID } from './filmoteka';
 import './refs';
-import './plug-for-library';
-
 
 
 /**
