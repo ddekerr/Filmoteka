@@ -55,7 +55,6 @@ function getQueueItems() {
   // рендерим первые 20 фильмов
   const markup = createFilmsGallery(paginate(arrayOFQueue, 20, 1));
   gallery.innerHTML = markup;
-  renderPagin(totalPagesQueu);
   pagination.reset(total);
   return arrayOFQueue;
 }
@@ -76,7 +75,6 @@ function onClickWatched(e) {
     const markup = createFilmsGallery(arrayForMarkup);
     gallery.innerHTML = markup;
   });
-  pagination.on('afterMove', renderPagin(totalPagesWached));
 
   // вкл/выкл кнопок
   queueBtn.disabled = false;
@@ -99,7 +97,6 @@ function onclickQueue(e) {
     const markup = createFilmsGallery(arrayForMarkup);
     gallery.innerHTML = markup;
   });
-  pagination.on('afterMove', renderPagin(totalPagesQueu));
 
   // вкл/выкл кнопок
   watchedBtn.disabled = false;
