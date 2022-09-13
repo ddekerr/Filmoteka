@@ -1,11 +1,8 @@
 import { createFilmsGallery } from './markups';
 import pagination from './pagination';
-import { first, deletePageButton } from './pagination-layout';
 import { topFunction } from './functions';
 import { pag, gallery } from './refs';
 
-let totalPagesWached;
-let totalPagesQueu;
 
 const queueBtn = document.querySelector('[data-queue="data-queue"]');
 const watchedBtn = document.querySelector('[data-watched="data-watched"]');
