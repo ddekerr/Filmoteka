@@ -53,7 +53,8 @@ import { fetchMovieByID } from './filmoteka';
       const FilmID = event.target.dataset.id;
       if (selectedMovie) {
          await fetchMovieByID(FilmID).then(data => {
-            const markup = createModalFilm(data);
+            console.log(selectedMovie.dataset.page)
+            const markup = createModalFilm(data, selectedMovie.dataset.page);
             refs.backdrop.innerHTML = markup;
             return data;
          })

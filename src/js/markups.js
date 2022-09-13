@@ -19,7 +19,7 @@ export function createFilmsGallery(items, hide, hideLibr, actionBtn) {
     return `<li class="film">
       <a class="film__link link" href="" ">
         <div class="film__image-container">
-          <img class="film__image" src="${src}" alt="${item.original_title}" data-id='${item.id}'/>
+          <img data-page="${actionBtn}" class="film__image" src="${src}" alt="${item.original_title}" data-id='${item.id}'/>
           <div class="thumb">
             <div class="overlay">
               <ul class="option list">
@@ -57,7 +57,7 @@ export function createFilmsGallery(items, hide, hideLibr, actionBtn) {
  * @param {Object} item film object
  * @returns {String} markup
  */
- export function createModalFilm(item) {
+ export function createModalFilm(item, tab) {
   const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
 
    return `
@@ -101,18 +101,31 @@ export function createFilmsGallery(items, hide, hideLibr, actionBtn) {
           ${item.overview}
         </p>
         <ul class="modal-info__buttons-list modal-info__btn">
-          <li class="movie-data__button-item">
-            <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" class="modal-info__button button active">
-              add to Watched
-            </button>
-          </li>
-          <li class="modal-info__button-item modal-info__btn">
-            <button type="button" data-action="add" data-id="${item.id}" data-btn="queue" class="modal-info__button button">add to queue</button>
-          </li>
+          ${renderModalButtons(item.id, tab)}
         </ul>
       </div>
     </div>
   `
+}
+
+
+function renderModalButtons(filmId, tab) {
+  if(tab !== 'undefined') {
+    return `
+      <li class="movie-data__button-item">
+        <button type="button" data-action="remove" data-id="${filmId}" data-btn="${tab}" class="modal-info__button button active">remove film</button>
+      </li>
+    `
+  } else {
+    return `
+      <li class="movie-data__button-item">
+        <button type="button" data-action="add" data-id="${filmId}" data-btn="watched" class="modal-info__button button active">add to Watched</button>
+      </li>
+      <li class="modal-info__button-item modal-info__btn">
+        <button type="button" data-action="add" data-id="${filmId}" data-btn="queue" class="modal-info__button button">add to queue</button>
+      </li>
+    `
+  }
 }
 
 

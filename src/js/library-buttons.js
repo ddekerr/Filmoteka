@@ -2,7 +2,7 @@ import { createFilmsGallery } from './markups';
 import { onHoverBtnCLick } from './local-storage';
 import pagination from './pagination';
 import { topFunction } from './functions';
-import { pag, gallery } from './refs';
+import { pag, gallery, cardModal } from './refs';
 
 
 const queueBtn = document.querySelector('[data-queue="data-queue"]');
@@ -73,7 +73,7 @@ function onClickWatched() {
     // создаем массив для рендера по 20 айтемов на страницу
     const arrayForMarkup = paginate(getWatchedItems(), 20, currentPage);
     console.log(arrayForMarkup);
-    const markup = createFilmsGallery(arrayForMarkup);
+    const markup = createFilmsGallery(arrayForMarkup, false, true, 'watched');
     gallery.innerHTML = markup;
   });
 
@@ -95,7 +95,7 @@ function onclickQueue() {
     // создаем массив для рендера по 20 айтемов на страницу
     const arrayForMarkup = paginate(getQueueItems(), 20, currentPage);
     console.log(arrayForMarkup);
-    const markup = createFilmsGallery(arrayForMarkup);
+    const markup = createFilmsGallery(arrayForMarkup, false, true, 'queue');
     gallery.innerHTML = markup;
   });
 
@@ -109,10 +109,11 @@ function onclickQueue() {
 
 gallery.addEventListener('click', e => {
   onHoverBtnCLick(e);
-  console.log(tab)
   if(tab === 'watched') {
     onClickWatched();
   } else {
     onclickQueue()
   }
 });
+
+cardModal.addEventListener('click', onHoverBtnCLick);
