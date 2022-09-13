@@ -11,8 +11,8 @@ import { onHoverBtnCLick } from './local-storage';
 import './modal';
 import modalteam from './modalteam';
 
-import './auth.js';
-import './firebase.js';
+import './auth';
+import './firebase';
 
 // import './library-buttons';
 
