@@ -16,7 +16,6 @@ const paginate = (array, pageSize, pageNumber) => {
 };
 
 getWatchedItems();
-renderPagin();
 // рендерим пагинацию остальных страниц
 pagination.on('beforeMove', event => {
   topFunction();
