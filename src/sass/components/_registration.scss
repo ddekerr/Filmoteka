@@ -35,7 +35,7 @@
 }
 
 button[data-target='modal-signup'] {
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 479px) {
     position: absolute;
     width: 1px;
     height: 1px;
