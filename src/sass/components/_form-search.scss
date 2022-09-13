@@ -35,11 +35,17 @@
   color: $bg-color-primary;
 }
 
-.search-form__icon {
+.search-form__button {
+  background-color: #0000;
+  border: #0000;
   position: absolute;
-  bottom: 5px;
-  right: 5px;
+  bottom: 0;
+  right: 0;
 }
+
+// .search-form__icon {
+
+// }
 
 .animation {
   animation-name: Orbita;

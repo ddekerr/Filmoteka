@@ -47,6 +47,7 @@
 .film__image-container {
   height: 398px;
   margin-bottom: 8px;
+  overflow: hidden;
 
   @media (min-width: 768px) and (max-width: 1279px) {
     height: 455px;
@@ -59,6 +60,7 @@
 .film__image {
   object-fit: cover;
   border-radius: 5px;
+  position: relative;
 }
 
 .film__info {

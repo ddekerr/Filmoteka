@@ -21,17 +21,7 @@ export function createFilmsGallery(items, hide) {
       <a class="film__link link" href="" ">
         <div class="film__image-container">
           <img class="film__image" src="${src}" alt="${item.original_title}" load="lazy" data-id='${item.id}'/>
-        </div>
-        <div class="film__info">
-          <h2 class="film__name title">${item.title}</h2>
-          <div class="film__description">
-            <span class="film__genre">${genres}</span>
-            <span class="film__span">&#124;</span>
-            <span class="film__year">${item.release_date.slice(0, 4)}</span>
-            <span class="film__rating">${item.vote_average.toFixed(1)}</span>
-          </div>
-        </div>
-        <div class="thumb ${hidden}">
+          <div class="thumb ${hidden}">
           <div class="overlay">
             <ul class="option list">
               <li class="option__item">
@@ -41,6 +31,16 @@ export function createFilmsGallery(items, hide) {
                 <button type="button" data-action="add" data-id="${item.id}" data-btn="queue" class="option__button button">add to queue</button>
               </li>
             </ul>
+          </div>
+        </div>
+        </div>
+        <div class="film__info">
+          <h2 class="film__name title">${item.title}</h2>
+          <div class="film__description">
+            <span class="film__genre">${genres}</span>
+            <span class="film__span">&#124;</span>
+            <span class="film__year">${item.release_date.slice(0, 4)}</span>
+            <span class="film__rating">${item.vote_average.toFixed(1)}</span>
           </div>
         </div>
       </a>
