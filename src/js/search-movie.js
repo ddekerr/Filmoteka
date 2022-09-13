@@ -3,13 +3,12 @@ import { spinner } from './spinner';
 import options from './options-notiflix';
 import { gallery, svgSearch, imp, pag } from './refs';
 import { topFunction } from './functions';
-import { pagination } from './pagination';
+import pagination from './pagination';
 import { fetchMoviesByQuery } from './filmoteka';
 import { createFilmsGallery, renderMarkup } from './markups';
 
 // Set pagination
-const pagin = pagination();
-const page = pagin.getCurrentPage();
+const page = pagination.getCurrentPage();
 
 let query = '';
 let repeatQuery = null;
@@ -22,6 +21,7 @@ export function searchMovie(e) {
   query = e.target.value.trim();
 
   if (query === '') {
+    spinner.stop(gallery);
     Notify.info('Please enter a movie name to search.', options);
     return;
   }
@@ -48,7 +48,7 @@ export function searchMovie(e) {
     );
 
     const total = data.total_results;
-    pagin.reset(total);
+    pagination.reset(total);
 
     const markup = createFilmsGallery(data.results);
     renderMarkup(gallery, markup);
@@ -57,7 +57,7 @@ export function searchMovie(e) {
     spinner.stop(gallery);
   });
   svgSearch.classList.remove('animation');
-  pagin.on('beforeMove', onPaginClick);
+  pagination.on('beforeMove', onPaginClick);
 }
 
 //Pagination event function
