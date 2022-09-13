@@ -14,7 +14,8 @@
     refs.closeModalTeamButton.addEventListener('click', closeModalTeam);
   }
 
-  function openModalTeam() {
+  function openModalTeam(event) {
+    event.preventDefault();
     refs.modalTeam.classList.toggle('is-open');
     document.body.style.overflow = 'hidden';
     document.addEventListener('keydown', offModalForEscape);
