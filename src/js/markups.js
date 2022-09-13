@@ -1,20 +1,22 @@
 import config from './config';
 import { genersForFilmCard } from './getGenres';
 
-
+let hidden = '';
 /**
  * Function generate markup string from array of objects
  * @param {Array of Objects} items
  * @returns {String} markup
  */
-export function createFilmsGallery(items) {
+export function createFilmsGallery(items, hide) {
   const markupСard = items.map(item => {
     const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
     let genres;
     if(item.hasOwnProperty('genre_ids')) {genres = genersForFilmCard(item.genre_ids)}
-    else {genres = item.genres.map(item => item.name).join(', ')}
-
-
+    else { genres = item.genres.map(item => item.name).join(', ') }
+    if (hide === true) {
+      hidden = 'is-hidden';
+    }
+    console.log(hidden);
     return `<li class="film">
       <a class="film__link link" href="" ">
         <div class="film__image-container">
@@ -29,7 +31,7 @@ export function createFilmsGallery(items) {
             <span class="film__rating">${item.vote_average.toFixed(1)}</span>
           </div>
         </div>
-        <div class="thumb">
+        <div class="thumb ${hidden}">
           <div class="overlay">
             <ul class="option list">
               <li class="option__item">
@@ -55,12 +57,10 @@ export function createFilmsGallery(items) {
  */
  export function createModalFilm(item) {
   const src = item.poster_path === null ? config.altPosterUrl : config.postersUrl + config.postersSize + item.poster_path;
-    return `
+
+   return `
     <div class="modal__movie">
     <button class="modal__close">
-    <svg class="modal__btn" width="20px" height="20px">
-      <use  href="./images/icons.svg#icon-close" fill="black"></use>
-    </svg>
     </button>
       <div class="modal__img">
         <img src="${src}" alt="${item.original_title}" />
@@ -95,12 +95,12 @@ export function createFilmsGallery(items) {
         </p>
         <ul class="modal-info__buttons-list">
           <li class="movie-data__button-item">
-            <button type="button" data-btn="watched" class="modal-info__button button active">
+            <button type="button" data-action="add" data-id="${item.id}" data-btn="watched" class="modal-info__button button active">
               add to Watched
             </button>
           </li>
           <li class="modal-info__button-item modal-info__btn">
-            <button type="button" data-btn="queue" class="modal-info__button button">add to queue</button>
+            <button type="button" data-action="add" data-id="${item.id}" data-btn="queue" class="modal-info__button button">add to queue</button>
           </li>
         </ul>
       </div>
