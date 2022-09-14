@@ -49,7 +49,9 @@ document.addEventListener('DOMContentLoaded', init, false);
 
 
 function hidePlug (){
-  if (localStorage.length > 1) {
+  const storageW = localStorage.getItem('watched')
+  
+  if (storageW.length !== 2) {
     plugContainer.remove()
   }
 }
