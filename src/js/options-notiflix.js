@@ -1,4 +1,4 @@
-export default options = {
+export const options = {
   width: '393px',
   position: 'center-top',
   distance: '',
