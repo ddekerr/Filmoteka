@@ -1,13 +1,14 @@
 import { createFilmsGallery } from './markups';
 import { onHoverBtnCLick } from './local-storage';
 import pagination from './pagination';
+import { first, deletePageButton } from './pagination-layout';
 import { topFunction } from './functions';
 import { pag, gallery, cardModal } from './refs';
-
 
 const queueBtn = document.querySelector('[data-queue="data-queue"]');
 const watchedBtn = document.querySelector('[data-watched="data-watched"]');
 let tab = 'watched';
+let totalPages;
 
 queueBtn.addEventListener('click', onclickQueue);
 watchedBtn.addEventListener('click', onClickWatched);
@@ -25,6 +26,7 @@ export function getWatchedItems() {
   const watchedMovies = localStorage.getItem('watched');
   let arrayOFWatched = JSON.parse(watchedMovies) || [];
   const total = arrayOFWatched.length;
+  totalPages = Math.ceil(total / 20);
 
   // включаем пагинацию если больше 20 фильмов
   if (arrayOFWatched.length > 20) {
@@ -34,9 +36,15 @@ export function getWatchedItems() {
   }
 
   // рендерим первые 20 фильмов
-  const markup = createFilmsGallery(paginate(arrayOFWatched, 20, 1), false, true, 'watched');
+  const markup = createFilmsGallery(
+    paginate(arrayOFWatched, 20, 1),
+    false,
+    true,
+    'watched'
+  );
   gallery.innerHTML = markup;
   pagination.reset(total);
+  renderPagin();
   return arrayOFWatched;
 }
 
@@ -54,7 +62,12 @@ function getQueueItems() {
   }
 
   // рендерим первые 20 фильмов
-  const markup = createFilmsGallery(paginate(arrayOFQueue, 20, 1), false, true, 'queue');
+  const markup = createFilmsGallery(
+    paginate(arrayOFQueue, 20, 1),
+    false,
+    true,
+    'queue'
+  );
   gallery.innerHTML = markup;
   pagination.reset(total);
   return arrayOFQueue;
@@ -106,15 +119,26 @@ function onclickQueue() {
   queueBtn.disabled = true;
 }
 
-
 gallery.addEventListener('click', clickBtn);
 cardModal.addEventListener('click', clickBtn);
 
 function clickBtn(e) {
   onHoverBtnCLick(e);
-  if(tab === 'watched') {
+  if (tab === 'watched') {
     onClickWatched();
   } else {
-    onclickQueue()
+    onclickQueue();
   }
+}
+
+// рендерим кастомную пагинацию
+function renderPagin() {
+  first();
+
+  const last = document.querySelector('.tui-pagination .tui-ico-last');
+
+  last.textContent = totalPages;
+
+  deletePageButton(1, '.tui-first');
+  deletePageButton(totalPages, '.tui-last');
 }

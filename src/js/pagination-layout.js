@@ -1,7 +1,8 @@
 export function first() {
   const first = document.querySelector('.tui-ico-first');
-
-  first.textContent = '1';
+  if (null !== first) {
+    first.textContent = '1';
+  }
 }
 
 export function deletePageButton(index, edgeButtonSelector) {
@@ -11,6 +12,9 @@ export function deletePageButton(index, edgeButtonSelector) {
   if (null !== button) {
     if (button.classList.contains('tui-is-selected')) {
       button = document.querySelector(edgeButtonSelector);
+      if (null === button) {
+        return;
+      }
     }
     button.remove();
   }
