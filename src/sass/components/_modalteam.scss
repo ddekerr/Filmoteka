@@ -52,22 +52,15 @@
 }
 
 .modalteam__article {
-  background: radial-gradient(
-      circle at 50% 0,
+  background: radial-gradient(circle at 50% 0,
       rgba(243, 108, 33, 0.2),
-      rgba(243, 108, 33, 0) 70.71%
-    ),
-    radial-gradient(
-      circle at 6.7% 80%,
+      rgba(243, 108, 33, 0) 70.71%),
+    radial-gradient(circle at 6.7% 80%,
       rgba(127, 20, 22, 0.2),
-      rgba(127, 20, 22, 0) 70.71%
-    ),
-    radial-gradient(
-        circle at 93.3% 80%,
-        rgba(237, 31, 36, 0.2),
-        rgba(237, 31, 36, 0) 70.71%
-      )
-      beige;
+      rgba(127, 20, 22, 0) 70.71%),
+    radial-gradient(circle at 93.3% 80%,
+      rgba(237, 31, 36, 0.2),
+      rgba(237, 31, 36, 0) 70.71%) beige;
   width: var(--size);
   height: calc(var(--size) / 1.1111111);
   clip-path: url(#hexagono);
@@ -76,8 +69,7 @@
 }
 
 .modalteam__article:nth-child(2n) {
-  margin: calc(var(--size) * -0.5) calc(var(--size) * -0.25) 0
-    calc(var(--size) * -0.75);
+  margin: calc(var(--size) * -0.5) calc(var(--size) * -0.25) 0 calc(var(--size) * -0.75);
 }
 
 .modalteam__article:before {
@@ -118,54 +110,74 @@
 }
 
 .modalteam__article h2 {
-  font-size: 18px;
+  font-size: 20px;
+  padding-top: 0px;
+  padding-right: 30px;
+  line-height: 1;
+  text-align: center;
   font-weight: 500;
   text-transform: uppercase;
   color: $card-accent-color;
 
-  display: block;
-  width: 120px;
-  height: 50px;
+  @media (min-width: 576px) {
+    font-size: 23px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+  }
 
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  @media (min-width: 768px) {
+    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 
-  @media (min-width: 768px) and (max-width: 1279px) {
+  @media (min-width: 1024px) {
     font-size: 18px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    width: 160px;
+    padding-top: 0px;
+    padding-bottom: 5px;
   }
 
   @media (min-width: 1280px) {
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-size: 24px;
+    padding-bottom: 6px;
   }
 }
 
 .modalteam__text {
-  display: block;
-  width: 160px;
-
-  font-size: 12px;
-  font-weight: 400;
-  color: $text-color-primary;
-  line-height: 1.15;
-
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 14px;
+  padding-left: 35px;
+  padding-right: 40px;
+  line-height: 1;
   text-align: center;
+  color: $text-color-primary;
+  margin: auto;
+  font-weight: 400;
+
+  @media (min-width: 576px) {
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 38px;
+  }
 
   @media (min-width: 768px) {
-    font-size: 14px;
-    width: 200px;
+    font-size: 10px;
+    padding-right: 27px;
+  }
+
+  @media (min-width: 950px) {
+    font-size: 12px;
+    padding-right: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 15px;
+    padding-right: 33px;
   }
 
   @media (min-width: 1280px) {
-    font-size: 16px;
-    width: 220px;
-    line-height: 1.2;
+    font-size: 19px;
+    padding-left: 18px;
+    padding-right: 38px;
   }
 }
 
@@ -192,7 +204,7 @@
   }
 }
 
-// .modalteam__figure {}
+.modalteam__figure {}
 
 .modalteam__header {
   position: relative;
