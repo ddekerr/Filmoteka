@@ -4,7 +4,7 @@ import {options} from './options-notiflix';
 import { gallery, formSearch, imp, pag } from './refs';
 import { topFunction, addAnimation, removeAnimation } from './functions';
 import pagination from './pagination';
-import { first, deletePageButton } from './pagination-layout';
+import { deletePageButton } from './pagination-layout';
 import { fetchMoviesByQuery } from './filmoteka';
 import { createFilmsGallery, renderMarkup } from './markups';
 
@@ -87,11 +87,15 @@ function onPaginClick(e) {
 
 // рендерим кастомную пагинацию
 function renderPagin() {
-  first();
+  const first = document.querySelector('.tui-ico-first');
+  if (null !== first) {
+    first.textContent = '1';
+  }
 
   const last = document.querySelector('.tui-pagination .tui-ico-last');
-
-  last.textContent = totalPages;
+  if (null !== last) {
+    last.textContent = totalPages;
+  }
 
   deletePageButton(1, '.tui-first');
   deletePageButton(totalPages, '.tui-last');

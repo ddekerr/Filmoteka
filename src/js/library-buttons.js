@@ -1,13 +1,14 @@
 import { createFilmsGallery } from './markups';
 import { onHoverBtnCLick } from './local-storage';
 import pagination from './pagination';
+import { deletePageButton } from './pagination-layout';
 import { topFunction } from './functions';
 import { pag, gallery, cardModal } from './refs';
-
 
 const queueBtn = document.querySelector('[data-queue="data-queue"]');
 const watchedBtn = document.querySelector('[data-watched="data-watched"]');
 let tab = 'watched';
+let totalPages;
 
 queueBtn.addEventListener('click', onclickQueue);
 watchedBtn.addEventListener('click', onClickWatched);
@@ -25,6 +26,8 @@ export function getWatchedItems() {
   const watchedMovies = localStorage.getItem('watched');
   let arrayOFWatched = JSON.parse(watchedMovies) || [];
   const total = arrayOFWatched.length;
+  // получаем количество страниц для пагинации
+  totalPages = Math.ceil(total / 20);
 
   // включаем пагинацию если больше 20 фильмов
   if (arrayOFWatched.length > 20) {
@@ -34,9 +37,18 @@ export function getWatchedItems() {
   }
 
   // рендерим первые 20 фильмов
-  const markup = createFilmsGallery(paginate(arrayOFWatched, 20, 1), false, true, 'watched');
+  const markup = createFilmsGallery(
+    paginate(arrayOFWatched, 20, 1),
+    false,
+    true,
+    'watched'
+  );
   gallery.innerHTML = markup;
   pagination.reset(total);
+  // рендер кастомной пагинации
+  renderPagin();
+  // рендер кастомной пагинации при переключении страниц
+  pagination.on('afterMove', renderPagin);
   return arrayOFWatched;
 }
 
@@ -45,6 +57,8 @@ function getQueueItems() {
   const queueMovies = localStorage.getItem('queue');
   let arrayOFQueue = JSON.parse(queueMovies) || [];
   const total = arrayOFQueue.length;
+  // получаем количество страниц для пагинации
+  totalPages = Math.ceil(total / 20);
 
   // включаем пагинацию если больше 20 фильмов
   if (arrayOFQueue.length > 20) {
@@ -54,9 +68,18 @@ function getQueueItems() {
   }
 
   // рендерим первые 20 фильмов
-  const markup = createFilmsGallery(paginate(arrayOFQueue, 20, 1), false, true, 'queue');
+  const markup = createFilmsGallery(
+    paginate(arrayOFQueue, 20, 1),
+    false,
+    true,
+    'queue'
+  );
   gallery.innerHTML = markup;
   pagination.reset(total);
+  // рендер кастомной пагинации
+  renderPagin();
+  // рендер кастомной пагинации при переключении страниц
+  pagination.on('afterMove', renderPagin);
   return arrayOFQueue;
 }
 
@@ -72,7 +95,6 @@ function onClickWatched() {
     const currentPage = event.page;
     // создаем массив для рендера по 20 айтемов на страницу
     const arrayForMarkup = paginate(getWatchedItems(), 20, currentPage);
-    console.log(arrayForMarkup);
     const markup = createFilmsGallery(arrayForMarkup, false, true, 'watched');
     gallery.innerHTML = markup;
   });
@@ -94,7 +116,6 @@ function onclickQueue() {
     const currentPage = event.page;
     // создаем массив для рендера по 20 айтемов на страницу
     const arrayForMarkup = paginate(getQueueItems(), 20, currentPage);
-    console.log(arrayForMarkup);
     const markup = createFilmsGallery(arrayForMarkup, false, true, 'queue');
     gallery.innerHTML = markup;
   });
@@ -106,15 +127,30 @@ function onclickQueue() {
   queueBtn.disabled = true;
 }
 
-
 gallery.addEventListener('click', clickBtn);
 cardModal.addEventListener('click', clickBtn);
 
 function clickBtn(e) {
   onHoverBtnCLick(e);
-  if(tab === 'watched') {
+  if (tab === 'watched') {
     onClickWatched();
   } else {
-    onclickQueue()
+    onclickQueue();
   }
+}
+
+// функция рендера кастомной пагинации
+function renderPagin() {
+  const first = document.querySelector('.tui-ico-first');
+  if (null !== first) {
+    first.textContent = '1';
+  }
+
+  const last = document.querySelector('.tui-pagination .tui-ico-last');
+  if (null !== last) {
+    last.textContent = totalPages;
+  }
+
+  deletePageButton(1, '.tui-first');
+  deletePageButton(totalPages, '.tui-last');
 }

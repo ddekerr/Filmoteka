@@ -1,5 +1,5 @@
 import pagination from './pagination';
-import { first, deletePageButton } from './pagination-layout';
+import { deletePageButton } from './pagination-layout';
 import { spinner } from './spinner';
 import { gallery, pag, cardModal, formSearch } from './refs';
 import debounce from 'lodash.debounce';
@@ -71,11 +71,15 @@ function onPaginClick(e) {
 
 // рендерим кастомную пагинацию
 function renderPagin() {
-  first();
+  const first = document.querySelector('.tui-ico-first');
+  if (null !== first) {
+    first.textContent = '1';
+  }
 
   const last = document.querySelector('.tui-pagination .tui-ico-last');
-
-  last.textContent = totalPages;
+  if (null !== last) {
+    last.textContent = totalPages;
+  }
 
   deletePageButton(1, '.tui-first');
   deletePageButton(totalPages, '.tui-last');
