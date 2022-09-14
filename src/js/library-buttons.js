@@ -108,7 +108,6 @@ function onclickQueue() {
 
 
 gallery.addEventListener('click', clickBtn);
-
 cardModal.addEventListener('click', clickBtn);
 
 function clickBtn(e) {
