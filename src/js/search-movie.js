@@ -1,6 +1,6 @@
 import { Notify } from 'notiflix';
 import { spinner } from './spinner';
-import {options} from './options-notiflix';
+import { options } from './options-notiflix';
 import { gallery, formSearch, imp, pag } from './refs';
 import { topFunction, addAnimation, removeAnimation } from './functions';
 import pagination from './pagination';

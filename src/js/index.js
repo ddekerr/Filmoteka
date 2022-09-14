@@ -2,7 +2,7 @@ import pagination from './pagination';
 import { deletePageButton } from './pagination-layout';
 import { spinner } from './spinner';
 import { gallery, pag, cardModal, formSearch } from './refs';
-import debounce from 'lodash.debounce';
+
 import { topFunction } from './functions';
 import { fetchTrendingMovies, fetchMovieByID } from './filmoteka';
 import { searchMovie } from './search-movie';
@@ -12,11 +12,6 @@ import { onHoverBtnCLick } from './local-storage';
 import './modal';
 import modalteam from './modalteam';
 
-import './modal-log-in';
-// import './log-in';
-// import './library'
-
-// import './library-buttons';
 
 let totalPages;
 
