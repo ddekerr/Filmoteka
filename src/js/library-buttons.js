@@ -1,7 +1,7 @@
 import { createFilmsGallery } from './markups';
 import { onHoverBtnCLick } from './local-storage';
 import pagination from './pagination';
-import { first, deletePageButton } from './pagination-layout';
+import { deletePageButton } from './pagination-layout';
 import { topFunction } from './functions';
 import { pag, gallery, cardModal } from './refs';
 
@@ -26,6 +26,7 @@ export function getWatchedItems() {
   const watchedMovies = localStorage.getItem('watched');
   let arrayOFWatched = JSON.parse(watchedMovies) || [];
   const total = arrayOFWatched.length;
+  // получаем количество страниц для пагинации
   totalPages = Math.ceil(total / 20);
 
   // включаем пагинацию если больше 20 фильмов
@@ -44,7 +45,10 @@ export function getWatchedItems() {
   );
   gallery.innerHTML = markup;
   pagination.reset(total);
+  // рендер кастомной пагинации
   renderPagin();
+  // рендер кастомной пагинации при переключении страниц
+  pagination.on('afterMove', renderPagin);
   return arrayOFWatched;
 }
 
@@ -53,6 +57,8 @@ function getQueueItems() {
   const queueMovies = localStorage.getItem('queue');
   let arrayOFQueue = JSON.parse(queueMovies) || [];
   const total = arrayOFQueue.length;
+  // получаем количество страниц для пагинации
+  totalPages = Math.ceil(total / 20);
 
   // включаем пагинацию если больше 20 фильмов
   if (arrayOFQueue.length > 20) {
@@ -70,6 +76,10 @@ function getQueueItems() {
   );
   gallery.innerHTML = markup;
   pagination.reset(total);
+  // рендер кастомной пагинации
+  renderPagin();
+  // рендер кастомной пагинации при переключении страниц
+  pagination.on('afterMove', renderPagin);
   return arrayOFQueue;
 }
 
@@ -85,7 +95,6 @@ function onClickWatched() {
     const currentPage = event.page;
     // создаем массив для рендера по 20 айтемов на страницу
     const arrayForMarkup = paginate(getWatchedItems(), 20, currentPage);
-    console.log(arrayForMarkup);
     const markup = createFilmsGallery(arrayForMarkup, false, true, 'watched');
     gallery.innerHTML = markup;
   });
@@ -107,7 +116,6 @@ function onclickQueue() {
     const currentPage = event.page;
     // создаем массив для рендера по 20 айтемов на страницу
     const arrayForMarkup = paginate(getQueueItems(), 20, currentPage);
-    console.log(arrayForMarkup);
     const markup = createFilmsGallery(arrayForMarkup, false, true, 'queue');
     gallery.innerHTML = markup;
   });
@@ -131,13 +139,17 @@ function clickBtn(e) {
   }
 }
 
-// рендерим кастомную пагинацию
+// функция рендера кастомной пагинации
 function renderPagin() {
-  first();
+  const first = document.querySelector('.tui-ico-first');
+  if (null !== first) {
+    first.textContent = '1';
+  }
 
   const last = document.querySelector('.tui-pagination .tui-ico-last');
-
-  last.textContent = totalPages;
+  if (null !== last) {
+    last.textContent = totalPages;
+  }
 
   deletePageButton(1, '.tui-first');
   deletePageButton(totalPages, '.tui-last');

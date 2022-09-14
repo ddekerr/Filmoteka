@@ -1,10 +1,3 @@
-export function first() {
-  const first = document.querySelector('.tui-ico-first');
-  if (null !== first) {
-    first.textContent = '1';
-  }
-}
-
 export function deletePageButton(index, edgeButtonSelector) {
   let button = document.querySelector(
     `.tui-pagination .tui-page-btn[data-page-number="${index}"]`

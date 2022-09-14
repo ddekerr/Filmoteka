@@ -10,7 +10,7 @@
 }
 
 .tui-pagination {
-  display: inline-block;
+  // display: inline-block;
   margin-bottom: 40px;
   margin-top: 40px;
   height: 40px;
@@ -21,6 +21,11 @@
     margin-top: 60px;
   }
 }
+
+.tui-pagination:not(.is-hidden) {
+  display: inline-block;
+}
+
 .tui-pagination .tui-page-btn {
   display: inline-block;
   position: relative;
